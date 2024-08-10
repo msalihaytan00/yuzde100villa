@@ -1,0 +1,791 @@
+.text {
+    position: absolute;
+    bottom: 0;
+    left: 35px;
+    color: white;
+    font-size: 16px; /* Metnin boyutunu buradan ayarlayabilirsiniz */
+    font-weight: bold;
+    text-shadow: 2px 2px 4px #000000;
+    white-space: nowrap; /* Metnin taşmasını önlemek için */
+}
+.text2 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    color: white;
+    font-size: 16px; /* Metnin boyutunu buradan ayarlayabilirsiniz */
+    font-weight: bold;
+    text-shadow: 2px 2px 4px #000000;
+    white-space: nowrap; /* Metnin taşmasını önlemek için */
+}
+.text3 {
+  position: absolute;
+  top: 50%;
+  left: 50%;  
+  transform: translate(-50%, 50%);
+  color: white;
+  font-size: 16px; /* Metnin boyutunu buradan ayarlayabilirsiniz */
+  font-weight: bold;
+  text-shadow: 2px 2px 4px #000000;
+}
+
+@media screen and (max-width: 1200px) {
+  .text3 {
+    position: absolute;
+    top: 30%;
+    left: 50%;  
+    transform: translate(-50%, 50%);
+    color: white;
+    font-size: 13px; /* Metnin boyutunu buradan ayarlayabilirsiniz */
+    font-weight: bold;
+    text-shadow: 2px 2px 4px #000000;
+  }
+  
+}
+
+.navbar a {
+    color: rgba(26, 69, 100, 0.60);
+    padding: 14px 20px;
+}
+.navbar a.active {
+  transition: all 250ms ease-in-out;
+    background-color:  #1A4564;
+    color: white !important;
+    opacity:  1 !important;
+}
+    .nav2 .sidebar {
+    .sidebarContent .search-container .dropdown-wrapper {
+      .underbox {
+        position: absolute;
+        right: 0;
+        background-color: #fff;
+        border: 1px solid var(--bs-theme-light-2);
+        border-radius: 20px;
+        z-index: 3;
+        width: 100%;
+        min-width: 230px;
+        top: 50%;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.35s ease;
+      }
+  
+      &.show .underbox {
+        top: calc(100% + 20px);
+        opacity: 1;
+        visibility: visible;
+      }
+  
+      &.dt .underbox, &.dtx .underbox {
+        min-width: 310px;
+      }
+  
+      .select-item {
+        &:last-child {
+          margin-bottom: 0px !important;
+          padding-bottom: 0px;
+        }
+  
+        .select-input {
+          width: 40px;
+        }
+  
+        .select-btn {
+          width: 30px;
+          height: 30px;
+          transition: all 0.15s ease;
+  
+          &:not([disabled]):hover {
+            background-color: var(--bs-theme-light-2) !important;
+          }
+        }
+      }
+  
+      .search-list {
+        .list-label {
+          cursor: pointer;
+  
+          &:hover, &.hover {
+            color: var(--bs-dark);
+          }
+  
+          &:hover svg, &.hover svg {
+            fill: var(--bs-theme-second);
+  
+            * {
+              fill: var(--bs-theme-second);
+            }
+          }
+        }
+  
+        input:checked + .list-label {
+          color: var(--bs-dark);
+  
+          svg {
+            fill: var(--bs-theme-second);
+  
+            * {
+              fill: var(--bs-theme-second);
+            }
+          }
+        }
+  
+        li {
+          &:last-child {
+            margin-bottom: 0px !important;
+          }
+  
+          ul {
+            margin-top: 16px;
+            padding-left: 16px;
+          }
+        }
+      }
+    }
+  
+    .sidebarFooter .boxSidebar {
+      width: 58px;
+      height: 58px;
+    }
+  } 
+  .btn-custom-active {
+    color: #C09460;
+}
+
+
+@media screen and (max-width: 575px) {
+  .nav2 {
+    .content-menubar-wrapper {
+        .content-menubar {
+            .nav-pills {
+                gap: 6px;
+
+                .nav-link {
+                    font-size: 12px !important;
+                }
+            }
+        }
+    }
+
+    .pricing-and-rules-section {
+        .information {
+            .villas-features {
+                .villasFeaturesList {
+                    li {
+                        width: calc(50% - 8px);
+                    }
+                }
+            }
+        }
+    }
+
+    .sidebar {
+        .sidebarContent {
+            .search-container {
+                .dropdown-wrapper {
+                    .underbox-wrapper {
+                        position: fixed;
+                        top: 100%;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        z-index: 9;
+                        display: flex;
+                        align-items: end;
+                        transition: all .3s ease;
+                        padding-top: 50px;
+
+                        .underbox-shadow {
+                            position: fixed;
+                            top: 0; 
+                            left: 0;
+                            width: 100%;
+                            height: 100vh;
+                            background-color: rgba(0, 0, 0, .38);
+                            opacity: 0;
+                            visibility: hidden;
+                            transition: opacity .15s ease, visibility .15s ease;
+                        }
+
+                        .underbox {
+                            position: relative !important;
+                            top: unset !important;
+                            left: unset !important;
+                            right: unset !important;
+                            bottom: 55px;
+                            transform: none !important;
+                            border-radius: 16px 16px 0 0;
+                            max-height: 100%;
+                            display: flex;
+                            flex-flow: column nowrap;
+
+                            > * {
+                                padding-left: 24px !important;
+                                padding-right: 24px !important;
+                            }
+
+                            .ui-datepicker {
+                                width: 100%;
+                            }
+
+                            .close-line {
+                                background-color: rgba(0, 0, 0, 0);
+                                width: 100%;
+                                padding: 7px 0 14px;
+                                text-align: center;
+                                display: flex;
+                                justify-content: center;
+
+                                span {
+                                    width: 48px;
+                                    height: 3px;
+                                    background-color: #dfdfdf;
+                                    border-radius: 3px;
+                                    display: inline-block;
+                                }
+                            }
+
+                            .underbox-content {
+                                flex: 1 1 auto;
+                                overflow: auto;
+                                padding-top: 24px;
+                                padding-bottom: 24px;
+                            }
+                        }
+                    }
+
+                    &.show {
+                        .underbox-wrapper {
+                            top: 0;
+
+                            .underbox-shadow {
+                                opacity: 1;
+                                visibility: visible;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+} 
+.lin-gradient-1{
+    background: linear-gradient(331deg, #1A4564 1.6%, #5F8098 98.16%);
+}
+.homescategoryowl2 {
+    .item {
+        position: relative;
+
+        .lin-gradient-1 {
+           
+            position: relative;
+            &:hover{
+                background: #C09460 !important;
+            }
+            &:hover + .price-info {
+                display: block;
+            }
+        }
+
+        .price-info {
+            display: none;
+            position: absolute;
+            top: 30px; // Bilgi kutucuğunun konumu
+            left: 105%;
+            transform: translateX(-50%);
+            background-color: white;
+            border: 1px solid #e0e0e0;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            z-index: 10 !important;
+
+            .date-range, .price, .min-days {
+                display: block;
+                color: #1A4564;
+            }
+
+            .date-range, .price {
+                font-weight: bold;
+                margin-bottom: 5px;
+            }
+        }
+    }
+}
+
+@media screen and ( max-width: 992px) {
+  .nav2 .sidebar {
+    .sidebarContent .search-container .dropdown-wrapper .underbox{
+      right: unset !important;
+    } 
+  }
+  .homescategoryowl2 {
+    .item {
+        position: relative;
+
+        .lin-gradient-1 {
+           
+            position: relative;
+            &:hover{
+                background: #C09460 !important;
+            }
+            &:hover + .price-info {
+                display: block;
+            }
+        }
+
+        .price-info {
+            display: none;
+            position: absolute;
+            top: 30px; // Bilgi kutucuğunun konumu
+            left: 80%;
+            transform: translateX(-50%);
+            background-color: white;
+            border: 1px solid #e0e0e0;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            z-index: 10 !important;
+            justify-content: center;
+
+            .date-range, .price, .min-days {
+                display: block;
+                color: #1A4564;
+            }
+
+            .date-range, .price {
+                font-weight: bold;
+                margin-bottom: 5px;
+            }
+        }
+    }
+  }
+
+}
+
+
+.homescategoryowl2 .owl-stage{
+    display: flex;
+    align-items: baseline;
+}
+
+.text-decoration-st{
+ text-decoration-line: line-through;
+}
+
+.pt-120{
+  padding-top: 120px !important;
+}
+
+.gap-74{
+  gap: 74px;
+}
+
+
+.moreDown2{
+  margin-top: 200px;
+  max-height: 700px !important;
+}
+.moreDown2::after{
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 230px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #ffffff 100%);
+  z-index: 2;
+  pointer-events: none;
+}
+.moreDown2.no-after::after{
+  content: none;
+}
+.moreRotate{
+  transform: rotate(180deg);
+}
+@media screen and (max-width: 576px) {
+  .pt-120{
+    padding-top: 30px !important;
+  }
+}
+
+#rez-calendar {
+  .ui-widget.ui-widget-content {
+    width: 100% !important;
+    border: 0;
+    display: flex !important;
+    flex-wrap: wrap;
+    color: var(--bs-theme-secondary);
+    box-shadow: unset !important;
+  }
+
+  .ui-datepicker td {
+    span, a {
+      width: 100%;
+      height: 40px;
+    }
+  }
+
+  .ui-datepicker-title .ui-datepicker-year {
+    margin-left: auto;
+  }
+
+  .ui-datepicker {
+    .ui-datepicker-title {
+      display: flex;
+      align-items: center;
+      font-weight: 700;
+    }
+
+    td.dp-highlight a {
+      background: #b62519;
+      color: #fff;
+    }
+  }
+
+  .ui-datepicker-multi .ui-datepicker-group {
+    width: calc(33.33% - 32px);
+    margin: 0px 16px 0px 0px;
+    padding: 6px 0px;
+  }
+
+  .ui-datepicker {
+    th {
+      color: #131518;
+      font-weight: 600;
+    }
+
+    .ui-datepicker-header {
+      border-bottom: 1px solid #b6b6b6 !important;
+      border-radius: unset !important;
+      background-color: rgba(0, 0, 0, 0);
+      border: 0px;
+      width: 100%;
+    }
+  }
+
+  .ui-datepicker-multi .ui-datepicker-group table {
+    width: 100%;
+    margin: unset !important;
+  }
+
+  .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active, a.ui-button:active {
+    background-color: #131518 !important;
+    color: #fff !important;
+    border-radius: 5px;
+  }
+
+  .ui-button {
+    &:active, &.ui-state-active:hover {
+      background-color: #131518 !important;
+      color: #fff !important;
+      border-radius: 5px;
+    }
+  }
+
+  .ui-datepicker {
+    .ui-datepicker-prev span {
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      cursor: pointer;
+      position: unset;
+      margin: 0;
+      width: 100%;
+    }
+
+    .ui-datepicker-next span {
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      cursor: pointer;
+      position: unset;
+      margin: 0;
+      width: 100%;
+      background-image: url(../img/icons/date-arrow.svg);
+    }
+
+    .ui-datepicker-prev span {
+      background-image: url(../img/icons/date-arrow.svg);
+      transform: rotate(-180deg);
+    }
+  }
+}
+.flex-container2 {
+  position: relative;
+  display: flex; /* Flexbox ile düzenlemeyi sağlar */
+  align-items: center; /* İçeriği dikeyde ortalar */
+  text-decoration: none; /* Link alt çizgisi kaldırılır */
+  padding: 10px; /* İsteğe bağlı, içeriği biraz boşluk bırakır */
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Geçiş animasyonları */
+  
+  /* Üzerine gelindiğinde büyüme ve gölge efekti */
+  &:hover {
+    transform: scale(1.2); /* Büyüme efekti */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Gölge efekti */
+  }
+
+  img {
+    display: block; /* Resmi blok olarak gösterir */
+    width: 28px; /* Resmin genişliği */
+    height: 28px; /* Resmin yüksekliği */
+  }
+}
+
+.lowest-price-tag,.sold-out-tag {
+  background-color: #0D9C68;
+  color: white;
+  padding: 4px 6px;
+  border-radius: 5px;
+  position: absolute;
+  top: -10%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Center the tag */
+  font-size: 12px;
+  font-weight: 400;
+  line-height: normal;
+  text-align: center;
+}
+
+.sold-out-tag {
+  background-color: #1A4564 !important;
+}
+
+
+.hover-zoom {
+  z-index: 9999;
+  transition: transform 0.3s ease; // Geçiş süresi
+
+  &:hover {
+      transform: scale(1.1); // Resmin 1.5 kat büyümesi
+  }
+}
+.nav2 .homescategoryowl2 .owl-stage-outer {
+  overflow: visible !important;
+  .owl-item {
+    &:not(.active) {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+  }
+}
+
+
+.nav2{
+  .nav2down{
+    .section4{
+      .haritahover{
+        &:hover{
+          background: #C09460 !important;
+            color: white !important;
+        }
+      }
+    }
+  }
+}
+
+
+$color_1: #aaa;
+$color_2: black;
+$background-color_1: rgba(0, 0, 0, 0.5);
+$background-color_2: #fff;
+
+/* Modal stil */
+/* Kaydırmayı devre dışı bırak */
+.modal {
+	display: none;
+	position: fixed;
+	z-index: 1;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	background-color: $background-color_1;
+}
+.modal-content {
+	background-color: $background-color_2;
+	margin: 10% auto;
+	padding: 20px;
+	border: 1px solid #888;
+	width: 80%;
+  height: 400px;
+	position: relative;
+}
+.close {
+	color: $color_1;
+	position: absolute;
+	right: 20px;
+	top: 10px;
+	font-size: 28px;
+	font-weight: bold;
+	&:hover {
+		color: $color_2;
+		text-decoration: none;
+		cursor: pointer;
+	}
+	&:focus {
+		color: $color_2;
+		text-decoration: none;
+		cursor: pointer;
+	}
+}
+#contactMap {
+	width: 100%;
+  margin-top: 30px;
+	height: calc(100% - 50px);
+}
+body.modal-open {
+	overflow: hidden;
+}
+$color_1: white;
+$background-color_1: #007bff;
+#comment-form {
+  display: none;
+
+  /* Form başlangıçta gizli */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 40px;
+  width: 80%;
+  /* Formu büyütmek için padding artırıldı */
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1001;
+
+  /* Overlay'den daha yukarıda */
+
+  /* Form genişliği artırıldı */
+
+  input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  button {
+    padding: 10px;
+    background-color: #C09460;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #0056b3;
+    }
+  }
+}
+
+@media screen and (max-width: 576px) {  
+  #comment-form{
+    width: 95%;
+    padding: 20px;
+  }
+ 
+}
+
+#comments-container {
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+.comment {
+  border-bottom: 1px solid #ddd;
+  padding: 10px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.comment-info {
+  max-width: 70%;
+}
+
+.comment-rating {
+  background-color: #f8f9fa;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+  min-width: 100px;
+
+  img {
+    display: block;
+    margin: 0 auto 5px;
+  }
+}
+
+.comment-author {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.comment-date {
+  font-size: 12px;
+  color: #999;
+  margin-bottom: 5px;
+}
+
+.comment-text {
+  margin-top: 5px;
+}
+
+.open-form-btn {
+  padding: 10px 20px;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #0056b3;
+  }
+}
+
+#overlay {
+  display: none;
+
+  /* Başlangıçta gizli */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+
+  /* Yarı saydam siyah arka plan */
+  z-index: 1000;
+
+  /* Formdan bir alt seviyede */
+}
+
+.close-form-btn {
+  background-color: white !important;
+  color: black !important;
+  font-weight: 900 !important;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+}

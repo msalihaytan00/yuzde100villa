@@ -1,0 +1,141 @@
+.text-shadow-1{
+    text-shadow: 2px 2px 4px #000000 !important;
+}
+
+#toggleButton {
+    padding: 10px 20px;
+    font-size: 16px;
+}
+
+#inputContainer {
+    position: absolute;
+    top: 110%;
+    right: 0;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    z-index: 10;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.itemcaptiontop {
+
+    img {
+      object-fit: cover;
+      transition: transform 0.3s ease; /* Dönüşüm efektini yumuşatır */
+    }
+  
+    &:hover img {
+      transform: scale(1.1); /* Görüntüyü %20 büyütür */
+    }
+    
+  
+  }
+  @media screen and (min-width: 992px) {
+    #blogImageCarousel {
+        width: unset !important;
+    }
+}
+
+
+@media screen and (max-width : 576px) {
+    .blog2{
+        .blog2w{
+            .fs-5{
+                font-size: 15px !important;
+            }
+        }
+    }
+      
+}
+
+.owl-theme .owl-dots .owl-dot {
+    &.active span, &:hover span {
+      width: 20px;
+      background: #1A4564;
+      transition: all 250ms ease-in-out;
+    }
+  }
+
+  .owl-theme .owl-dots .owl-dot span {
+    width: 15px;
+    height: 5px;
+    margin: 5px 7px;
+    background: #D6D6D6;
+    display: block;
+    -webkit-backface-visibility: visible;
+    transition: opacity .3s ease;
+    border-radius: 30px;
+  }
+  
+
+  .menu-container {
+    width: 100%;
+    margin: 0 auto;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+  
+    .menu-header {
+      background-color: #f7f7f7;
+      padding: 17px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #ddd;
+  
+      .arrow {
+        width: 16px;
+        height: 16px;
+        transition: transform 0.3s ease;
+      }
+  
+      &.open .arrow {
+        transform: rotate(180deg);
+      }
+    }
+  
+    .menu-items {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-out;
+      background-color: white;
+      z-index: 10;
+  
+      a {
+        display: block;
+        padding: 17px;
+        border-bottom: 1px solid #ddd;
+        text-decoration: none;
+        color: #333;
+  
+        &:last-child {
+          border-bottom: none;
+        }
+  
+        &:hover {
+          background-color: #f0f0f0;
+        }
+      }
+    }
+  }
+
+  

@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>yüzde100villa</title>
+		<link rel="stylesheet" href="../cdn/css/customBootstrap.min.css" />
+		<link rel="stylesheet" href="../cdn/css/jquery-ui.min.css" />
+		<link rel="stylesheet" href="../cdn/css/owl-carousel/owl.carousel.min.css" />
+		<link rel="stylesheet" href="../cdn/css/owl-carousel/owl.theme.default.min.css" />
+		<link rel="stylesheet" href="../cdn/css/main.min.css" />
+		<link rel="stylesheet" href="../cdn/css/all.min.css" />
+		<link rel="stylesheet" href="../cdn/css/popCalendar.css" />
+		<link rel="stylesheet" href="../cdn/fonts/fonts.css" />
+		<link rel="stylesheet" href="../cdn/css/hakkimizda.min.css" />
+		<link rel="stylesheet" href="../cdn/css/ion.rangeSlider.min.css" />
+	</head>
+	<body>
+		<div class="fixed-phone-icon" id="phone-icon">
+			<img src="../cdn/img/icons/phoneicon.png" width="40" height="40" alt="Telefon İkonu" />
+		</div>
+		<div class="whatsapp-button align-items-center d-flex justify-content-center">
+			<a href="https://wa.me/905325428484" target="_blank">
+				<img src="../cdn/img/icons/whatsappicon2.svg" width="42" height="42" alt="WhatsApp" />
+			</a>
+		</div>
+		<div class="fav-list" id="favoriteList">
+			<div class="d-flex justify-content-between mb-3 rounded">
+				<strong class="fs-5 ms-2 mt-3 text-dark">Favoriler</strong>
+				<button type="button" class="exit bg-transparent d-flex align-items-center justify-content-center px-2 rounded-2 mt-3" onclick="$('.fav-list').removeClass('show');$('.favori-shadow').removeClass('show')">
+					<svg xmlns="http://www.w3.org/2000/svg" class="" width="34" height="34" viewBox="0 0  34 34" fill="none">
+						<rect width="34" height="34" rx="6" fill="#CED8E7"></rect>
+						<path d="M23.6894 10.3212C23.2753 9.90709 22.6064 9.90709 22.1923 10.3212L17 15.5028L11.8077 10.3106C11.3936 9.89647 10.7247 9.89647 10.3106 10.3106C9.89647 10.7247 9.89647 11.3936 10.3106 11.8077L15.5028 17L10.3106 22.1923C9.89647 22.6064 9.89647 23.2753 10.3106 23.6894C10.7247 24.1035 11.3936 24.1035 11.8077 23.6894L17 18.4972L22.1923 23.6894C22.6064 24.1035 23.2753 24.1035 23.6894 23.6894C24.1035 23.2753 24.1035 22.6064 23.6894 22.1923L18.4972 17L23.6894 11.8077C24.0929 11.4042 24.0929 10.7247 23.6894 10.3212Z" fill="#29344C"></path>
+					</svg>
+				</button>
+			</div>
+			<ul class="list-unstyled ms-2"></ul>
+		</div>
+		<div id="menu" class="menu">
+			<div class="menu-header d-flex justify-content-between align-items-center p-3 border-bottom-1">
+				<img src="../cdn/img/logo.svg" alt="Logo" style="height: 50px" />
+				<button id="closeBtn" class="btn btn-outline-dark border-0">
+					<img class="font95" src="../cdn/img/icons/count.svg" alt="" />
+				</button>
+			</div>
+			<div class="menu-content p-4">
+				<ul class="list-unstyled">
+					<li class="py-2">
+						<button id="toggleButton3" class="text-decoration-none text-theme-first fs-6 fw-medium lh-normal">Villa Seçenekleri ⮟</button>
+						<div id="menu3" class="d-none">
+							<a class="dropdown-item p-2 py-3 px-3" href="#"> Balayı Villaları</a>
+							<a class="dropdown-item p-2 py-3 px-3" href="#">Muhafazakar Villalar</a>
+							<a class="dropdown-item p-2 py-3 px-3" href="#">Lüks Villalar</a>
+							<a class="dropdown-item p-2 py-3 px-3" href="#">Ekonomik</a>
+							<a class="dropdown-item p-2 py-3 px-3" href="#">Deniz Manzaralı</a>
+						</div>
+					</li>
+					<li class="py-2 ps-9">
+						<a href="#" class="text-decoration-none text-theme-first fs-6 py-3 fw-medium lh-normal">Bölgeler</a>
+					</li>
+					<li class="py-2 ps-9">
+						<a href="#" class="text-decoration-none text-theme-first fs-6 py-3 fw-medium lh-normal">Kısa Süreli Kiralıklar</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<header class="header bg-theme-first">
+			<div class="container">
+				<div class="row">
+					<div class="col-xxl-8 col-xl-6 col-lg-6 col-md-8 col-sm-10 col-8">
+						<div class="row">
+							<div class="col-xxl-3 col-xl-5 col-sm-5 col-md-6 col-lg-6">
+								<div class="d-flex align-items-center gap-2">
+									<img src="../cdn/img/icons/customer.svg" height="36" width="36" alt="" />
+									<div class="py-3 me-3">
+										<div class="d-flex flex-column">
+											<span class="fs-8 text-theme-brown fw-medium lh-normal">Müşteri Hizmetleri</span>
+											<span class="text-decoration-none text-white fs-7 fw-medium lh-normal">+90 532 542 84 84</span>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-7 col-md-6 col-xl-4 col-lg-6 d-none d-sm-block">
+								<form action="" class="formSearch searchSuggestions position-relative">
+									<label class="d-flex align-items-flex-start">
+										<div class="d-flex align-items-center search1 py-3 ps-3 pe-4 gap-2 border-start border-end border-theme-first-border bg-theme-first-opacity">
+											<div class="d-flex align-items-center py-1 pe-1 ps-1 gap-2">
+												<img class="" src="../cdn/img/icons/search.svg" alt="" />
+												<input style="width: 169px" name="searchlocationcode" type="text" placeholder="Villa adı veya kodu ile ara" class="bg-transparent fs-7 fw-normal text-white" />
+											</div>
+										</div>
+									</label>
+									<ul class="SpeedSearchList px-0 mb-0 list-unstyled bg-white position-absolute top-100 rounded-4 start-0 w-100 z-3"></ul>
+								</form>
+							</div>
+						</div>
+					</div>
+					<div class="col-xxl-4 col-xl-6 col-lg-6 col-md-4 col-sm-2 col-4">
+						<div class="row gutters mt-3">
+							<div class="col-xl-12">
+								<div class="d-flex align-items-center justify-content-end gap-3">
+									<div class="justify-content-center mt-1">
+										<button type="button" title="Favorilerim" onclick="$('.fav-list').toggleClass('show');$('.favori-shadow').addClass('show')" class="border-0 favoritesBtn bg-transparent d-flex gap-lg-3 pe-lg-2 align-items-center justify-content-lg-start justify-content-center">
+											<div class="position-relative">
+												<img src="../cdn/img/icons/activeHeart.svg" data-src="../cdn/img/icons/activeHeart.svg" class="lazy contain flex-shrink-0" width="25" height="25" alt="Favorilerim" />
+												<span class="badge ccc d-flex align-items-center fs-8 text-white favorite-count justify-content-center position-absolute top-0 start-100 translate-middle p-2 bg-theme-brown border border-light rounded-circle"> </span>
+											</div>
+											<span class="d-lg-block d-none text-white fw-semibold d-lg-block d-none fs-8">Favorilerim</span>
+										</button>
+									</div>
+									<div class="justify-content-center gap-4 d-none d-lg-block">
+										<a href="#" class="text-decoration-none text-white fs-7 py-3 pe-1 fw-medium lh-normal">Yardım & Destek</a>
+										<a href="#" class="text-decoration-none text-white fs-7 py-3 pe-1 fw-medium lh-normal">Blog</a>
+										<a href="#" class="text-decoration-none text-white fs-7 py-3 pe-1 fw-medium lh-normal">İletişim</a>
+									</div>
+									<div class="justify-content-center d-none d-sm-block">
+										<img src="../cdn/img/icons/whatsapp.svg" alt="" />
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</header>
+		<section class="headerDownn">
+			<div class="container">
+				<div class="row align-items-center my-2">
+					<div class="col-xl-2 col-lg-3 col-md-12">
+						<div class="d-flex justify-content-between align-items-center">
+							<div class="">
+								<img src="../cdn/img/logo.svg" alt="" class="g8wh" width="182" height="57" />
+							</div>
+							<div class="d-block d-lg-none">
+								<div class="d-flex justify-content-center">
+									<div class="d-block d-sm-none">
+										<button type="button" class="header-search-button d-sm-none d-flex flex-shrink-0 bg-transparent shadow-none border-0 p-0 hide">
+											<img src="../cdn/img/icons/search1.svg" class="first mt-2 me-2" alt="" />
+											<img src="../cdn/img/icons/count.svg" alt="" class="second d-none mt-2 me-3" />
+										</button>
+										<form action="" class="form-group_wrapper px-3 d-sm-none d-flex w-100 searchSuggestions">
+											<div class="quick-search d-flex w-100 rounded-sm position-relative outline-none">
+												<input type="text" class="input_text searchlocationcode bg-transparent border-0 shadow-none outline-none w-100 rounded-sm-0 rounded-3" name="searchlocationcode" autocomplete="off" style="outline: none" placeholder="Villa adıyla arama yap" />
+												<button type="button" class="header-btn d-sm-block d-none flex-shrink-0 bg-transparent ms-auto shadow-none border-0 p-0 hide">
+													<img src="../cdn/img/spacer.gif" data-src="../cdn/img/icons/search.svg" width="24" height="24" class="lazy contain me-2" alt="search" />
+												</button>
+												<ul class="SpeedSearchList rounded-sm shadow list-unstyled position-absolute top-100 left-0 w-100 p-0"></ul>
+											</div>
+										</form>
+									</div>
+									<button id="menuBtn" class="border-0 bg-transparent font95 mt-1">
+										<img src="../cdn/img/icons/menuicon.svg" alt="" />
+									</button>
+									<div id="overlay" class="overlay2"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-xl-8 col-lg-6 col-md-7 d-none d-lg-block">
+						<div class="d-flex gap-5 menutop2">
+							<div class="dropdown">
+								<a class="btn btn-secondary headerdownmenuh dropdown-toggle border-0 bg-transparent text-decoration-none text-black fs-7 py-lg-4 py-3 px-lg-0 px-4 me-lg-1 fw-bold lh-normal" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Villa Seçenekleri </a>
+								<ul class="dropdown-menu min-width1">
+									<li>
+										<a class="dropdown-item p-2 py-3 px-3" href="#"> Balayı Villaları</a>
+									</li>
+									<li>
+										<a class="dropdown-item p-2 py-3 px-3" href="#">Muhafazakar Villalar</a>
+									</li>
+									<li>
+										<a class="dropdown-item p-2 py-3 px-3" href="#">Lüks Villalar</a>
+									</li>
+									<li>
+										<a class="dropdown-item p-2 py-3 px-3" href="#">Ekonomik</a>
+									</li>
+									<li>
+										<a class="dropdown-item p-2 py-3 px-3" href="#">Deniz Manzaralı</a>
+									</li>
+								</ul>
+							</div>
+							<a class="text-decoration-none headerdownmenuh text-black fs-7 py-lg-4 py-3 px-lg-0 px-4 me-lg-1 fw-bold lh-normal" href="#">Bölgeler</a>
+							<a class="text-decoration-none headerdownmenuh text-black fs-7 py-lg-4 py-3 px-lg-0 px-4 me-lg-1 fw-bold lh-normal" href="#">Kısa Süreli Kiralıklar</a>
+						</div>
+					</div>
+					<div class="col-xl-2 col-lg-3 col-md-12 d-none d-lg-block">
+						<div></div>
+						<div class="bg-theme-first py-2 px-3 ms-5 d-flex rounded justify-content-center align-items-center gap-2">
+							<div class="d-flex align-items-center">
+								<img src="../cdn/img/icons/reservation.svg" width="20" height="20" alt="" />
+							</div>
+							<a class="text-decoration-none fs-7 text-white fw-medium lh-normal" href="#">Rezervasyonum</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="hakkimizda mt-100">
+			<div class="container">
+				<div class="row gy-3">
+					<div class="col-lg-12">
+						<span class="fs-2 fw-bold lh-1 text-theme-first-dark">Hakkımızda</span>
+					</div>
+					<div class="col-lg-12">
+						<div class="px-4 d-flex flex-column gap-4">
+							<hr />
+							<div class="d-flex align-items-center gap-2">
+								<img src="../cdn/img/icons/list.png" width="36" height="36" alt="" />
+								<span class="fs-4 fw-bold lh-1 text-theme-first-dark">Biz Kimiz</span>
+							</div>
+
+							<span class="text-opacity-75 fw-medium lh-1 text-theme-first">
+								Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum fuga expedita, pariatur est esse fugit eaque quaerat. Repudiandae est rerum mollitia, sit, asperiores ipsum provident placeat nobis atque aliquam voluptatibus? Veritatis, expedita vitae placeat, voluptatem aspernatur fugit voluptatibus nobis culpa similique nostrum quibusdam dolorem a eum. Quos iure nisi voluptate exercitationem dolore eligendi placeat, laborum sed aliquid, inventore dignissimos voluptas? Dolore maxime magni quod consequuntur ipsum quos inventore nobis voluptas explicabo necessitatibus placeat,
+								nisi optio dolorum expedita provident modi nostrum. Numquam, est ex. Quam neque magni ea repellendus, laborum quod?
+							</span>
+							<span class="text-opacity-75 fw-medium lh-1 text-theme-first">
+								Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum fuga expedita, pariatur est esse fugit eaque quaerat. Repudiandae est rerum mollitia, sit, asperiores ipsum provident placeat nobis atque aliquam voluptatibus? Veritatis, expedita vitae placeat, voluptatem aspernatur fugit voluptatibus nobis culpa similique nostrum quibusdam dolorem a eum. Quos iure nisi voluptate exercitationem dolore eligendi placeat, laborum sed aliquid, inventore dignissimos voluptas? Dolore maxime magni quod consequuntur ipsum quos inventore nobis voluptas explicabo necessitatibus placeat,
+								nisi optio dolorum expedita provident modi nostrum. Numquam, est ex. Quam neque magni ea repellendus, laborum quod?
+							</span>
+							<span class="text-opacity-75 fw-medium lh-1 text-theme-first">
+								Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum fuga expedita, pariatur est esse fugit eaque quaerat. Repudiandae est rerum mollitia, sit, asperiores ipsum provident placeat nobis atque aliquam voluptatibus? Veritatis, expedita vitae placeat, voluptatem aspernatur fugit voluptatibus nobis culpa similique nostrum quibusdam dolorem a eum. Quos iure nisi voluptate exercitationem dolore eligendi placeat, laborum sed aliquid, inventore dignissimos voluptas? Dolore maxime magni quod consequuntur ipsum quos inventore nobis voluptas explicabo necessitatibus placeat,
+								nisi optio dolorum expedita provident modi nostrum. Numquam, est ex. Quam neque magni ea repellendus, laborum quod?
+							</span>
+							<span class="text-opacity-75 fw-medium lh-1 text-theme-first">
+								Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum fuga expedita, pariatur est esse fugit eaque quaerat. Repudiandae est rerum mollitia, sit, asperiores ipsum provident placeat nobis atque aliquam voluptatibus? Veritatis, expedita vitae placeat, voluptatem aspernatur fugit voluptatibus nobis culpa similique nostrum quibusdam dolorem a eum. Quos iure nisi voluptate exercitationem dolore eligendi placeat, laborum sed aliquid, inventore dignissimos voluptas? Dolore maxime magni quod consequuntur ipsum quos inventore nobis voluptas explicabo necessitatibus placeat,
+								nisi optio dolorum expedita provident modi nostrum. Numquam, est ex. Quam neque magni ea repellendus, laborum quod?
+							</span>
+							<hr />
+							<div class="gap-2 align-items-center d-flex">
+								<img src="../cdn/img/icons/briefcase.png" width="36" height="36" alt="" />
+								<span class="fs-4 fw-bold lh-1 text-theme-first-dark">Şirket Bilgileri</span>
+							</div>
+							<span class="fs-6 fw-medium lh-1 text-opacity-75 text-theme-first-dark"> Ünvan : yüzde100villa Lorem ipsum dolor sit amet consectetur adipisicing elit. </span>
+							<span class="fs-6 fw-medium lh-1 text-opacity-75 text-theme-first-dark"> Adres : Karagözler Mahallesi Fevzi Çakmak Caddesi İskele Karşısı Fethiye/MUĞLA</span>
+							<span class="fs-6 fw-medium lh-1 text-opacity-75 text-theme-first-dark">Vergi Dairesi : Fethiye </span>
+							<span class="fs-6 fw-medium lh-1 text-opacity-75 text-theme-first-dark">Vergi Numarası : 785 464 9923 </span>
+							<span class="fs-6 fw-medium lh-1 text-opacity-75 text-theme-first-dark">Mersis Numarası : 0736131238129398219 </span>
+							<span class="fs-6 fw-medium lh-1 text-opacity-75 text-theme-first-dark">Ticaret ve Sanayi Odası : Fethiye Ticaret Odası </span>
+							<span class="fs-6 fw-medium lh-1 text-opacity-75 text-theme-first-dark">Türsab Belge Numarası : 213245 </span>
+							<span class="fs-6 fw-medium lh-1 text-opacity-75 text-theme-first-dark">Türsab Belge Ünvanı : Villa Rental Travel Agency </span>
+						</div>
+					</div>
+					<div class="col-lg-5 col-12">
+						<div class="px-4 d-flex flex-column gap-4 mt-4 gap-3">
+							<div class="d-flex gap-2 align-items-center">
+								<img src="../cdn/img/icons/teamwork.png" width="36" height="36" alt="" />
+								<span class="fs-4 fw-bold lh-1 text-theme-first-dark">Ekibimiz</span>
+							</div>
+							<div class="galeri">
+								<img src="../cdn/uploads/ekip.jpg" class="rounded-3 cover w-100 h-100" width="500" height="300" alt="" />
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-12 col-12">
+						<div class="px-4 d-flex flex-column gap-4 mt-5 gap-3">
+							<span class="fs-4 fw-bold lh-1 text-theme-first-dark">Ofisten Kareler</span>
+							<div class="row g-3">
+								<div class="col-12 col-lg-3 col-md-6">
+									<img src="../cdn/uploads/lazım.webp" class="rounded-3 cover" alt="" />
+								</div>
+								<div class="col-12 col-lg-3 col-md-6">
+									<img src="../cdn/uploads/lazım2.webp" class="rounded-3 cover" alt="" />
+								</div>
+								<div class="col-12 col-lg-3 col-md-6">
+									<img src="../cdn/uploads/lazım.webp" class="rounded-3 cover" alt="" />
+								</div>
+								<div class="col-12 col-lg-3 col-md-6">
+									<img src="../cdn/uploads/lazım2.webp" class="rounded-3 cover" alt="" />
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-12">
+					<div class="px-4 d-flex flex-column gap-4 mt-5 gap-3">
+						<span class="fs-4 fw-bold lh-1 text-theme-first-dark">Belgelerimiz</span>
+						<div class="row">
+							<div class="col-lg-4 col-12">
+								<img src="../cdn/uploads/tursabbelge2.webp" class="rounded-4 cover w-100 h-100" width="200" height="350" alt="" />
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="hakkimizdadown mt-5">
+			<div class="container">
+				<div class="row border">
+					<div class="col-lg-12">
+						<div class="bg-white border rounded-4 p-3">
+							<div class="d-flex align-items-center mb-4 px-4 gap-3">
+								<span class="fs-4 fw-bold lh-1 text-theme-brown">Sıkça Sorulan Sorular</span>
+								<img src="../cdn/img/icons/questmark.png" width="36" height="36" alt="" />
+							</div>
+							<div class="d-flex flex-column mt-4">
+								<div class="column" id="column1"><span class="text-theme-first-dark fs-6 fw-medium lh-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt velit ullam eligendi ?</span></div>
+								<div class="wrap px-sm-4" id="wrap1"><span class="text-theme-first-dark fs-7 text-opacity-75 fw-medium lh-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus culpa tempore odit delectus animi nam maiores quaerat rerum adipisci sit nobis unde, aperiam ullam ipsam ea similique sint. Harum, inventore?</span></div>
+
+								<div class="column" id="column2"><span class="text-theme-first-dark fs-6 fw-medium lh-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt velit ullam eligendi ?</span></div>
+								<div class="wrap px-sm-4" id="wrap2"><span class="text-theme-first-dark fs-7 text-opacity-75 fw-medium lh-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus culpa tempore odit delectus animi nam maiores quaerat rerum adipisci sit nobis unde, aperiam ullam ipsam ea similique sint. Harum, inventore?</span></div>
+
+								<div class="column" id="column3"><span class="text-theme-first-dark fs-6 fw-medium lh-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt velit ullam eligendi ?</span></div>
+								<div class="wrap px-sm-4" id="wrap3"><span class="text-theme-first-dark fs-7 text-opacity-75 fw-medium lh-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus culpa tempore odit delectus animi nam maiores quaerat rerum adipisci sit nobis unde, aperiam ullam ipsam ea similique sint. Harum, inventore?</span></div>
+
+								<div class="column" id="column4"><span class="text-theme-first-dark fs-6 fw-medium lh-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt velit ullam eligendi ?</span></div>
+								<div class="wrap px-sm-4" id="wrap4"><span class="text-theme-first-dark fs-7 text-opacity-75 fw-medium lh-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus culpa tempore odit delectus animi nam maiores quaerat rerum adipisci sit nobis unde, aperiam ullam ipsam ea similique sint. Harum, inventore?</span></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<footer class="footer bg-theme-footer-color overflow-hidden mt-5">
+			<div class="container">
+				<div class="footeritem1 position-relative mt-22 mb-24">
+					<span class="bg-theme-brown position-absolute z-3 top-0 start-50 translate-middle rounded-2 bg-theme-brown py-2 px-3 d-flex align-items-center fs-5 text-white fw-medium lh-normal">700+</span>
+					<div class="d-flex flex-column">
+						<div class="footerbanner">
+							<div class="footerimg1 position-relative">
+								<img src="../cdn/uploads/footerbanner.png" alt="" class="w-100 cover rounded-2" height="162" width="1041" />
+							</div>
+						</div>
+						<div class="d-flex flex-column align-items-center position-absolute start-0 mt-4">
+							<span class="text-white fs-3 fw-normal lh-normal font76">sadece size özel</span>
+							<span class="text-white fs-41 fw-bold lh-normal font77">özel havuzlu villa</span>
+							<img src="../cdn/uploads/secret.png" alt="text" class="contain w-100" width="1486" height="70" />
+						</div>
+						<div></div>
+					</div>
+				</div>
+				<div class="footeritem2">
+					<div class="">
+						<div class="row">
+							<div class="col-xl-9 col-lg-12 mb-4">
+								<div class="row align-items-center">
+									<div class="col-xxl-3 col-xl-3 col-lg-4 col-md-4 col-sm-5">
+										<img src="../cdn/img/logo.svg" alt="" />
+									</div>
+									<div class="col-xxl-3 col-xl-3 col-lg-4 col-md-4 col-sm-5 d-sm-block mt-4">
+										<div class="d-flex">
+											<img src="../cdn/img/icons/customer.svg" width="36" height="36" alt="" />
+											<div class="mb-3">
+												<p class="text-theme-brown fs-8 fw-medium lh-normal m-0">Müşteri Hizmetleri</p>
+												<p class="text-decoration-none text-white fs-7 fw-medium lh-normal m-0">+90 532 542 84 84</p>
+											</div>
+										</div>
+									</div>
+									<div class="col-xxl-5 col-xl-5 col-lg-4 col-md-4 col-sm-6 d-md-block mt-3">
+										<div class="karagozler d-flex flex-column align-items-flex-start gap-2">
+											<div>
+												<span class="text-white fs-7 fw-medium lh-normal d-block mb-2">Karagözler Mahallesi Fevzi Çakmak Caddesi İskele Karşısı Fethiye/MUĞLA</span>
+											</div>
+											<div>
+												<span class="text-decoration-none text-white text-opacity-50 fs-7 fw-medium lh-normal">info@yuzde100villa.com</span>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-xl-4"></div>
+						</div>
+					</div>
+				</div>
+
+				<hr class="hrmarg" />
+
+				<div class="footeritem3">
+					<div>
+						<div class="row texttop">
+							<div class="col-xl-7 col-lg-6 mt-4">
+								<div class="row texttop">
+									<div class="col-lg-4 col-md-5 col-sm-4 col-6">
+										<div class="d-flex flex-column gap-2 texttop">
+											<div class="d-flex gap">
+												<span class="text-white fs-7 fw-medium lh-normal d-block mb-3">Popüler Bölgeler</span>
+											</div>
+											<div class="row gy-2">
+												<div class="col-5">
+													<a class="text-white text-opacity-75 text-decoration-none fs-8 fw-normal lh-normal underlinehover" href="">Fethiye</a>
+												</div>
+												<div class="col-7">
+													<a class="text-white text-opacity-75 text-decoration-none fs-8 fw-normal lh-normal underlinehover" href="">Göcek</a>
+												</div>
+												<div class="col-5">
+													<a class="text-white text-opacity-75 text-decoration-none fs-8 fw-normal lh-normal underlinehover" href="">Kalkan</a>
+												</div>
+												<div class="col-7">
+													<a class="text-white text-opacity-75 text-decoration-none fs-8 fw-normal lh-normal underlinehover" href="">Sapanca</a>
+												</div>
+												<div class="col-5">
+													<a class="text-white text-opacity-75 text-decoration-none fs-8 fw-normal lh-normal underlinehover" href="">Kaş</a>
+												</div>
+												<div class="col-7">
+													<a class="text-white text-opacity-75 text-decoration-none fs-8 fw-normal lh-normal underlinehover" href="">Bodrum</a>
+												</div>
+												<div class="col-6">
+													<a class="text-white text-opacity-75 text-decoration-none fs-8 fw-normal lh-normal underlinehover" href="">Ölüdeniz</a>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-lg-3 col-md-3 col-sm-3 col-6">
+										<div class="d-flex flex-column gap-18 texttop">
+											<div class="d-flex gap mb-sm-2">
+												<span class="text-white fs-7 fw-medium lh-normal d-block mb-3">%100 Villa</span>
+											</div>
+											<div class="row gy-2">
+												<div class="col-12">
+													<a class="text-white text-opacity-75 text-decoration-none fs-8 fw-normal lh-normal underlinehover" href="">Fethiye</a>
+												</div>
+												<div class="col-12">
+													<a class="text-white text-opacity-75 text-decoration-none fs-8 fw-normal lh-normal underlinehover" href="">Göcek</a>
+												</div>
+												<div class="col-12">
+													<a class="text-white text-opacity-75 text-decoration-none fs-8 fw-normal lh-normal underlinehover" href="">Kalkan</a>
+												</div>
+												<div class="col-12">
+													<a class="text-white text-opacity-75 text-decoration-none fs-8 fw-normal lh-normal underlinehover" href="">Sapanca</a>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-lg-5 col-md-4 col-sm-5 col-12">
+										<div class="d-none d-sm-block">
+											<div class="d-flex flex-column gap-18 texttop">
+												<div class="d-flex gap">
+													<span class="text-white fs-7 fw-medium lh-normal d-block mb-3 py-1">Önemli Bilgiler</span>
+												</div>
+												<div class="row gy-2">
+													<div class="col-12">
+														<a class="text-white text-opacity-75 text-decoration-none fs-8 fw-normal lh-normal underlinehover" href="">İptal Şartları</a>
+													</div>
+													<div class="col-12">
+														<a class="text-white text-opacity-75 text-decoration-none fs-8 fw-normal lh-normal underlinehover" href="">KVKK</a>
+													</div>
+													<div class="col-12">
+														<a class="text-white text-opacity-75 text-decoration-none fs-8 fw-normal lh-normal underlinehover" href="">Üye Sözleşmesi</a>
+													</div>
+													<div class="col-12">
+														<a class="text-white text-opacity-75 text-decoration-none fs-8 fw-normal lh-normal underlinehover" href="">Vergilendirme</a>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="d-block d-sm-none">
+											<div class="d-flex flex-column gap-18 mt-4 texttop">
+												<div class="d-flex gap">
+													<span class="text-white fs-7 fw-medium lh-normal d-block mb-3">Önemli Bilgiler</span>
+												</div>
+												<div class="row gy-2">
+													<div class="col-12">
+														<a class="text-white text-opacity-75 text-decoration-none fs-8 fw-normal lh-normal underlinehover" href="">İptal Şartları</a>
+													</div>
+													<div class="col-12">
+														<a class="text-white text-opacity-75 text-decoration-none fs-8 fw-normal lh-normal underlinehover" href="">KVKK</a>
+													</div>
+													<div class="col-12">
+														<a class="text-white text-opacity-75 text-decoration-none fs-8 fw-normal lh-normal underlinehover" href="">Üye Sözleşmesi</a>
+													</div>
+													<div class="col-12">
+														<a class="text-white text-opacity-75 text-decoration-none fs-8 fw-normal lh-normal underlinehover" href="">Vergilendirme</a>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-xl-5 col-lg-6 col-md-12 col-sm-12">
+								<div class="row">
+									<div class="col-xxl-3 col-xl-2 col-lg-4 col-md-12 col-sm-12"></div>
+									<div class="col-xxl-9 col-xl-10 col-lg-8 col-md-6 col-sm-8 col-12">
+										<div class="tursab py-4 px-sm-3 pe-2 d-flex flex-column align-items-flex-end mt-4 rounded-2">
+											<div class="row g-3 ms-3">
+												<div class="col-md-9 col-sm-9 col-12 mb-2">
+													<div class="text-lg-end flex-column d-flex">
+														<span class="fs-7 fw-medium lh-normal text-white">Güvenle</span>
+														<span class="fs-7 fw-medium lh-normal text-white">rezervasyon yaptırın</span>
+													</div>
+												</div>
+												<div class="col-md-3 col-sm-3 col-12 justify-content-lg-end d-flex mb-2">
+													<img src="../cdn/img/icons/tursab.svg" width="90" height="36" alt="" />
+												</div>
+
+												<div class="col-12 mb-3">
+													<div class="text-lg-end">
+														<span class="text-white fs-7 fw-medium lh-normal">
+															%100 villa
+															<span class="text-white fs-7 fw-medium lh-normal text-decoration-underline"> “213245”</span>belge no’lu</span
+														>
+														<span class="text-theme-brown fs-7 fw-medium lh-normal">türsab resmi acentasıdır.</span>
+													</div>
+												</div>
+												<div class="col-12">
+													<div class="row">
+														<div class="col-xl-5 col-sm-7"></div>
+														<div class="col-xl-7 col-md-12 col-sm-12 col-12 d-flex justify-content-lg-end">
+															<a class="text-decoration-none d-block fs-7 fw-medium lh-normal text-white text-opacity-50 py-2 px-3 rounded border border-white border-opacity-10" href="">Belge Görüntüle</a>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="footeritem4 mt-22 d-sm-block mt-3">
+					<div class="row g-2 overflow-x-auto flex-nowrap">
+						<div class="col-xxl-2 col-xl-2 col-lg-3 col-md-4 col-sm-4 col-8 flex-shrink-0 text-nowrap">
+							<a href="" class="text-decoration-none">
+								<div class="villatype d-flex align-items-flex-start gap-3 border-color rounded-3 py-3 px-3">
+									<div class="">
+										<img class="iconwh" src="../cdn/img/icons/white-flood.svg" width="32" height="32" alt="" />
+									</div>
+									<div class="d-flex align-items-flex-start flex-column justify-content-center gap-2">
+										<div class="d-flex gap-1">
+											<span class="text-white fs-7 fw-bold lh-normal d-block mb-2 pb-1 text-decoration-none underlinehover">Deniz Manzaralı</span>
+										</div>
+										<div class="text-white text-opacity-50 border-white border-opacity-10">
+											<span class="fs-8 fw-medium lh-normal py-1 px-2 rounded-2 border">86 villa</span>
+										</div>
+									</div>
+								</div>
+							</a>
+						</div>
+						<div class="col-xxl-2 col-xl-2 col-lg-3 col-md-4 col-sm-4 col-8 flex-shrink-0 text-nowrap">
+							<a href="" class="text-decoration-none">
+								<div class="villatype d-flex align-items-flex-start gap-4 border-color rounded-3 py-3 px-3">
+									<div class="">
+										<img class="iconwh" src="../cdn/img/icons/white-swimming.svg" width="32" height="32" alt="" />
+									</div>
+									<div class="d-flex align-items-flex-start flex-column justify-content-center gap-2">
+										<div class="d-flex gap-1">
+											<span href="" class="text-white fs-7 fw-bold lh-normal d-block mb-2 pb-1 text-decoration-none underlinehover">Balayı Villaları</span>
+										</div>
+										<div class="text-white text-opacity-50 border-white border-opacity-10">
+											<span class="fs-8 fw-medium lh-normal py-1 px-2 rounded-2 border">86 villa</span>
+										</div>
+									</div>
+								</div>
+							</a>
+						</div>
+						<div class="col-xxl-2 col-xl-2 col-lg-3 col-md-4 col-sm-4 col-8 flex-shrink-0 text-nowrap">
+							<a href="" class="text-decoration-none">
+								<div class="villatype d-flex align-items-flex-start gap-2 border-color rounded-3 py-3 px-3">
+									<div class="">
+										<img class="iconwh" src="../cdn/img/icons/white-wallet.svg" width="32" height="32" alt="" />
+									</div>
+									<div class="d-flex align-items-flex-start flex-column justify-content-center gap-2">
+										<div class="d-flex gap-1">
+											<span href="" class="text-white fs-7 fw-bold lh-normal d-block mb-2 pb-1 text-decoration-none underlinehover">Muhafazakar villa</span>
+										</div>
+										<div class="text-white text-opacity-50 border-white border-opacity-10">
+											<span class="fs-8 fw-medium lh-normal py-1 px-2 rounded-2 border">86 villa</span>
+										</div>
+									</div>
+								</div>
+							</a>
+						</div>
+						<div class="col-xxl-2 col-xl-2 col-lg-3 col-md-4 col-sm-4 col-8 flex-shrink-0">
+							<a href="" class="text-decoration-none">
+								<div class="villatype d-flex align-items-flex-start gap-3 border-color rounded-3 py-3 px-3">
+									<div class="">
+										<img class="iconwh" src="../cdn/img/icons/white-garden.svg" width="32" height="32" alt="" />
+									</div>
+									<div class="d-flex align-items-flex-start flex-column justify-content-center gap-2">
+										<div class="d-flex gap-1">
+											<span href="" class="text-white fs-7 fw-bold lh-normal d-block mb-2 pb-1 text-decoration-none underlinehover">Balayı Villaları</span>
+										</div>
+										<div class="text-white text-opacity-50 border-white border-opacity-10">
+											<span class="fs-8 fw-medium lh-normal py-1 px-2 rounded-2 border">86 villa</span>
+										</div>
+									</div>
+								</div>
+							</a>
+						</div>
+						<div class="col-xxl-2 col-xl-2 col-lg-3 col-md-4 col-sm-4 col-8 flex-shrink-0 text-nowrap">
+							<a href="" class="text-decoration-none">
+								<div class="villatype d-flex align-items-flex-start gap-3 border-color rounded-3 py-3 px-3">
+									<div class="">
+										<img class="iconwh" src="../cdn/img/icons/white-diamond-1.svg" width="32" height="32" alt="" />
+									</div>
+									<div class="d-flex align-items-flex-start flex-column justify-content-center gap-2">
+										<div class="d-flex gap-1">
+											<span href="" class="text-white fs-7 fw-bold lh-normal d-block mb-2 pb-1 text-decoration-none underlinehover">Balayı Villaları</span>
+										</div>
+										<div class="text-white text-opacity-50 border-white border-opacity-10">
+											<span class="fs-8 fw-medium lh-normal py-1 px-2 rounded-2 border">86 villa</span>
+										</div>
+									</div>
+								</div>
+							</a>
+						</div>
+						<div class="col-xxl-2 col-xl-2 col-lg-3 col-md-4 col-sm-4 col-8 flex-shrink-0 text-nowrap">
+							<a href="" class="text-decoration-none">
+								<div class="villatype d-flex align-items-flex-start gap-3 border-color rounded-3 py-3 px-3">
+									<div class="">
+										<img class="iconwh" src="../cdn/img/icons/white-home.svg" width="32" height="32" alt="" />
+									</div>
+									<div class="d-flex align-items-flex-start flex-column justify-content-center gap-2">
+										<div class="d-flex gap-1">
+											<span href="" class="text-white fs-7 fw-bold lh-normal d-block mb-2 pb-1 text-decoration-none underlinehover">Balayı Villaları</span>
+										</div>
+										<div class="text-white text-opacity-50 border-white border-opacity-10">
+											<span class="fs-8 fw-medium lh-normal py-1 px-2 rounded-2 border">86 villa</span>
+										</div>
+									</div>
+								</div>
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="footeritem5">
+					<div class="row mb-sm-4 mt-xl-5 mt-lg-4 mt-md-4 mt-sm-3 mt-3">
+						<div class="col-md-6">
+							<div class="d-flex gap-3 align-items-center">
+								<img width="53px" height="53px" src="../cdn/img/icons/security.svg" alt="" />
+								<span class="text-white text-opacity-75 fs-7 fw-medium lh-normal"
+									>Sitemiz Güvenliğiniz İçin 256 Bit <br />
+									SSL Sertifikası İle Korunmaktadır.</span
+								>
+							</div>
+						</div>
+
+						<div class="col-md-6">
+							<div class="d-none d-md-block">
+								<div class="d-flex justify-content-end">
+									<div class="mt-3">
+										<img class="flex-shrink-0" width="100%" height="24.61" src="../cdn/img/images/cardlar.png" alt="" />
+									</div>
+								</div>
+							</div>
+							<div class="d-block d-md-none">
+								<div class="d-flex justify-content-start">
+									<div class="mt-3">
+										<img class="flex-shrink-0" width="100%" height="24.61" src="../cdn/img/images/cardlar.png" alt="" />
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<hr class="hrmarg2" />
+				<div class="footeritem6">
+					<div class="row mb-sm-4 mb-3">
+						<div class="col-lg-6 col-md-4 col-sm-6">
+							<div class="align-items-center mt-3">
+								<span class="text-white text-opacity-75 fs-8 fw-medium mb-md-0 mb-3">Copyright © 2024 Yuzde100Villa - Tüm Hakkı Saklıdır.</span>
+							</div>
+						</div>
+						<div class="col-lg-6 col-md-8 col-sm-6">
+							<div class="d-none d-sm-block">
+								<div class="d-flex justify-content-end mt-3">
+									<img src="../cdn/img/bocek.svg" alt="" />
+								</div>
+							</div>
+
+							<div class="d-block d-sm-none">
+								<div class="d-flex justify-content-start mt-1">
+									<img src="../cdn/img/bocek.svg" alt="" />
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+		<script src="../cdn/js/jquery.min.js"></script>
+		<script src="../cdn/js/jquery-ui.min.js"></script>
+		<script src="../cdn/js/bootstrap.bundle.min.js"></script>
+		<script src="../cdn/js/owl.carousel.min.js"></script>
+		<script src="../cdn/js/datepicker-tr.js"></script>
+		<script src="../cdn/js/bocek.js"></script>
+		<script src="../cdn/js/main.js"></script>
+		<script src="../cdn/js/ion.rangeSlider.min.js"></script>
+		<script src="../cdn/js/hakkimizda.js"></script>
+		<script src="../cdn/js/scripts.js"></script>
+	</body>
+</html>

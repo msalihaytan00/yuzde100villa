@@ -1,0 +1,52 @@
+
+.mt-50{
+    margin-top: 50px !important;
+}
+.mt-200{
+    margin-top: 200px !important;
+}
+@media screen and (max-width: 576px) {
+    .mt-100{
+        margin-top: 30px !important; 
+    }
+    .mt-200{
+        margin-top: 30px !important;
+    }
+} 
+.text-shadow-1{
+    text-shadow: 2px 2px 4px #000000 !important;
+}
+.itemcaptiontop {
+    overflow: hidden;
+    display: block;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  
+    &:hover {
+      transform: scale(1.05);
+      box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.2);
+    }
+  
+    .cover {
+      transition: transform 0.3s ease, filter 0.3s ease;
+  
+      &:hover {
+        transform: scale(1.1);
+        filter: brightness(0.8);
+      }
+    }
+  
+    .item-caption {
+      opacity: 1; /* Yazılar başlangıçta görünür */
+      transform: translateY(0); /* Başlangıçta pozisyon değişimi yok */
+      transition: opacity 0.3s ease, transform 0.3s ease;
+  
+      span {
+        transition: color 0.3s ease;
+      }
+  
+      &:hover span {
+        color: #f39c12; /* Öne çıkan renk */
+      }
+    }
+  }
+  

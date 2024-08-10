@@ -1,0 +1,2726 @@
+<!DOCTYPE html>
+<html lang="tr">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="../cdn/css/customBootstrap.min.css" />
+		<link rel="stylesheet" href="../cdn/css/jquery-ui.min.css" />
+		<link rel="stylesheet" href="../cdn/css/owl-carousel/owl.carousel.min.css" />
+		<link rel="stylesheet" href="../cdn/css/owl-carousel/owl.theme.default.min.css" />
+		<link rel="stylesheet" href="../cdn/css/main.min.css" />
+		<link rel="stylesheet" href="../cdn/css/all.min.css" />
+		<link rel="stylesheet" href="../cdn/css/popCalendar.css" />
+		<link rel="stylesheet" href="../cdn/fonts/fonts.css" />
+		<link rel="stylesheet" href="../cdn/css/detay.min.css" />
+		<link rel="stylesheet" href="../cdn/css/ion.rangeSlider.min.css" />
+		<title>yüzde100villa4</title>
+	</head>
+	<body>
+		<div id="overlay"></div>
+		<div id="comment-form">
+			<h3 class="fw-bold">Yorum Yap</h3>
+			<button id="close-form" class="close-form-btn">&times;</button>
+			<input class="fw-medium lh-1" type="text" id="author" placeholder="İsminizi girin" />
+			<input type="number" class="fw-medium lh-1" id="rating" placeholder="Puan (1-10)" min="1" max="10" />
+			<textarea id="comment-text" class="fw-medium lh-1" placeholder="Yorumunuzu yazın" rows="4"></textarea>
+			<button id="submit-comment" class="fw-medium lh-1">Gönder</button>
+		</div>
+
+		<!-- Arka plan overlay -->
+		<div class="d-none d-md-block">
+			<div class="fixed-phone-icon" id="phone-icon">
+				<img src="../cdn/img/icons/phoneicon.png" width="40" height="40" alt="Telefon İkonu" />
+			</div>
+			<div class="whatsapp-button align-items-center d-flex justify-content-center">
+				<a href="https://wa.me/905325428484" target="_blank">
+					<img src="../cdn/img/icons/whatsappicon2.svg" width="42" height="42" alt="WhatsApp" />
+				</a>
+			</div>
+		</div>
+
+		<div class="fav-list" id="favoriteList">
+			<div class="d-flex justify-content-between mb-3 rounded">
+				<strong class="fs-5 ms-2 mt-3 text-dark">Favoriler</strong>
+				<button type="button" class="exit bg-transparent d-flex align-items-center justify-content-center px-2 rounded-2 mt-3" onclick="$('.fav-list').removeClass('show');$('.favori-shadow').removeClass('show')">
+					<svg xmlns="http://www.w3.org/2000/svg" class="" width="34" height="34" viewBox="0 0  34 34" fill="none">
+						<rect width="34" height="34" rx="6" fill="#CED8E7"></rect>
+						<path d="M23.6894 10.3212C23.2753 9.90709 22.6064 9.90709 22.1923 10.3212L17 15.5028L11.8077 10.3106C11.3936 9.89647 10.7247 9.89647 10.3106 10.3106C9.89647 10.7247 9.89647 11.3936 10.3106 11.8077L15.5028 17L10.3106 22.1923C9.89647 22.6064 9.89647 23.2753 10.3106 23.6894C10.7247 24.1035 11.3936 24.1035 11.8077 23.6894L17 18.4972L22.1923 23.6894C22.6064 24.1035 23.2753 24.1035 23.6894 23.6894C24.1035 23.2753 24.1035 22.6064 23.6894 22.1923L18.4972 17L23.6894 11.8077C24.0929 11.4042 24.0929 10.7247 23.6894 10.3212Z" fill="#29344C"></path>
+					</svg>
+				</button>
+			</div>
+			<ul class="list-unstyled ms-2"></ul>
+		</div>
+		<div id="menu" class="menu">
+			<div class="menu-header d-flex justify-content-between align-items-center p-3 border-bottom-1">
+				<img src="../cdn/img/logo.svg" alt="Logo" style="height: 50px" />
+				<button id="closeBtn" class="btn btn-outline-dark border-0">
+					<img class="font95" src="../cdn/img/icons/count.svg" alt="" />
+				</button>
+			</div>
+			<div class="menu-content p-4">
+				<ul class="list-unstyled">
+					<li class="py-2">
+						<button id="toggleButton3" class="text-decoration-none text-theme-first fs-6 fw-medium lh-normal">Villa Seçenekleri ⮟</button>
+						<div id="menu3" class="d-none">
+							<a class="dropdown-item p-2 py-3 px-3" href="#"> Balayı Villaları</a>
+							<a class="dropdown-item p-2 py-3 px-3" href="#">Muhafazakar Villalar</a>
+							<a class="dropdown-item p-2 py-3 px-3" href="#">Lüks Villalar</a>
+							<a class="dropdown-item p-2 py-3 px-3" href="#">Ekonomik</a>
+							<a class="dropdown-item p-2 py-3 px-3" href="#">Deniz Manzaralı</a>
+						</div>
+					</li>
+					<li class="py-2 ps-9">
+						<a href="#" class="text-decoration-none text-theme-first fs-6 py-3 fw-medium lh-normal">Bölgeler</a>
+					</li>
+					<li class="py-2 ps-9">
+						<a href="#" class="text-decoration-none text-theme-first fs-6 py-3 fw-medium lh-normal">Kısa Süreli Kiralıklar</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<header class="header bg-theme-first">
+			<div class="container">
+				<div class="row">
+					<div class="col-xxl-8 col-xl-6 col-lg-6 col-md-8 col-sm-10 col-8">
+						<div class="row">
+							<div class="col-xxl-3 col-xl-5 col-sm-5 col-md-6 col-lg-6">
+								<div class="d-flex align-items-center gap-2">
+									<img src="../cdn/img/icons/customer.svg" height="36" width="36" alt="" />
+									<div class="py-3 me-3">
+										<div class="d-flex flex-column">
+											<span class="fs-8 text-theme-brown fw-medium lh-normal">Müşteri Hizmetleri</span>
+											<span class="text-decoration-none text-white fs-7 fw-medium lh-normal">+90 532 542 84 84</span>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-7 col-md-6 col-xl-4 col-lg-6 d-none d-sm-block">
+								<form action="" class="formSearch searchSuggestions position-relative">
+									<label class="d-flex align-items-flex-start">
+										<div class="d-flex align-items-center search1 py-3 ps-3 pe-4 gap-2 border-start border-end border-theme-first-border bg-theme-first-opacity">
+											<div class="d-flex align-items-center py-1 pe-1 ps-1 gap-2">
+												<img class="" src="../cdn/img/icons/search.svg" alt="" />
+												<input style="width: 169px" name="searchlocationcode" type="text" placeholder="Villa adı veya kodu ile ara" class="bg-transparent fs-7 fw-normal text-white" />
+											</div>
+										</div>
+									</label>
+									<ul class="SpeedSearchList px-0 mb-0 list-unstyled bg-white position-absolute top-100 rounded-4 start-0 w-100 z-3"></ul>
+								</form>
+							</div>
+						</div>
+					</div>
+					<div class="col-xxl-4 col-xl-6 col-lg-6 col-md-4 col-sm-2 col-4">
+						<div class="row gutters mt-3">
+							<div class="col-xl-12">
+								<div class="d-flex align-items-center justify-content-end gap-3">
+									<div class="justify-content-center mt-1">
+										<button type="button" title="Favorilerim" onclick="$('.fav-list').toggleClass('show');$('.favori-shadow').addClass('show')" class="border-0 favoritesBtn bg-transparent d-flex gap-lg-3 pe-lg-2 align-items-center justify-content-lg-start justify-content-center">
+											<div class="position-relative">
+												<img src="../cdn/img/icons/activeHeart.svg" data-src="../cdn/img/icons/activeHeart.svg" class="lazy contain flex-shrink-0" width="25" height="25" alt="Favorilerim" />
+												<span class="badge ccc d-flex align-items-center fs-8 text-white favorite-count justify-content-center position-absolute top-0 start-100 translate-middle p-2 bg-theme-brown border border-light rounded-circle"> </span>
+											</div>
+											<span class="d-lg-block d-none text-white fw-semibold d-lg-block d-none fs-8">Favorilerim</span>
+										</button>
+									</div>
+									<div class="justify-content-center gap-4 d-none d-lg-block">
+										<a href="#" class="text-decoration-none text-white fs-7 py-3 pe-1 fw-medium lh-normal">Yardım & Destek</a>
+										<a href="#" class="text-decoration-none text-white fs-7 py-3 pe-1 fw-medium lh-normal">Blog</a>
+										<a href="#" class="text-decoration-none text-white fs-7 py-3 pe-1 fw-medium lh-normal">İletişim</a>
+									</div>
+									<div class="justify-content-center d-none d-sm-block">
+										<img src="../cdn/img/icons/whatsapp.svg" alt="" />
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</header>
+		<section class="headerDownn">
+			<div class="container">
+				<div class="row align-items-center my-2">
+					<div class="col-xl-2 col-lg-3 col-md-12">
+						<div class="d-flex justify-content-between align-items-center">
+							<div class="">
+								<img src="../cdn/img/logo.svg" alt="" class="g8wh" width="182" height="57" />
+							</div>
+							<div class="d-block d-lg-none">
+								<div class="d-flex justify-content-center">
+									<div class="d-block d-sm-none">
+										<button type="button" class="header-search-button d-sm-none d-flex flex-shrink-0 bg-transparent shadow-none border-0 p-0 hide">
+											<img src="../cdn/img/icons/search1.svg" class="first mt-2 me-2" alt="" />
+											<img src="../cdn/img/icons/count.svg" alt="" class="second d-none mt-2 me-3" />
+										</button>
+										<form action="" class="form-group_wrapper px-3 d-sm-none d-flex w-100 searchSuggestions">
+											<div class="quick-search d-flex w-100 rounded-sm position-relative outline-none">
+												<input type="text" class="input_text searchlocationcode bg-transparent border-0 shadow-none outline-none w-100 rounded-sm-0 rounded-3" name="searchlocationcode" autocomplete="off" style="outline: none" placeholder="Villa adıyla arama yap" />
+												<button type="button" class="header-btn d-sm-block d-none flex-shrink-0 bg-transparent ms-auto shadow-none border-0 p-0 hide">
+													<img src="../cdn/img/spacer.gif" data-src="../cdn/img/icons/search.svg" width="24" height="24" class="lazy contain me-2" alt="search" />
+												</button>
+												<ul class="SpeedSearchList rounded-sm shadow list-unstyled position-absolute top-100 left-0 w-100 p-0"></ul>
+											</div>
+										</form>
+									</div>
+									<button id="menuBtn" class="border-0 bg-transparent font95 mt-1">
+										<img src="../cdn/img/icons/menuicon.svg" alt="" />
+									</button>
+									<div id="overlay" class="overlay2"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-xl-8 col-lg-6 col-md-7 d-none d-lg-block">
+						<div class="d-flex gap-5 menutop2">
+							<div class="dropdown">
+								<a class="btn btn-secondary headerdownmenuh dropdown-toggle border-0 bg-transparent text-decoration-none text-black fs-7 py-lg-4 py-3 px-lg-0 px-4 me-lg-1 fw-bold lh-normal" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Villa Seçenekleri </a>
+								<ul class="dropdown-menu min-width1">
+									<li>
+										<a class="dropdown-item p-2 py-3 px-3" href="#"> Balayı Villaları</a>
+									</li>
+									<li>
+										<a class="dropdown-item p-2 py-3 px-3" href="#">Muhafazakar Villalar</a>
+									</li>
+									<li>
+										<a class="dropdown-item p-2 py-3 px-3" href="#">Lüks Villalar</a>
+									</li>
+									<li>
+										<a class="dropdown-item p-2 py-3 px-3" href="#">Ekonomik</a>
+									</li>
+									<li>
+										<a class="dropdown-item p-2 py-3 px-3" href="#">Deniz Manzaralı</a>
+									</li>
+								</ul>
+							</div>
+							<a class="text-decoration-none headerdownmenuh text-black fs-7 py-lg-4 py-3 px-lg-0 px-4 me-lg-1 fw-bold lh-normal" href="#">Bölgeler</a>
+							<a class="text-decoration-none headerdownmenuh text-black fs-7 py-lg-4 py-3 px-lg-0 px-4 me-lg-1 fw-bold lh-normal" href="#">Kısa Süreli Kiralıklar</a>
+						</div>
+					</div>
+					<div class="col-xl-2 col-lg-3 col-md-12 d-none d-lg-block">
+						<div></div>
+						<div class="bg-theme-first py-2 px-3 ms-5 d-flex rounded justify-content-center align-items-center gap-2">
+							<div class="d-flex align-items-center">
+								<img src="../cdn/img/icons/reservation.svg" width="20" height="20" alt="" />
+							</div>
+							<a class="text-decoration-none fs-7 text-white fw-medium lh-normal" href="#">Rezervasyonum</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="detay mt-xl-5 mt-lg-4 mt-md-3 mt-sm-2 mt-2">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-8 col-12">
+						<div class="d-flex flex-column pt-2">
+							<div class="d-flex flex-column">
+								<div class="d-flex align-items-center gap-3">
+									<span class="fs-18 fw-bold lh-normal text-theme-first">Villa Luxury heim</span>
+									<div class="heart d-flex align-items-center justify-content-center mb-2">
+										<button type="button" title="favori" onclick="$.boceksoft.favori('Villa Kastalia','Villa Kastalia | Bodrum Villa Kiralama | Bodrum Villa | Kiralık Villa','villa-kastalia','/cdn/uploads/sliderimg1.jpg','Bodrum / Turgutreis',1,'emlak')" class="favBtn d-flex align-items-center rounded-circle justify-content-center mt-3 me-2 ms-2 mt-3 me-2 emlak_1 bg-transparent w-100 h-100 position-relative">
+											<img src="../cdn/img/icons/heart.svg" data-src="../cdn/img/icons/heart.png" class="lazy first contain" width="24" height="24" alt="favori" />
+											<img src="../cdn/img/icons/activeHeart.svg" class="lazy second position-absolute top-50 start-50 contain" width="24" height="21" alt="active" />
+										</button>
+									</div>
+									<div class="d-none d-sm-block">
+										<div class="d-flex align-items-center justify-content-between mt-3 my-3 gap-1">
+											<div class="headerimgdown3 align-items-center justify-content-center d-flex">
+												<span class="text-theme-first-light bg-theme-ribbon-first fs-9 fw-bold lh-normal py-2 px-2 d-flex align-items-center justify-content-center rounded">Balayı Villası</span>
+											</div>
+											<div class="text-theme-last-light bg-theme-ribbon-last fs-9 fw-bold lh-normal py-2 px-2 d-flex align-items-center justify-content-center rounded">
+												<span class="fonts18 fontf2">Deniz Manzaralı</span>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div cFlass="d-flex">
+									<span class="fs-8 text-theme-first text-opacity-50 fw-medium lh-normal">Muğla / Fethiye</span>
+								</div>
+								<div class="d-block d-sm-none">
+									<div class="d-flex align-items-center mt-3 my-3 gap-1">
+										<div class="headerimgdown3 align-items-center justify-content-center d-flex">
+											<span class="text-theme-first-light bg-theme-ribbon-first fs-9 fw-bold lh-normal py-2 px-2 d-flex align-items-center justify-content-center rounded">Balayı Villası</span>
+										</div>
+										<div class="text-theme-last-light bg-theme-ribbon-last fs-9 fw-bold lh-normal py-2 px-2 d-flex align-items-center justify-content-center rounded">
+											<span class="fonts18 fontf2">Deniz Manzaralı</span>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="d-flex align-items-flex-start gap-3 mt-3">
+								<div class="d-flex align-items-center gap-2">
+									<div>
+										<img src="../cdn/img/icons/bed.svg" alt="" />
+									</div>
+
+									<span class="text-theme-first fs-8 fw-bold lh-normal">
+										2
+										<span class="fw-normal">Yatak O.</span>
+									</span>
+								</div>
+								<div class="d-flex align-items-center gap-12">
+									<div>
+										<img src="../cdn/img/icons/shower-head.svg" alt="" />
+									</div>
+									<div class="text-theme-first fs-8 fw-bold lh-normal">
+										<span class="fw-normal">Banyo</span>
+									</div>
+								</div>
+								<div class="d-flex align-items-center gap-2">
+									<div>
+										<img src="../cdn/img/icons/person.svg" alt="" />
+									</div>
+									<span class="text-theme-first fs-8 fw-bold">
+										4
+										<span class="fw-normal"> Kişi</span>
+										<span class="text-theme-first text-opacity-50 fs-9 fw-medium lh-normal">(max)</span>
+									</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-4 col-12">
+						<div class="d-flex justify-content-sm-end">
+							<div class="d-flex flex-column">
+								<div class="d-flex flex-column align-items-flex-start my-4 me-4">
+									<div>
+										<div class="villah3 align-items-center d-flex gap-1">
+											<span class="text-theme-first fw-bold lh-normal fs-22">6200</span>
+											<div><span class="text-theme-first fw-bold lh-normal"> TL </span><span class="text-theme-first fs-8 fw-bold lh-normal">/ Gecelik</span></div>
+										</div>
+										<div class="text-theme-first text-opacity-50 fs-9 fw-medium lh-normal">Başlayan Fiyatlar</div>
+									</div>
+								</div>
+								<div class="d-flex flex-column">
+									<div>
+										<span class="text-theme-first fs-9">Puanlama ve Geri Bildirim</span>
+									</div>
+									<div class="d-flex align-items-center gap-1 wcr">
+										<div>
+											<img src="../cdn/img/icons/start.svg" width="20" height="20" alt="" />
+										</div>
+										<span class="text-theme-first fs-22 fw-medium lh-normal">6</span>
+										<a href="" class="text-theme-first text-opacity-50 text-decoration-underline fs-8 fw-medium lh-normal">5 yorum</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-12">
+						<div class="row mt-4 gy-2 g-3">
+							<div class="col-md-5">
+								<a href="../cdn/uploads/detay1.jpg" class="" data-caption="Villa luxury heim" data-fancybox="detailGallery">
+									<div class="h-100 position-relative d-block">
+										<img src="../cdn/uploads/detay1.jpg" class="w-100 lazy loaded rounded-2 cover h-100 hover-zoom" alt="" />
+										<div class="d-md-none d-block">
+											<div class="text p-3">
+												<button class="border-0 bg-transparent" data-fancybox-trigger="detailGallery">
+													<div class="border rounded-3 bg-white py-2 px-2 align-items-center d-flex gap-2">
+														<img src="../cdn/img/icons/search3.png" width="14" height="14" alt="" />
+														<span class="fs-7 fw-bold lh-1 text-theme-second">Tümünü görmek için tıkla</span>
+													</div>
+												</button>
+											</div>
+										</div>
+										<div class="d-md-none d-block">
+											<div class="text2 p-3">
+												<button class="border-0 bg-transparent" type="button" href="https://www.youtube.com/watch?v=grumgobQeHg" data-fancybox="video-gallery">
+													<div class="border rounded-3 bg-white py-2 px-2 align-items-center d-flex gap-2">
+														<img src="../cdn/img/icons/play33.png" width="14" height="14" alt="" />
+													</div>
+												</button>
+											</div>
+										</div>
+									</div>
+								</a>
+							</div>
+							<div class="col-md-7">
+								<div class="d-flex flex-column gap-3">
+									<div class="d-sm-block d-none">
+										<a href="../cdn/uploads/detay2.png" data-caption="Villa luxury heim" data-fancybox="detailGallery">
+											<div class="h-100">
+												<img src="../cdn/uploads/detay2.png" class="w-100 lazy loaded cover rounded-2 hover-zoom" alt="" />
+											</div>
+										</a>
+									</div>
+									<div class="d-sm-block d-none">
+										<div class="h-100 d-flex gap-1">
+											<a href="../cdn/uploads/detay3.png" class="w-100 z-3" data-caption="Villa luxury heim" data-fancybox="detailGallery">
+												<div class="">
+													<img src="../cdn/uploads/detay3.png" class="w-100 lazy loaded cover rounded-2 h-100 hover-zoom" alt="" />
+												</div>
+											</a>
+
+											<div class="w-100 position-relative d-block">
+												<a href="../cdn/uploads/detay4.png" class="z-2" data-fancybox="detailGallery" data-caption="Villa luxury heim">
+													<img src="../cdn/uploads/detay5.png" class="w-100 lazy loaded cover rounded-2 h-100 hover-zoom" alt="" />
+												</a>
+
+												<div class="d-md-block d-none">
+													<div class="text3 p-3 d-flex w-100 justify-content-between" data-fancybox-trigger="detailGallery">
+														<span
+															>Tüm <br />
+															Fotoğraflar</span
+														>
+														<button class="bg-transparent"><img src="../cdn/img/icons/rightcaro.svg" class="rightcarowh" width="35" height="35" alt="" /></button>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="nav2">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-9">
+						<div class="nav2down">
+							<div id="stickyElement" class="position-sticky top-0 mt-4 mb-4 justify-content-between z-3 bg-white">
+								<div class="row">
+									<div class="col-xxl-9 d-none d-md-block">
+										<div class="navbar w-100 d-flex justify-content-start align-items-center bg-white gap-1">
+											<a href="#section1" id="link1" class="d-block text-decoration-none rounded-3"><span class="fw-normal lh-normal shadow-lg">Fiyatlandırma</span></a>
+											<a href="#section2" id="link2" class="d-block text-decoration-none rounded-3"><span class="fw-normal lh-normal shadow-lg">Bilgiler</span></a>
+											<a href="#section3" id="link3" class="d-block text-decoration-none rounded-3"><span class="fw-normal lh-normal shadow-lg">Kurallar</span></a>
+											<a href="#section4" id="link3" class="d-block text-decoration-none rounded-3"><span class="fw-normal lh-normal shadow-lg">Konum</span></a>
+											<a href="#section5" id="link3" class="d-block text-decoration-none rounded-3"><span class="fw-normal lh-normal shadow-lg">Müsaitlik Takvimi</span></a>
+											<a href="#section6" id="link3" class="d-block text-decoration-none rounded-3"><span class="fw-normal lh-normal shadow-lg">Yorumlar</span></a>
+										</div>
+									</div>
+									<div class="col-xxl-3 d-none d-xxl-block">
+										<div class="d-flex align-items-center mt-4 gap-2">
+											<a href="" class="fs-7 text-theme-first fw-bold lh-normal">Arkadaşın ile paylaş</a>
+											<img src="../cdn/img/icons/sharedd.svg" alt="" />
+										</div>
+									</div>
+								</div>
+							</div>
+							<section class="section mt-4 overflow-hidden" id="section1">
+								<div class="">
+									<div class="d-flex mb-4">
+										<span class="text-theme-first fw-bold lh-normal fs-22">Fiyatlar</span>
+									</div>
+
+									<div class="d-flex justify-content-between align-items-center">
+										<div class="mt-4">
+											<button type="button" class="btn mx-1 btn-custom-active border-0" id="btn1"><span class="fw-normal lh-normal fs-7">TRY</span></button>
+											<button type="button" class="btn mx-1 border-0" id="btn2"><span class="fw-normal lh-normal fs-7">USD</span></button>
+											<button type="button" class="btn mx-1 border-0" id="btn3"><span class="fw-normal lh-normal fs-7">EUR</span></button>
+										</div>
+										<div class="d-none d-md-block">
+											<div class="slide-navs d-flex align-items-center justify-content-center flex-shrink-0 gap-3 mt-4 mb-4 me-1">
+												<button type="button" role="presentation" class="owl-prev d-flex align-items-center justify-content-center rounded-circle bg-white p-0">
+													<img src="../cdn/img/icons/owl-prev.svg" alt="" />
+												</button>
+												<button type="button" role="presentation" class="owl-next d-flex align-items-center justify-content-center rounded-circle bg-white p-0">
+													<img src="../cdn/img/icons/owl-next.svg" alt="" />
+												</button>
+											</div>
+										</div>
+									</div>
+									<div class="row mt-5">
+										<div class="col-lg-2 d-none d-sm-block">
+											<div class="d-flex flex-column gap-4">
+												<div class="flex-shrink-0">
+													<span class="fs-7 fw-normal lh-normal text-theme-first opacity-50">5.200TRY</span>
+												</div>
+												<div class="flex-shrink-0">
+													<span class="fs-7 fw-normal lh-normal text-theme-first opacity-50">4.400TRY</span>
+												</div>
+												<div class="flex-shrink-0">
+													<span class="fs-7 fw-normal lh-normal text-theme-first opacity-50">3.750TRY</span>
+												</div>
+												<div class="flex-shrink-0">
+													<span class="fs-7 fw-normal lh-normal text-theme-first opacity-50">3.150TRY</span>
+												</div>
+											</div>
+										</div>
+										<div class="col-lg-10">
+											<div class="homescategoryowl2 owl-carousel owl-theme mt-sm-1 mt-5">
+												<div class="item" data-price="5200" data-sold="20">
+													<div class="p-3 d-flex flex-column gap-3">
+														<div class="d-flex justify-content-center">
+															<div class="lin-gradient-1 d-flex rounded-top-1" style="width: 22px; height: 152px"></div>
+															<div class="price-info z-3" style="width: 180px">
+																<div class="bg-theme-first rounded-2">
+																	<span class="date-range text-white lh-normal fw-bold fs-7 py-2">1 TEM ••• 1 AĞU</span>
+																</div>
+																<span class="price">5.200TRY <span class="fs-9 lh-normal fw-mediums opacity-50">/ GECELİK</span></span>
+																<span class="min-days fs-8 lh-normal fw-light">Minimum Kiralama: 2 Gece</span>
+															</div>
+														</div>
+														<div class="d-flex flex-column align-items-center gap-2">
+															<span class="fw-bold lh-normal fs-7 text-theme-first">1 TEM</span>
+															<img src="../cdn/img/icons/bla.svg" width="5" height="20" alt="" />
+															<span class="fw-bold lh-normal fs-7 text-theme-first">1 AĞU</span>
+															<span class="fs-8 text-theme-first fw-normal lh-normal opacity-50">Min 2 Gece</span>
+														</div>
+													</div>
+												</div>
+												<div class="item" data-price="3000" data-soldout="true">
+													<div class="p-3 d-flex flex-column gap-3">
+														<div class="d-flex justify-content-center">
+															<div class="lin-gradient-1 d-flex rounded-top-1" style="width: 22px; height: 110px"></div>
+															<div class="price-info" style="width: 180px">
+																<div class="bg-theme-first rounded-2">
+																	<span class="date-range text-white lh-normal fw-bold fs-7 py-2">1 TEM ••• 1 AĞU</span>
+																</div>
+																<span class="price">5.200TRY <span class="fs-9 lh-normal fw-mediums opacity-50">/ GECELİK</span></span>
+																<span class="min-days fs-8 lh-normal fw-light">Minimum Kiralama: 2 Gece</span>
+															</div>
+														</div>
+														<div class="d-flex flex-column align-items-center gap-2">
+															<span class="fw-bold lh-normal fs-7 text-theme-first">1 TEM</span>
+															<img src="../cdn/img/icons/bla.svg" width="5" height="20" alt="" />
+															<span class="fw-bold lh-normal fs-7 text-theme-first">1 AĞU</span>
+															<span class="fs-8 text-theme-first fw-normal lh-normal opacity-50">Min 2 Gece</span>
+														</div>
+													</div>
+												</div>
+												<div class="item" data-price="2500" data-sold="10">
+													<div class="p-3 d-flex flex-column gap-3">
+														<div class="d-flex justify-content-center">
+															<div class="lin-gradient-1 d-flex rounded-top-1" style="width: 22px; height: 110px"></div>
+															<div class="price-info" style="width: 180px">
+																<div class="bg-theme-first rounded-2">
+																	<span class="date-range text-white lh-normal fw-bold fs-7 py-2">1 TEM ••• 1 AĞU</span>
+																</div>
+																<span class="price">5.200TRY <span class="fs-9 lh-normal fw-mediums opacity-50">/ GECELİK</span></span>
+																<span class="min-days fs-8 lh-normal fw-light">Minimum Kiralama: 2 Gece</span>
+															</div>
+														</div>
+														<div class="d-flex flex-column align-items-center gap-2">
+															<span class="fw-bold lh-normal fs-7 text-theme-first">1 TEM</span>
+															<img src="../cdn/img/icons/bla.svg" width="5" height="20" alt="" />
+															<span class="fw-bold lh-normal fs-7 text-theme-first">1 AĞU</span>
+															<span class="fs-8 text-theme-first fw-normal lh-normal opacity-50">Min 2 Gece</span>
+														</div>
+													</div>
+												</div>
+												<div class="item" data-price="1000">
+													<div class="p-3 d-flex flex-column gap-3">
+														<div class="d-flex justify-content-center">
+															<div class="lin-gradient-1 d-flex rounded-top-1" style="width: 22px; height: 70px"></div>
+															<div class="price-info" style="width: 180px">
+																<div class="bg-theme-first rounded-2">
+																	<span class="date-range text-white lh-normal fw-bold fs-7 py-2">1 TEM ••• 1 AĞU</span>
+																</div>
+																<span class="price">5.200TRY <span class="fs-9 lh-normal fw-mediums opacity-50">/ GECELİK</span></span>
+																<span class="min-days fs-8 lh-normal fw-light">Minimum Kiralama: 2 Gece</span>
+															</div>
+														</div>
+														<div class="d-flex flex-column align-items-center gap-2">
+															<span class="fw-bold lh-normal fs-7 text-theme-first">1 TEM</span>
+															<img src="../cdn/img/icons/bla.svg" width="5" height="20" alt="" />
+															<span class="fw-bold lh-normal fs-7 text-theme-first">1 AĞU</span>
+															<span class="fs-8 text-theme-first fw-normal lh-normal opacity-50">Min 2 Gece</span>
+														</div>
+													</div>
+												</div>
+												<div class="item">
+													<div class="p-3 d-flex flex-column gap-3">
+														<div class="d-flex justify-content-center">
+															<div class="lin-gradient-1 d-flex rounded-top-1" style="width: 22px; height: 75px"></div>
+															<div class="price-info" style="width: 180px">
+																<div class="bg-theme-first rounded-2">
+																	<span class="date-range text-white lh-normal fw-bold fs-7 py-2">1 TEM ••• 1 AĞU</span>
+																</div>
+																<span class="price">5.200TRY <span class="fs-9 lh-normal fw-mediums opacity-50">/ GECELİK</span></span>
+																<span class="min-days fs-8 lh-normal fw-light">Minimum Kiralama: 2 Gece</span>
+															</div>
+														</div>
+														<div class="d-flex flex-column align-items-center gap-2">
+															<span class="fw-bold lh-normal fs-7 text-theme-first">1 TEM</span>
+															<img src="../cdn/img/icons/bla.svg" width="5" height="20" alt="" />
+															<span class="fw-bold lh-normal fs-7 text-theme-first">1 AĞU</span>
+															<span class="fs-8 text-theme-first fw-normal lh-normal opacity-50">Min 2 Gece</span>
+														</div>
+													</div>
+												</div>
+												<div class="item">
+													<div class="p-3 d-flex flex-column gap-3">
+														<div class="d-flex justify-content-center">
+															<div class="lin-gradient-1 d-flex rounded-top-1" style="width: 22px; height: 29px"></div>
+															<div class="price-info" style="width: 180px">
+																<div class="bg-theme-first rounded-2">
+																	<span class="date-range text-white lh-normal fw-bold fs-7 py-2">1 TEM ••• 1 AĞU</span>
+																</div>
+																<span class="price">5.200TRY <span class="fs-9 lh-normal fw-mediums opacity-50">/ GECELİK</span></span>
+																<span class="min-days fs-8 lh-normal fw-light">Minimum Kiralama: 2 Gece</span>
+															</div>
+														</div>
+														<div class="d-flex flex-column align-items-center gap-2">
+															<span class="fw-bold lh-normal fs-7 text-theme-first">1 TEM</span>
+															<img src="../cdn/img/icons/bla.svg" width="5" height="20" alt="" />
+															<span class="fw-bold lh-normal fs-7 text-theme-first">1 AĞU</span>
+															<span class="fs-8 text-theme-first fw-normal lh-normal opacity-50">Min 2 Gece</span>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row align-items-center mt-5">
+									<div class="col-lg-2">
+										<div class="align-items-center mb-3">
+											<span class="fs-4 fw-bold lh-normal text-theme-first">Fiyata Dahil Olanlar</span>
+										</div>
+									</div>
+									<div class="col-lg-10">
+										<div class="row gy-2">
+											<div class="col-lg-4">
+												<div class="d-flex align-items-center gap-3">
+													<div class="p-2">
+														<img src="../cdn/img/icons/sweeping.svg" alt="" />
+													</div>
+
+													<span class="fs-7 lh-normal fw-bold text-theme-first">Giriş Temizliği</span>
+												</div>
+											</div>
+											<div class="col-lg-4">
+												<div class="d-flex align-items-center gap-3">
+													<div class="p-2">
+														<img src="../cdn/img/icons/faucet.svg" alt="" />
+													</div>
+
+													<span class="fs-7 lh-normal fw-bold text-theme-first">Su Kullanımı</span>
+												</div>
+											</div>
+											<div class="col-lg-4">
+												<div class="d-flex align-items-center gap-3">
+													<div class="p-2">
+														<img src="../cdn/img/icons/gas.svg" alt="" />
+													</div>
+
+													<span class="fs-7 lh-normal fw-bold text-theme-first">Tüpgaz Kullanımı</span>
+												</div>
+											</div>
+											<div class="col-lg-4">
+												<div class="d-flex align-items-center gap-3">
+													<div class="p-2">
+														<img src="../cdn/img/icons/seeding.svg" alt="" />
+													</div>
+
+													<span class="fs-7 lh-normal fw-bold text-theme-first">Havuz ve Bahçe Bakımı</span>
+												</div>
+											</div>
+											<div class="col-lg-4">
+												<div class="d-flex align-items-center gap-3">
+													<div class="p-2">
+														<img src="../cdn/img/icons/idea.svg" alt="" />
+													</div>
+
+													<span class="fs-7 lh-normal fw-bold text-theme-first">Elektrik Kullanımı</span>
+												</div>
+											</div>
+											<div class="col-lg-4">
+												<div class="d-flex align-items-center gap-3">
+													<div class="p-2">
+														<img src="../cdn/img/icons/wifi.svg" alt="" />
+													</div>
+
+													<span class="fs-7 lh-normal fw-bold text-theme-first">İnternet</span>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="rowtop1 mt-7">
+									<div class="container">
+										<div class="row">
+											<div class="col-lg-12">
+												<div class="d-flex align-items-center justify-content-between">
+													<span class="fs-4 text-theme-first fw-bold lh-normal">Fırsat Tarihlerine Gözatın</span>
+													<div class="slide-navs d-flex align-items-center justify-content-center flex-shrink-0 gap-3 mt-4 mb-4 me-1">
+														<button type="button" role="presentation" class="owl-prev2 d-flex align-items-center justify-content-center rounded-circle bg-white p-0">
+															<img src="../cdn/img/icons/owl-prev.svg" alt="" />
+														</button>
+														<button type="button" role="presentation" class="owl-next2 d-flex align-items-center justify-content-center rounded-circle bg-white p-0">
+															<img src="../cdn/img/icons/owl-next.svg" alt="" />
+														</button>
+													</div>
+												</div>
+											</div>
+											<div class="col-lg-12 mt-4">
+												<div class="homescategoryowl3 owl-carousel owl-theme">
+													<div class="item">
+														<div class="bg-theme-first align-items-center d-flex p-2 rounded-2 flex-column">
+															<div class="bg-white p-2 rounded">
+																<div class="d-flex align-items-center gap-1 mb-2">
+																	<span class="text-theme-first fw-bold lh-normal fs-7">1 Kasım 2024</span>
+																	<div class="d-flex gap-1 ps-1">
+																		<img src="../cdn/img/icons/Ellipse.svg" class="opacity-50" alt="" width="4" height="5" />
+																		<img src="../cdn/img/icons/Ellipse.svg" class="opacity-50" alt="" width="4" height="5" />
+																		<img src="../cdn/img/icons/Ellipse.svg" class="opacity-50" alt="" width="4" height="5" />
+																	</div>
+																	<span class="text-theme-first fw-bold lh-normal fs-7">1 Kasım 2024</span>
+																</div>
+																<div class="d-flex align-items-flex-start align-items-center gap-2">
+																	<span class="fs-8 text-white shadow-lg lh-normal fw-medium px-1 bg-theme-brown rounded-2 py-1">3 Gece</span>
+
+																	<span class="fs-8 text-theme-first fw-medium lh-normal text-opacity-50">Konaklama</span>
+																</div>
+																<div class="d-flex align-items-center justify-content-between mt-3">
+																	<div class="d-flex gap-1">
+																		<span class="fw-bold lh-normal text-theme-first fs-20">2.500₺</span>
+																		<div>
+																			<span class="fs-8 lh-normal text-theme-first fw-bold text-decoration-st">3.100₺</span>
+																		</div>
+																	</div>
+																	<div class="text-end flex-column d-flex">
+																		<span class="fs-18 fw-bold lh-normal text-theme-light-3">%24</span>
+																		<span class="fs-9 fw-bold lh-normal text-theme-light-3">Tasarruf</span>
+																	</div>
+																</div>
+															</div>
+															<div class="py-2">
+																<a href="" class="text-white fw-bold fs-7 lh-normal text-decoration-none">Rezervasyon</a>
+															</div>
+														</div>
+													</div>
+													<div class="item">
+														<div class="bg-theme-first align-items-center d-flex p-2 rounded-2 flex-column">
+															<div class="bg-white p-2 rounded">
+																<div class="d-flex align-items-center gap-1 mb-2">
+																	<span class="text-theme-first fw-bold lh-normal fs-7">1 Kasım 2024</span>
+																	<div class="d-flex gap-1 ps-1">
+																		<img src="../cdn/img/icons/Ellipse.svg" class="opacity-50" alt="" width="4" height="5" />
+																		<img src="../cdn/img/icons/Ellipse.svg" class="opacity-50" alt="" width="4" height="5" />
+																		<img src="../cdn/img/icons/Ellipse.svg" class="opacity-50" alt="" width="4" height="5" />
+																	</div>
+																	<span class="text-theme-first fw-bold lh-normal fs-7">1 Kasım 2024</span>
+																</div>
+																<div class="d-flex align-items-flex-start align-items-center gap-2">
+																	<span class="fs-8 text-white shadow-lg lh-normal fw-medium px-1 bg-theme-brown rounded-2 py-1">3 Gece</span>
+
+																	<span class="fs-8 text-theme-first fw-medium lh-normal text-opacity-50">Konaklama</span>
+																</div>
+																<div class="d-flex align-items-center justify-content-between mt-3">
+																	<div class="d-flex gap-1">
+																		<span class="fw-bold lh-normal text-theme-first fs-20">2.500₺</span>
+																		<div>
+																			<span class="fs-8 lh-normal text-theme-first fw-bold text-decoration-st">3.100₺</span>
+																		</div>
+																	</div>
+																	<div class="text-end flex-column d-flex">
+																		<span class="fs-18 fw-bold lh-normal text-theme-light-3">%24</span>
+																		<span class="fs-9 fw-bold lh-normal text-theme-light-3">Tasarruf</span>
+																	</div>
+																</div>
+															</div>
+															<div class="py-2">
+																<a href="" class="text-white fw-bold fs-7 lh-normal text-decoration-none">Rezervasyon</a>
+															</div>
+														</div>
+													</div>
+													<div class="item">
+														<div class="bg-theme-first align-items-center d-flex p-2 rounded-2 flex-column">
+															<div class="bg-white p-2 rounded">
+																<div class="d-flex align-items-center gap-1 mb-2">
+																	<span class="text-theme-first fw-bold lh-normal fs-7">1 Kasım 2024</span>
+																	<div class="d-flex gap-1 ps-1">
+																		<img src="../cdn/img/icons/Ellipse.svg" class="opacity-50" alt="" width="4" height="5" />
+																		<img src="../cdn/img/icons/Ellipse.svg" class="opacity-50" alt="" width="4" height="5" />
+																		<img src="../cdn/img/icons/Ellipse.svg" class="opacity-50" alt="" width="4" height="5" />
+																	</div>
+																	<span class="text-theme-first fw-bold lh-normal fs-7">1 Kasım 2024</span>
+																</div>
+																<div class="d-flex align-items-flex-start align-items-center gap-2">
+																	<span class="fs-8 text-white shadow-lg lh-normal fw-medium px-1 bg-theme-brown rounded-2 py-1">3 Gece</span>
+
+																	<span class="fs-8 text-theme-first fw-medium lh-normal text-opacity-50">Konaklama</span>
+																</div>
+																<div class="d-flex align-items-center justify-content-between mt-3">
+																	<div class="d-flex gap-1">
+																		<span class="fw-bold lh-normal text-theme-first fs-20">2.500₺</span>
+																		<div>
+																			<span class="fs-8 lh-normal text-theme-first fw-bold text-decoration-st">3.100₺</span>
+																		</div>
+																	</div>
+																	<div class="text-end flex-column d-flex">
+																		<span class="fs-18 fw-bold lh-normal text-theme-light-3">%24</span>
+																		<span class="fs-9 fw-bold lh-normal text-theme-light-3">Tasarruf</span>
+																	</div>
+																</div>
+															</div>
+															<div class="py-2">
+																<a href="" class="text-white fw-bold fs-7 lh-normal text-decoration-none">Rezervasyon</a>
+															</div>
+														</div>
+													</div>
+													<div class="item">
+														<div class="bg-theme-first align-items-center d-flex p-2 rounded-2 flex-column">
+															<div class="bg-white p-2 rounded">
+																<div class="d-flex align-items-center gap-1 mb-2">
+																	<span class="text-theme-first fw-bold lh-normal fs-7">1 Kasım 2024</span>
+																	<div class="d-flex gap-1 ps-1">
+																		<img src="../cdn/img/icons/Ellipse.svg" class="opacity-50" alt="" width="4" height="5" />
+																		<img src="../cdn/img/icons/Ellipse.svg" class="opacity-50" alt="" width="4" height="5" />
+																		<img src="../cdn/img/icons/Ellipse.svg" class="opacity-50" alt="" width="4" height="5" />
+																	</div>
+																	<span class="text-theme-first fw-bold lh-normal fs-7">1 Kasım 2024</span>
+																</div>
+																<div class="d-flex align-items-flex-start align-items-center gap-2">
+																	<span class="fs-8 text-white shadow-lg lh-normal fw-medium px-1 bg-theme-brown rounded-2 py-1">3 Gece</span>
+
+																	<span class="fs-8 text-theme-first fw-medium lh-normal text-opacity-50">Konaklama</span>
+																</div>
+																<div class="d-flex align-items-center justify-content-between mt-3">
+																	<div class="d-flex gap-1">
+																		<span class="fw-bold lh-normal text-theme-first fs-20">2.500₺</span>
+																		<div>
+																			<span class="fs-8 lh-normal text-theme-first fw-bold text-decoration-st">3.100₺</span>
+																		</div>
+																	</div>
+																	<div class="text-end flex-column d-flex">
+																		<span class="fs-18 fw-bold lh-normal text-theme-light-3">%24</span>
+																		<span class="fs-9 fw-bold lh-normal text-theme-light-3">Tasarruf</span>
+																	</div>
+																</div>
+															</div>
+															<div class="py-2">
+																<a href="" class="text-white fw-bold fs-7 lh-normal text-decoration-none">Rezervasyon</a>
+															</div>
+														</div>
+													</div>
+													<div class="item">
+														<div class="bg-theme-first align-items-center d-flex p-2 rounded-2 flex-column">
+															<div class="bg-white p-2 rounded">
+																<div class="d-flex align-items-center gap-1 mb-2">
+																	<span class="text-theme-first fw-bold lh-normal fs-7">1 Kasım 2024</span>
+																	<div class="d-flex gap-1 ps-1">
+																		<img src="../cdn/img/icons/Ellipse.svg" class="opacity-50" alt="" width="4" height="5" />
+																		<img src="../cdn/img/icons/Ellipse.svg" class="opacity-50" alt="" width="4" height="5" />
+																		<img src="../cdn/img/icons/Ellipse.svg" class="opacity-50" alt="" width="4" height="5" />
+																	</div>
+																	<span class="text-theme-first fw-bold lh-normal fs-7">1 Kasım 2024</span>
+																</div>
+																<div class="d-flex align-items-flex-start align-items-center gap-2">
+																	<span class="fs-8 text-white shadow-lg lh-normal fw-medium px-1 bg-theme-brown rounded-2 py-1">3 Gece</span>
+
+																	<span class="fs-8 text-theme-first fw-medium lh-normal text-opacity-50">Konaklama</span>
+																</div>
+																<div class="d-flex align-items-center justify-content-between mt-3">
+																	<div class="d-flex gap-1">
+																		<span class="fw-bold lh-normal text-theme-first fs-20">2.500₺</span>
+																		<div>
+																			<span class="fs-8 lh-normal text-theme-first fw-bold text-decoration-st">3.100₺</span>
+																		</div>
+																	</div>
+																	<div class="text-end flex-column d-flex">
+																		<span class="fs-18 fw-bold lh-normal text-theme-light-3">%24</span>
+																		<span class="fs-9 fw-bold lh-normal text-theme-light-3">Tasarruf</span>
+																	</div>
+																</div>
+															</div>
+															<div class="py-2">
+																<a href="" class="text-white fw-bold fs-7 lh-normal text-decoration-none">Rezervasyon</a>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</section>
+							<section class="section mt-4 pt-120" id="section2">
+								<div class="row">
+									<div class="col-md-9 col-sm-12 mb-3">
+										<div class="row">
+											<div class="col-lg-3">
+												<span class="fs-4 fw-bold lh-normal text-theme-first">Bilgiler</span>
+											</div>
+											<div class="col-lg-9">
+												<div class="d-flex flex-column">
+													<span class="text-theme-first fs-18 fw-bold lh-normal">Villa Luxury heim</span>
+													<span class="text-theme-first fs-8 fw-medium lh-normal opacity-50">Muğla / Fethiye</span>
+													<div class="d-flex align-items-flex-start gap-3 mt-3">
+														<div class="d-flex align-items-center gap-2">
+															<div>
+																<img src="../cdn/img/icons/bed.svg" alt="" />
+															</div>
+
+															<span class="text-theme-first fs-8 fw-bold lh-normal">
+																2
+																<span class="fw-normal">Yatak O.</span>
+															</span>
+														</div>
+														<div class="d-flex align-items-center gap-12">
+															<div>
+																<img src="../cdn/img/icons/shower-head.svg" alt="" />
+															</div>
+															<div class="text-theme-first fs-8 fw-bold lh-normal">
+																<span class="fw-normal">Banyo</span>
+															</div>
+														</div>
+														<div class="d-flex align-items-center gap-2">
+															<div>
+																<img src="../cdn/img/icons/person.svg" alt="" />
+															</div>
+															<span class="text-theme-first fs-8 fw-bold">
+																4
+																<span class="fw-normal"> Kişi</span>
+																<span class="text-theme-first text-opacity-50 fs-9 fw-medium lh-normal">(max)</span>
+															</span>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-3 col-sm-12">
+										<div class="d-flex justify-content-md-end gap-2">
+											<div class="headerimgdown3 align-items-center justify-content-center d-flex">
+												<span class="text-theme-first-light bg-theme-ribbon-first fs-9 fw-bold lh-normal py-2 px-2 d-flex align-items-center justify-content-center rounded">Balayı Villası</span>
+											</div>
+											<div class="text-theme-last-light bg-theme-ribbon-last fs-9 fw-bold lh-normal py-2 px-2 d-flex align-items-center justify-content-center rounded">
+												<span class="fonts18 fontf2">Deniz Manzaralı</span>
+											</div>
+										</div>
+									</div>
+									<div class="col-12">
+										<div class="mt-5 position-relative mb-5 moreDown2">
+											<div class="">
+												<span class="fs-7 fw-medium lh-normal text-theme-first"
+													>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some
+													form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem</span
+												>
+											</div>
+										</div>
+										<div class="d-flex justify-content-center mt-5 mb-5">
+											<button id="toggleButton10" class="text-theme-first first fs-7 fw-medium lh-normal gap-2 px-3 py-2 rounded bg-white border border-opacity-10 border-theme-first">
+												Daha fazla oku
+												<img src="../cdn/img/icons/y-icon.svg" alt="Expand" class="button-icon" />
+											</button>
+										</div>
+									</div>
+								</div>
+								<div class="row gy-3">
+									<div class="col-12">
+										<div class="align-items-center d-flex mb-3">
+											<span class="text-theme-first fs-18 fw-bold lh-normal">Villanın Özellikleri</span>
+										</div>
+									</div>
+									<div class="col-lg-2 col-md-4 col-6">
+										<div class="d-flex gap-3 align-items-center mb-3">
+											<img src="../cdn/img/icons/check.svg" width="20" height="20" alt="" />
+											<span class="fs-7 text-theme-first lh-normal fw-medium">Göl Manzaralı</span>
+										</div>
+										<div class="d-flex gap-3 align-items-center mb-3">
+											<img src="../cdn/img/icons/check.svg" width="20" height="20" alt="" />
+											<span class="fs-7 text-theme-first lh-normal fw-medium">Göl Manzaralı</span>
+										</div>
+										<div class="d-flex gap-3 align-items-center mb-3">
+											<img src="../cdn/img/icons/check.svg" width="20" height="20" alt="" />
+											<span class="fs-7 text-theme-first lh-normal fw-medium">Göl Manzaralı</span>
+										</div>
+										<div class="d-flex gap-3 align-items-center mb-3">
+											<img src="../cdn/img/icons/check.svg" width="20" height="20" alt="" />
+											<span class="fs-7 text-theme-first lh-normal fw-medium">Göl Manzaralı</span>
+										</div>
+									</div>
+									<div class="col-lg-2 col-md-4 col-6">
+										<div class="d-flex gap-3 align-items-center mb-3">
+											<img src="../cdn/img/icons/check.svg" width="20" height="20" alt="" />
+											<span class="fs-7 text-theme-first lh-normal fw-medium">Göl Manzaralı</span>
+										</div>
+										<div class="d-flex gap-3 align-items-center mb-3">
+											<img src="../cdn/img/icons/check.svg" width="20" height="20" alt="" />
+											<span class="fs-7 text-theme-first lh-normal fw-medium">Göl Manzaralı</span>
+										</div>
+										<div class="d-flex gap-3 align-items-center mb-3">
+											<img src="../cdn/img/icons/check.svg" width="20" height="20" alt="" />
+											<span class="fs-7 text-theme-first lh-normal fw-medium">Göl Manzaralı</span>
+										</div>
+										<div class="d-flex gap-3 align-items-center mb-3">
+											<img src="../cdn/img/icons/check.svg" width="20" height="20" alt="" />
+											<span class="fs-7 text-theme-first lh-normal fw-medium">Göl Manzaralı</span>
+										</div>
+									</div>
+									<div class="col-lg-2 col-md-4 col-6">
+										<div class="d-flex gap-3 align-items-center mb-3">
+											<img src="../cdn/img/icons/check.svg" width="20" height="20" alt="" />
+											<span class="fs-7 text-theme-first lh-normal fw-medium">Göl Manzaralı</span>
+										</div>
+										<div class="d-flex gap-3 align-items-center mb-3">
+											<img src="../cdn/img/icons/check.svg" width="20" height="20" alt="" />
+											<span class="fs-7 text-theme-first lh-normal fw-medium">Göl Manzaralı</span>
+										</div>
+										<div class="d-flex gap-3 align-items-center mb-3">
+											<img src="../cdn/img/icons/check.svg" width="20" height="20" alt="" />
+											<span class="fs-7 text-theme-first lh-normal fw-medium">Göl Manzaralı</span>
+										</div>
+										<div class="d-flex gap-3 align-items-center mb-3">
+											<img src="../cdn/img/icons/check.svg" width="20" height="20" alt="" />
+											<span class="fs-7 text-theme-first lh-normal fw-medium">Göl Manzaralı</span>
+										</div>
+									</div>
+									<div class="col-lg-2 col-md-4 col-6">
+										<div class="d-flex gap-3 align-items-center mb-3">
+											<img src="../cdn/img/icons/check.svg" width="20" height="20" alt="" />
+											<span class="fs-7 text-theme-first lh-normal fw-medium">Göl Manzaralı</span>
+										</div>
+										<div class="d-flex gap-3 align-items-center mb-3">
+											<img src="../cdn/img/icons/check.svg" width="20" height="20" alt="" />
+											<span class="fs-7 text-theme-first lh-normal fw-medium">Göl Manzaralı</span>
+										</div>
+										<div class="d-flex gap-3 align-items-center mb-3">
+											<img src="../cdn/img/icons/check.svg" width="20" height="20" alt="" />
+											<span class="fs-7 text-theme-first lh-normal fw-medium">Göl Manzaralı</span>
+										</div>
+										<div class="d-flex gap-3 align-items-center mb-3">
+											<img src="../cdn/img/icons/check.svg" width="20" height="20" alt="" />
+											<span class="fs-7 text-theme-first lh-normal fw-medium">Göl Manzaralı</span>
+										</div>
+									</div>
+									<div class="col-lg-2 col-md-4 col-6">
+										<div class="d-flex gap-3 align-items-center mb-3">
+											<img src="../cdn/img/icons/check.svg" width="20" height="20" alt="" />
+											<span class="fs-7 text-theme-first lh-normal fw-medium">Göl Manzaralı</span>
+										</div>
+										<div class="d-flex gap-3 align-items-center mb-3">
+											<img src="../cdn/img/icons/check.svg" width="20" height="20" alt="" />
+											<span class="fs-7 text-theme-first lh-normal fw-medium">Göl Manzaralı</span>
+										</div>
+										<div class="d-flex gap-3 align-items-center mb-3">
+											<img src="../cdn/img/icons/check.svg" width="20" height="20" alt="" />
+											<span class="fs-7 text-theme-first lh-normal fw-medium">Göl Manzaralı</span>
+										</div>
+										<div class="d-flex gap-3 align-items-center mb-3">
+											<img src="../cdn/img/icons/check.svg" width="20" height="20" alt="" />
+											<span class="fs-7 text-theme-first lh-normal fw-medium">Göl Manzaralı</span>
+										</div>
+									</div>
+								</div>
+							</section>
+							<section class="section mt-4 pt-120" id="section3">
+								<div class="py-5">
+									<div class="row">
+										<div class="col-lg-2">
+											<div class="mb-3">
+												<span class="fw-bold lh-normal fs-4 text-theme-first">Kurallar</span>
+											</div>
+										</div>
+										<div class="col-lg-5">
+											<div class="row g-4">
+												<div class="col-lg-6">
+													<div class="d-flex gap-4">
+														<img src="../cdn/img/icons/kurallar-user.svg" width="32" height="32" alt="" />
+														<div class="d-flex flex-column">
+															<span class="fs-16 text-theme-first fw-bold lh-noraml">Ek Misafir</span>
+															<span class="fs-8 text-theme-brown lh-normal fw-bold">Kabul edilmez</span>
+														</div>
+													</div>
+												</div>
+												<div class="col-lg-6">
+													<div class="d-flex gap-4">
+														<img src="../cdn/img/icons/no-smoking.svg" width="32" height="32" alt="" />
+														<div class="d-flex flex-column">
+															<span class="fs-16 text-theme-first fw-bold lh-noraml">Sigara</span>
+															<span class="fs-8 text-theme-brown lh-normal fw-bold">Kabul edilmez</span>
+														</div>
+													</div>
+												</div>
+												<div class="col-lg-6">
+													<div class="d-flex gap-4">
+														<img src="../cdn/img/icons/pawprint.svg" width="32" height="32" alt="" />
+														<div class="d-flex flex-column">
+															<span class="fs-16 text-theme-first fw-bold lh-noraml">Ek Misafir</span>
+															<span class="fs-8 text-theme-brown lh-normal fw-bold">Kabul edilmez</span>
+														</div>
+													</div>
+												</div>
+												<div class="col-lg-6">
+													<div class="d-flex gap-4">
+														<img src="../cdn/img/icons/eye-mask.svg" width="32" height="32" alt="" />
+														<div class="d-flex flex-column">
+															<span class="fs-16 text-theme-first fw-bold lh-noraml">Ek Misafir</span>
+															<span class="fs-8 text-theme-brown lh-normal fw-bold">Kabul edilmez</span>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col-lg-5">
+											<div class="d-flex flex-column gap-4 mt-3">
+												<div class="d-flex">
+													<span class="fw-bold fs-18 lh-normal text-theme-first">Giriş ve Çıkış Saatleri</span>
+												</div>
+												<div class="d-flex gap-5">
+													<div class="d-flex flex-column">
+														<span class="fw-bold fs-8 lh-normal text-theme-brown">Giriş Saati</span>
+														<span class="fw-bold fs-18 lh-normal text-theme-first">15:00</span>
+													</div>
+													<div class="d-flex flex-column">
+														<span class="fw-bold fs-8 lh-normal text-theme-brown">Çıkış Saati</span>
+														<span class="fw-bold fs-18 lh-normal text-theme-first">19:00</span>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</section>
+							<section class="mt-4 pt-120">
+								<div class="row align-items-center">
+									<div class="col-sm-6">
+										<div class="d-flex mb-3">
+											<span class="fs-4 text-theme-first fw-bold lh-normal">Oda Planı</span>
+										</div>
+									</div>
+									<div class="col-sm-6 d-none d-sm-block">
+										<div class="d-flex justify-content-end">
+											<div class="slide-navs d-flex align-items-center justify-content-center flex-shrink-0 gap-3 mt-4 mb-4 me-1">
+												<button type="button" role="presentation" class="owl-prev3 d-flex align-items-center justify-content-center rounded-circle bg-white p-0">
+													<img src="../cdn/img/icons/owl-prev.svg" alt="" />
+												</button>
+												<button type="button" role="presentation" class="owl-next3 d-flex align-items-center justify-content-center rounded-circle bg-white p-0">
+													<img src="../cdn/img/icons/owl-next.svg" alt="" />
+												</button>
+											</div>
+										</div>
+									</div>
+									<div class="col-lg-12">
+										<div class="homescategoryowl4 owl-carousel owl-theme">
+											<div class="item">
+												<div class="">
+													<div class="h-100">
+														<img src="../cdn/uploads/odaplanı2.jpg" class="d-block cover lazy" alt="" />
+													</div>
+													<div class="d-flex flex-column mt-3">
+														<span class="fs-20 text-theme-first fw-bold lh-normal">Salon</span>
+														<div class="d-flex gap-4 mt-3">
+															<div class="d-flex align-items-center gap-2">
+																<img src="../cdn/img/icons/noCheck.svg" width="20" height="20" alt="" />
+																<span class="fs-8 fw-medium lh-normal">Mobilya</span>
+															</div>
+															<div class="d-flex align-items-center gap-2">
+																<img src="../cdn/img/icons/noCheck.svg" width="20" height="20" alt="" />
+																<span class="fs-8 fw-medium lh-normal">TV</span>
+															</div>
+															<div class="d-flex align-items-center gap-2">
+																<img src="../cdn/img/icons/noCheck.svg" width="20" height="20" alt="" />
+																<div class="d-flex gap-1"><span class="fs-8 fw-medium lh-normal">Yemek</span> <span class="fs-8 fw-medium lh-normal">Masası</span></div>
+															</div>
+															<div class="d-flex align-items-center gap-2">
+																<img src="../cdn/img/icons/noCheck.svg" width="20" height="20" alt="" />
+																<span class="fs-8 fw-medium lh-normal">Klima</span>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="item">
+												<div class="">
+													<div class="h-100">
+														<img src="../cdn/uploads/odaplanı2.jpg" class="d-block cover lazy" alt="" />
+													</div>
+													<div class="d-flex flex-column mt-3">
+														<span class="fs-20 text-theme-first fw-bold lh-normal">Salon</span>
+														<div class="d-flex gap-4 mt-3">
+															<div class="d-flex align-items-center gap-2">
+																<img src="../cdn/img/icons/noCheck.svg" width="20" height="20" alt="" />
+																<span class="fs-8 fw-medium lh-normal">Mobilya</span>
+															</div>
+															<div class="d-flex align-items-center gap-2">
+																<img src="../cdn/img/icons/noCheck.svg" width="20" height="20" alt="" />
+																<span class="fs-8 fw-medium lh-normal">TV</span>
+															</div>
+															<div class="d-flex align-items-center gap-2">
+																<img src="../cdn/img/icons/noCheck.svg" width="20" height="20" alt="" />
+																<div class="d-flex gap-1"><span class="fs-8 fw-medium lh-normal">Yemek</span> <span class="fs-8 fw-medium lh-normal">Masası</span></div>
+															</div>
+															<div class="d-flex align-items-center gap-2">
+																<img src="../cdn/img/icons/noCheck.svg" width="20" height="20" alt="" />
+																<span class="fs-8 fw-medium lh-normal">Klima</span>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="item">
+												<div class="">
+													<div class="h-100">
+														<img src="../cdn/uploads/odaplanı2.jpg" class="d-block cover lazy" alt="" />
+													</div>
+													<div class="d-flex flex-column mt-3">
+														<span class="fs-20 text-theme-first fw-bold lh-normal">Salon</span>
+														<div class="d-flex gap-4 mt-3">
+															<div class="d-flex align-items-center gap-2">
+																<img src="../cdn/img/icons/noCheck.svg" width="20" height="20" alt="" />
+																<span class="fs-8 fw-medium lh-normal">Mobilya</span>
+															</div>
+															<div class="d-flex align-items-center gap-2">
+																<img src="../cdn/img/icons/noCheck.svg" width="20" height="20" alt="" />
+																<span class="fs-8 fw-medium lh-normal">TV</span>
+															</div>
+															<div class="d-flex align-items-center gap-2">
+																<img src="../cdn/img/icons/noCheck.svg" width="20" height="20" alt="" />
+																<div class="d-flex gap-1"><span class="fs-8 fw-medium lh-normal">Yemek</span> <span class="fs-8 fw-medium lh-normal">Masası</span></div>
+															</div>
+															<div class="d-flex align-items-center gap-2">
+																<img src="../cdn/img/icons/noCheck.svg" width="20" height="20" alt="" />
+																<span class="fs-8 fw-medium lh-normal">Klima</span>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="item">
+												<div class="">
+													<div class="h-100">
+														<img src="../cdn/uploads/odaplanı2.jpg" class="d-block cover lazy" alt="" />
+													</div>
+													<div class="d-flex flex-column mt-3">
+														<span class="fs-20 text-theme-first fw-bold lh-normal">Salon</span>
+														<div class="d-flex gap-4 mt-3">
+															<div class="d-flex align-items-center gap-2">
+																<img src="../cdn/img/icons/noCheck.svg" width="20" height="20" alt="" />
+																<span class="fs-8 fw-medium lh-normal">Mobilya</span>
+															</div>
+															<div class="d-flex align-items-center gap-2">
+																<img src="../cdn/img/icons/noCheck.svg" width="20" height="20" alt="" />
+																<span class="fs-8 fw-medium lh-normal">TV</span>
+															</div>
+															<div class="d-flex align-items-center gap-2">
+																<img src="../cdn/img/icons/noCheck.svg" width="20" height="20" alt="" />
+																<div class="d-flex gap-1"><span class="fs-8 fw-medium lh-normal">Yemek</span> <span class="fs-8 fw-medium lh-normal">Masası</span></div>
+															</div>
+															<div class="d-flex align-items-center gap-2">
+																<img src="../cdn/img/icons/noCheck.svg" width="20" height="20" alt="" />
+																<span class="fs-8 fw-medium lh-normal">Klima</span>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="item">
+												<div class="">
+													<div class="h-100">
+														<img src="../cdn/uploads/odaplanı2.jpg" class="d-block cover lazy" alt="" />
+													</div>
+													<div class="d-flex flex-column mt-3">
+														<span class="fs-20 text-theme-first fw-bold lh-normal">Salon</span>
+														<div class="d-flex gap-4 mt-3">
+															<div class="d-flex align-items-center gap-2">
+																<img src="../cdn/img/icons/noCheck.svg" width="20" height="20" alt="" />
+																<span class="fs-8 fw-medium lh-normal">Mobilya</span>
+															</div>
+															<div class="d-flex align-items-center gap-2">
+																<img src="../cdn/img/icons/noCheck.svg" width="20" height="20" alt="" />
+																<span class="fs-8 fw-medium lh-normal">TV</span>
+															</div>
+															<div class="d-flex align-items-center gap-2">
+																<img src="../cdn/img/icons/noCheck.svg" width="20" height="20" alt="" />
+																<div class="d-flex gap-1"><span class="fs-8 fw-medium lh-normal">Yemek</span> <span class="fs-8 fw-medium lh-normal">Masası</span></div>
+															</div>
+															<div class="d-flex align-items-center gap-2">
+																<img src="../cdn/img/icons/noCheck.svg" width="20" height="20" alt="" />
+																<span class="fs-8 fw-medium lh-normal">Klima</span>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</section>
+							<section class="section mt-4 pt-120" id="section5">
+								<div class="row">
+									<div class="col-md-12">
+										<span class="fs-4 fw-bold lh-normal text-theme-first">Müsaitlik Takvimi</span>
+									</div>
+									<div class="col-md-12">
+										<div class="d-flex align-items-center gap-5 px-3 mt-4 overflow-x-auto flex-nowrap">
+											<div>
+												<span class="text-black fw-medium lh-normal fs-7">Müsait</span>
+											</div>
+											<div class="d-flex gap-2">
+												<div class="bg-warning" style="width: 20px; height: 20px"></div>
+												<span class="text-black fw-medium lh-normal fs-7">Opsiyon</span>
+											</div>
+											<div class="d-flex gap-2">
+												<div class="bg-theme-red-gold-new" style="width: 20px; height: 20px"></div>
+												<span class="text-black fw-medium lh-normal fs-7">Dolu</span>
+											</div>
+											<div class="d-flex gap-2">
+												<img src="../cdn/uploads/yarımkare.png" width="20" height="20" alt="" />
+												<span class="text-black fw-medium lh-normal fs-7">Giriş/Çıkış</span>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div>
+									<input type="hidden" id="input1" name="baslangic_tarih" />
+									<input type="hidden" id="input2" name="bitis_tarih" />
+									<div id="rez-calendar" class="availability-calendar" data-calendar-item="6" data-calendar-responsive="[{'size':768,'item':1}]" data-id="3232" data-doviz="tl" data-giris="16.00" data-cikis="10.00" data-villa-adi="VİLLA LİFE BUNGALOV EFE"></div>
+								</div>
+							</section>
+							<section class="section4 section mt-4 pt-120" id="section4">
+								<div class="row py-sm-5 px-sm-4">
+									<div class="col-xxl-4 col-xl-5 col-lg-6 col-md-5 col-sm-8">
+										<div class="d-flex flex-column gap-2">
+											<span class="fs-4 text-theme-first fw-bold lh-normal">Konum</span>
+											<span class="fs-7 text-theme-first fw-medium lh-normal mb-3">Cumhuriyet Mahallesi Atatürk Caddesi no: 17 48300. Fethiye / Muğla</span>
+										</div>
+										<div class="d-flex gap-1">
+											<button id="mapButton" class="haritahover text-decoration-none text-theme-brown shadow-lg border rounded-2 py-3 px-4 fs-7 lh-normal fw-bold">Haritayı Göster</button>
+
+											<div id="myModal" class="modal">
+												<div class="modal-content">
+													<span class="close">&times;</span>
+													<div id="contactMap"></div>
+												</div>
+											</div>
+											<a href="https://www.google.com/maps/dir//Cumhuriyet,+Atat%C3%BCrk+Cd.+No:17,+48303+Fethiye%2FMu%C4%9Fla/@36.6224433,29.1073339,17.12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x14c0416188f342d9:0xc89e649192d239d3!2m2!1d29.1100887!2d36.622285?entry=ttu" class="haritahover text-decoration-none text-theme-brown border rounded-2 py-3 px-4 fs-7 lh-normal fw-bold">Yol Tarifi al</a>
+										</div>
+									</div>
+									<div class="col-xxl-8 col-xl-7 col-lg-12 col-md-12">
+										<div class="row">
+											<div class="col-sm-6">
+												<div class="d-flex flex-column gap-3">
+													<a href="" class="d-flex text-decoration-none flex-container2">
+														<div class="p-4">
+															<img src="../cdn/img/icons/bus.svg" width="28" height="28" alt="" />
+														</div>
+														<div class="d-flex flex-column bg-white">
+															<span class="fs-18 fw-bold lh-normal text-theme-first">Otogar</span>
+															<span class="fs-7 opacity-50 lh-normal fw-medium text-theme-first">Fethiye Otogar</span>
+															<span class="fs-7 lh-normal fw-bold text-theme-brown">10.4KM</span>
+														</div>
+													</a>
+													<a href="" class="d-flex text-decoration-none flex-container2">
+														<div class="p-4">
+															<img src="../cdn/img/icons/plane.svg" width="28" height="28" alt="" />
+														</div>
+														<div class="d-flex flex-column bg-white">
+															<span class="fs-18 fw-bold lh-normal text-theme-first">Havalimanı</span>
+															<span class="fs-7 opacity-50 lh-normal fw-medium text-theme-first">Dalaman Havalimanı</span>
+															<span class="fs-7 lh-normal fw-bold text-theme-brown">10.4KM</span>
+														</div>
+													</a>
+													<a href="" class="d-flex text-decoration-none flex-container2">
+														<div class="p-4">
+															<img src="../cdn/img/icons/beach.svg" width="28" height="28" alt="" />
+														</div>
+														<div class="d-flex flex-column bg-white">
+															<span class="fs-18 fw-bold lh-normal text-theme-first">Plaj</span>
+															<span class="fs-7 opacity-50 lh-normal fw-medium text-theme-first">Sea Me Beach </span>
+															<span class="fs-7 lh-normal fw-bold text-theme-brown">10.4KM</span>
+														</div>
+													</a>
+												</div>
+											</div>
+											<div class="col-sm-6">
+												<div class="d-flex flex-column gap-3">
+													<a href="" class="d-flex text-decoration-none flex-container2">
+														<div class="p-4">
+															<img src="../cdn/img/icons/blueprint.svg" width="28" height="28" alt="" />
+														</div>
+														<div class="d-flex flex-column bg-white">
+															<span class="fs-18 fw-bold lh-normal text-theme-first">Şehir Merkezi</span>
+															<span class="fs-7 opacity-50 lh-normal fw-medium text-theme-first">Fethiye Merkez</span>
+															<span class="fs-7 lh-normal fw-bold text-theme-brown">10.4KM</span>
+														</div>
+													</a>
+													<a href="" class="d-flex text-decoration-none flex-container2">
+														<div class="p-4">
+															<img src="../cdn/img/icons/store.svg" width="28" height="28" alt="" />
+														</div>
+														<div class="d-flex flex-column bg-white">
+															<span class="fs-18 fw-bold lh-normal text-theme-first">Market</span>
+															<span class="fs-7 opacity-50 lh-normal fw-medium text-theme-first">3M Migros</span>
+															<span class="fs-7 lh-normal fw-bold text-theme-brown">10.4KM</span>
+														</div>
+													</a>
+													<a href="" class="d-flex text-decoration-none flex-container2">
+														<div class="p-4">
+															<img src="../cdn/img/icons/restaurant.svg" width="28" height="28" alt="" />
+														</div>
+														<div class="d-flex flex-column bg-white">
+															<span class="fs-18 fw-bold lh-normal text-theme-first">Restoran</span>
+															<span class="fs-7 opacity-50 lh-normal fw-medium text-theme-first">Alibey Restoran</span>
+															<span class="fs-7 lh-normal fw-bold text-theme-brown">10.4KM</span>
+														</div>
+													</a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</section>
+							<section class="section mt-4 pt-120" id="section6">
+								<div class="row g-4">
+									<div class="col-lg-6">
+										<div class="align-items-center d-flex gap-3">
+											<span class="fs-4 fw-bold">Yorumlar</span>
+											<button id="open-form" type="button" class="open-form-btn btn-theme-brown btn py-2">
+												<span class="fs-7 lh-1 text-white fw-medium">Geri Bildirimde Bulun</span>
+											</button>
+										</div>
+									</div>
+									<div class="col-lg-6">
+										<div class="align-items-center d-flex justify-content-sm-end">
+											<div class="d-flex flex-column gap-2">
+												<span class="fs-7 fw-medium lh-1 text-theme-first">Puanlama ve Geri Bildirim</span>
+												<div class="d-flex justify-content-between align-items-center">
+													<span class="fs-7 text-theme-first lh-1 fw-medium opacity-50">Ortalama Puan</span>
+													<div class="d-flex align-items-center">
+														<img src="../cdn/img/icons/star.svg" width="20" height="20" alt="" />
+														<span class="fs-4 fw-medium lh-1 text-theme-brown">6</span>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-lg-12">
+										<div class="px-4 mt-3">
+											<div class="row align-items-center" id="comments-container">
+												<div class="col-lg-12">
+													<div class="row g-5">
+														<div class="col-lg-9">
+															<div class="d-flex align-items-center gap-4">
+																<span class="text-theme-first fs-5 fw-bold lh-1">Melis C******</span>
+																<img src="../cdn/img/icons/ellipse2.svg" width="8" height="8" alt="" />
+																<span class="text-theme-first fs-7 lh-1 fw-medium">14 OCK 2024</span>
+															</div>
+															<div class="align-items-center d-flex mt-3">
+																<span class="fs-12">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text</span>
+															</div>
+														</div>
+														<div class="col-lg-3">
+															<div class="align-items-center d-flex justify-content-sm-end">
+																<div class="d-flex flex-column gap-2">
+																	<span class="fs-7 fw-medium lh-1 text-theme-first">Puanlama ve Geri Bildirim</span>
+																	<div class="d-flex justify-content-between align-items-center">
+																		<span class="fs-7 text-theme-first lh-1 fw-medium opacity-50">Ortalama Puan</span>
+																		<div class="d-flex align-items-center">
+																			<img src="../cdn/img/icons/star.svg" width="20" height="20" alt="" />
+																			<span class="fs-4 fw-medium lh-1 text-theme-brown">6</span>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+														<div class="col-lg-9">
+															<div class="d-flex align-items-center gap-4">
+																<span class="text-theme-first fs-5 fw-bold lh-1">Melis C******</span>
+																<img src="../cdn/img/icons/ellipse2.svg" width="8" height="8" alt="" />
+																<span class="text-theme-first fs-7 lh-1 fw-medium">14 OCK 2024</span>
+															</div>
+															<div class="align-items-center d-flex mt-3">
+																<span class="fs-12">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text</span>
+															</div>
+														</div>
+														<div class="col-lg-3">
+															<div class="align-items-center d-flex justify-content-sm-end">
+																<div class="d-flex flex-column gap-2">
+																	<span class="fs-7 fw-medium lh-1 text-theme-first">Puanlama ve Geri Bildirim</span>
+																	<div class="d-flex justify-content-between align-items-center">
+																		<span class="fs-7 text-theme-first lh-1 fw-medium opacity-50">Ortalama Puan</span>
+																		<div class="d-flex align-items-center">
+																			<img src="../cdn/img/icons/star.svg" width="20" height="20" alt="" />
+																			<span class="fs-4 fw-medium lh-1 text-theme-brown">6</span>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+														<div class="col-lg-9">
+															<div class="d-flex align-items-center gap-4">
+																<span class="text-theme-first fs-5 fw-bold lh-1">Melis C******</span>
+																<img src="../cdn/img/icons/ellipse2.svg" width="8" height="8" alt="" />
+																<span class="text-theme-first fs-7 lh-1 fw-medium">14 OCK 2024</span>
+															</div>
+															<div class="align-items-center d-flex mt-3">
+																<span class="fs-12">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text</span>
+															</div>
+														</div>
+														<div class="col-lg-3">
+															<div class="align-items-center d-flex justify-content-sm-end">
+																<div class="d-flex flex-column gap-2">
+																	<span class="fs-7 fw-medium lh-1 text-theme-first">Puanlama ve Geri Bildirim</span>
+																	<div class="d-flex justify-content-between align-items-center">
+																		<span class="fs-7 text-theme-first lh-1 fw-medium opacity-50">Ortalama Puan</span>
+																		<div class="d-flex align-items-center">
+																			<img src="../cdn/img/icons/star.svg" width="20" height="20" alt="" />
+																			<span class="fs-4 fw-medium lh-1 text-theme-brown">6</span>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+														<div class="col-lg-9">
+															<div class="d-flex align-items-center gap-4">
+																<span class="text-theme-first fs-5 fw-bold lh-1">Melis C******</span>
+																<img src="../cdn/img/icons/ellipse2.svg" width="8" height="8" alt="" />
+																<span class="text-theme-first fs-7 lh-1 fw-medium">14 OCK 2024</span>
+															</div>
+															<div class="align-items-center d-flex mt-3">
+																<span class="fs-12">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text</span>
+															</div>
+														</div>
+														<div class="col-lg-3">
+															<div class="align-items-center d-flex justify-content-sm-end">
+																<div class="d-flex flex-column gap-2">
+																	<span class="fs-7 fw-medium lh-1 text-theme-first">Puanlama ve Geri Bildirim</span>
+																	<div class="d-flex justify-content-between align-items-center">
+																		<span class="fs-7 text-theme-first lh-1 fw-medium opacity-50">Ortalama Puan</span>
+																		<div class="d-flex align-items-center">
+																			<img src="../cdn/img/icons/star.svg" width="20" height="20" alt="" />
+																			<span class="fs-4 fw-medium lh-1 text-theme-brown">6</span>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+														<div class="col-lg-9">
+															<div class="d-flex align-items-center gap-4">
+																<span class="text-theme-first fs-5 fw-bold lh-1">Melis C******</span>
+																<img src="../cdn/img/icons/ellipse2.svg" width="8" height="8" alt="" />
+																<span class="text-theme-first fs-7 lh-1 fw-medium">14 OCK 2024</span>
+															</div>
+															<div class="align-items-center d-flex mt-3">
+																<span class="fs-12">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text</span>
+															</div>
+														</div>
+														<div class="col-lg-3">
+															<div class="align-items-center d-flex justify-content-sm-end">
+																<div class="d-flex flex-column gap-2">
+																	<span class="fs-7 fw-medium lh-1 text-theme-first">Puanlama ve Geri Bildirim</span>
+																	<div class="d-flex justify-content-between align-items-center">
+																		<span class="fs-7 text-theme-first lh-1 fw-medium opacity-50">Ortalama Puan</span>
+																		<div class="d-flex align-items-center">
+																			<img src="../cdn/img/icons/star.svg" width="20" height="20" alt="" />
+																			<span class="fs-4 fw-medium lh-1 text-theme-brown">6</span>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</section>
+						</div>
+					</div>
+					<div class="col-lg-3">
+						<div class="sidebar p-3 bg-white d-flex flex-column mt-5" id="div15">
+							<div class="sidebarContent">
+								<div class="d-flex justify-content-between align-items-center mb-3">
+									<div>
+										<span class="lh-normal fw-bold text-theme-first">Rezervasyon</span>
+									</div>
+									<div class="d-flex gap-2 align-items-center">
+										<img src="../cdn/img/icons/danger.svg" alt="" />
+										<a class="text-theme-last-light lh-normal fw-bold" style="width: 100px" href="">İptal Şartları</a>
+									</div>
+								</div>
+								<form action="">
+									<div class="search-container search-engine d-flex flex-column p-4 bg-theme-first rounded-md mb-4">
+										<div class="d-flex align-items-center pb-2 mb-2 border-bottom border-white border-opacity-10">
+											<div class="dropdown-wrapper position-relative dt">
+												<input type="text" name="list-searchdate1" data-event="list-searchdate1" class="visually-hidden top-100 start-0" placeholder="Giriş" readonly />
+												<div class="selection">
+													<div class="d-flex flex-column">
+														<span class="text-white fs-7 fw-medium lh-normal">Giriş</span>
+														<span class="text-white text-opacity-50 fs-9 fw-normal lh-normal" data-input-auto-text="list-searchdate1" data-input-auto-text-type="date" data-input-auto-text-value="dd min.month">Tarih belirtin</span>
+													</div>
+												</div>
+												<div class="underbox-wrapper">
+													<div class="underbox-shadow"></div>
+													<div class="underbox">
+														<button type="button" class="underbox-closer close-line d-sm-none" onclick="$('.dropdown-wrapper').removeClass('show');$('body').removeClass('overflow-hidden');"><span></span></button>
+														<div class="underbox-header d-sm-none d-flex justify-content-between border-bottom border-theme-light-2 border-opacity-10 pb-3">
+															<span class="fs-5 fw-medium">Giriş Tarihi</span>
+															<button type="button" class="close-exit text-white fs-7 py-1 px-2 rounded bg-theme-second" onclick="$('.dropdown-wrapper').removeClass('show');$('body').removeClass('overflow-hidden');">Kapat</button>
+														</div>
+														<div class="underbox-content p-3">
+															<div id="list-searchdate1" data-input-auto-change="list-searchdate1" class="list-searchdate1 datepicker w-100 border-0 fw-semibold"></div>
+														</div>
+													</div>
+												</div>
+											</div>
+											<svg xmlns="http://www.w3.org/2000/svg" class="mx-4 flex-shrink-0" width="4" height="5" viewBox="0 0 4 5" fill="none">
+												<circle opacity="0.2" cx="2" cy="2.5" r="2" fill="white" />
+											</svg>
+											<div class="dropdown-wrapper position-relative dtx">
+												<input type="text" name="list-searchdate2" data-event="list-searchdate2" class="visually-hidden top-100 start-0" placeholder="Çıkış" readonly />
+												<div class="selection">
+													<div class="d-flex flex-column">
+														<span class="text-white fs-7 fw-medium lh-normal">Çıkış</span>
+														<span class="text-white text-opacity-50 fs-9 fw-normal lh-normal" data-input-auto-text="list-searchdate2" data-input-auto-text-type="date" data-input-auto-text-value="dd min.month">Tarih belirtin</span>
+													</div>
+												</div>
+												<div class="underbox-wrapper">
+													<div class="underbox-shadow"></div>
+													<div class="underbox">
+														<button type="button" class="underbox-closer close-line d-sm-none" onclick="$('.dropdown-wrapper').removeClass('show');$('body').removeClass('overflow-hidden');"><span></span></button>
+														<div class="underbox-header d-sm-none d-flex justify-content-between border-bottom border-theme-light-2 border-opacity-10 pb-3">
+															<span class="fs-5 fw-medium ls-05">Çıkış Tarihi</span>
+															<button type="button" class="close-exit text-white fs-7 py-1 px-2 rounded bg-theme-second" onclick="$('.dropdown-wrapper').removeClass('show');$('body').removeClass('overflow-hidden');">Kapat</button>
+														</div>
+														<div class="underbox-content p-3">
+															<div id="list-searchdate2" data-input-auto-change="list-searchdate2" class="list-searchdate2 datepicker w-100 border-0 fw-semibold"></div>
+														</div>
+													</div>
+												</div>
+											</div>
+											<img src="../cdn/img/spacer.gif" data-src="../cdn/img/icons/dateicon.svg" class="lazy contain opacity-50 ms-auto" width="20" height="20" alt="dateicon" />
+										</div>
+										<div class="dropdown-wrapper gst position-relative mb-2 pb-1">
+											<div class="selection">
+												<div class="d-flex align-items-center justify-content-between">
+													<div class="d-flex flex-column">
+														<span class="text-white fs-7 fw-medium lh-normal">Kişi Sayısı</span>
+														<span class="text-white text-opacity-50 fs-9 fw-normal lh-normal total">Sayı belirtin</span>
+													</div>
+													<img src="../cdn/img/spacer.gif" data-src="../cdn/img/icons/user.svg" class="lazy contain opacity-50" width="24" height="24" alt="map" />
+												</div>
+											</div>
+											<div class="underbox-wrapper">
+												<div class="underbox-shadow"></div>
+												<div class="underbox">
+													<button type="button" class="underbox-closer close-line d-sm-none" onclick="$('.dropdown-wrapper').removeClass('show')"><span></span></button>
+													<div class="underbox-header d-sm-none d-flex justify-content-between border-bottom border-theme-light-2 pb-3">
+														<span class="fs-5 fw-medium ls-05">Kişi Sayısı</span>
+														<button type="button" class="close-exit text-white fs-7 py-1 px-2 rounded bg-theme-second" onclick="$('.dropdown-wrapper').removeClass('show')">Kapat</button>
+													</div>
+													<div class="underbox-content p-3">
+														<div class="select-item d-flex align-items-center justify-content-between lh-sm mb-2">
+															<div class="d-flex flex-column">
+																<strong class="fw-medium fs-7">Yetişkinler</strong>
+															</div>
+															<div class="d-flex align-items-center text-center">
+																<button type="button" class="select-btn minus bg-transparent d-flex align-items-center justify-content-center rounded-circle" disabled>
+																	<svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation" focusable="false" style="display: block; fill: none; height: 12px; width: 12px; stroke: currentcolor; stroke-width: 5.33333; overflow: visible">
+																		<path d="m2 16h28"></path>
+																	</svg>
+																</button>
+																<input type="text" name="yetiskinler" class="select-input text-center fs-5 px-2" value="1" data-min="1" data-max="10" data-text="Yetişkin, " readonly />
+																<button type="button" class="select-btn plus bg-transparent d-flex align-items-center justify-content-center rounded-circle">
+																	<svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation" focusable="false" style="display: block; fill: none; height: 12px; width: 12px; stroke: currentcolor; stroke-width: 5.33333; overflow: visible">
+																		<path d="m2 16h28m-14-14v28"></path>
+																	</svg>
+																</button>
+															</div>
+														</div>
+														<div class="select-item d-flex align-items-center justify-content-between lh-sm mb-3 pb-1">
+															<div class="d-flex flex-column">
+																<strong class="fw-medium fs-7">Çocuklar</strong>
+															</div>
+															<div class="d-flex align-items-center text-center">
+																<button type="button" class="select-btn minus bg-transparent d-flex align-items-center justify-content-center rounded-circle" disabled>
+																	<svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation" focusable="false" style="display: block; fill: none; height: 12px; width: 12px; stroke: currentcolor; stroke-width: 5.33333; overflow: visible">
+																		<path d="m2 16h28"></path>
+																	</svg>
+																</button>
+																<input type="text" name="cocuklar" class="select-input text-center fs-5 px-2" value="0" data-min="0" data-max="10" data-text="" readonly />
+																<button type="button" class="select-btn plus bg-transparent d-flex align-items-center justify-content-center rounded-circle">
+																	<svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation" focusable="false" style="display: block; fill: none; height: 12px; width: 12px; stroke: currentcolor; stroke-width: 5.33333; overflow: visible">
+																		<path d="m2 16h28m-14-14v28"></path>
+																	</svg>
+																</button>
+															</div>
+														</div>
+													</div>
+													<div class="underbox-footer"></div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="pb-1">
+										<div class="paymentDetails bg-white mb-2 rounded-md d-flex flex-column align-items-start w-100 align-self-stretch py-3 px-4">
+											<span class="text-theme-first fs-8 fw-bold lh-normal d-block mb-4">Ödeme Detayları</span>
+											<ul class="list-unstyled d-flex flex-wrap paymentFeaturesList w-100 pb-3 mb-3 border-bottom border-theme-first border-opacity-10">
+												<li class="d-flex align-items-center justify-content-between w-100 mb-2 pb-1">
+													<div class="d-flex align-items-center gap-2">
+														<span class="text-theme-first fs-8 fw-medium lh-normal">7.600 x</span>
+														<span class="bg-theme-brown bg-opacity-10 rounded d-flex align-items-center py-1 px-2 text-theme-brown fs-8 fw-bold lh-normal">5 Gece</span>
+													</div>
+													<span class="text-theme-first fs-7 fw-medium lh-14">37.630₺</span>
+												</li>
+												<li class="d-flex align-items-center justify-content-between w-100 mb-3">
+													<div class="d-flex align-items-center gap-2">
+														<span class="text-theme-first fs-8 fw-medium lh-normal">Temizlik Ücreti</span>
+													</div>
+													<span class="text-theme-first fs-7 fw-medium lh-14">1.250₺</span>
+												</li>
+												<li class="d-flex align-items-center justify-content-between w-100 mb-3">
+													<div class="d-flex align-items-center gap-2">
+														<span class="text-theme-first fs-8 fw-medium lh-normal">Ön Ödeme</span>
+													</div>
+													<span class="text-theme-first fs-7 fw-medium lh-14">11.630₺</span>
+												</li>
+												<li class="d-flex align-items-center justify-content-between w-100">
+													<div class="d-flex align-items-center gap-2">
+														<span class="text-theme-first fs-8 fw-medium lh-normal">Girişte Ödenecek</span>
+													</div>
+													<span class="text-theme-first fs-7 fw-medium lh-14">27.630₺</span>
+												</li>
+											</ul>
+											<div class="d-flex align-items-center justify-content-between w-100">
+												<span class="text-theme-first fs-8 fw-medium lh-normal">Toplam Tutar</span>
+												<span class="text-theme-first fw-medium lh-16">27.630₺</span>
+											</div>
+										</div>
+									</div>
+									<button type="submit" class="btn bg-theme-success py-3 px-2 d-flex align-items-center justify-content-center align-self-stretch w-100">
+										<span class="text-white fs-7 fw-bold lh-normal">Arama Yap</span>
+									</button>
+								</form>
+								<div class="d-flex flex-column mt-3">
+									<div class="align-items-center d-flex gap-3">
+										<div class="mb-5">
+											<img src="../cdn/img/icons/card.svg" width="24" height="24" alt="" />
+										</div>
+										<div class="flex-column d-flex justify-content-center">
+											<div class="fs-6 fw-bold lh-normal">
+												<span class="text-theme-brown">%20 şimdi</span>
+												<span class="text-theme-first"> öde</span>
+											</div>
+
+											<div>
+												<span class="text-theme-first fs-8 fw-medium lh-normal">Geriye kalanı girişte öde</span>
+											</div>
+											<div class="d-flex flex-column overlay1">
+												<span class="text-theme-first z-3 position-relative text-opacity-50 mb-md-0 mb-3 fs-9 fw-medium lh-normal">Ön ödeme yaparak kirala, %20 ödeyerek </span>
+												<span class="text-theme-first z-3 position-relative text-opacity-50 mb-md-0 mb-3 fs-9 fw-medium lh-normal">fiyatı sabitle kalanı girişte öde!</span>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="rentacletopdown pt-120 pb-5">
+			<div class="container">
+				<div class="row mb-sm-4 mb-3 align-items-center">
+					<div class="col-sm-6 col-12">
+						<span class="fs-5 text-theme-first fw-bold lh-1">Benzer villalara gözatın</span>
+					</div>
+					<div class="col-sm-6 col-6 d-none d-sm-block">
+						<div class="slide-navs d-flex align-items-center justify-content-end flex-shrink-0 gap-3">
+							<button type="button" role="presentation" class="owl-prev2 d-flex align-items-center justify-content-center rounded-circle bg-white p-0">
+								<img src="../cdn/img/icons/owl-prev.svg" alt="" />
+							</button>
+							<button type="button" role="presentation" class="owl-next2 d-flex align-items-center justify-content-center rounded-circle bg-white p-0">
+								<img src="../cdn/img/icons/owl-next.svg" alt="" />
+							</button>
+						</div>
+					</div>
+				</div>
+				<div class="sliderowltop">
+					<div class="sliderowl owl-carousel owl-theme">
+						<div class="villa sliderowlpieces bg-white border rounded">
+							<div class="headerImg">
+								<div id="carouselExampleIndicators2" class="carousel slide">
+									<div class="carousel-indicators gap-3 opacity-0">
+										<div>
+											<button type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+										</div>
+										<div>
+											<button type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide-to="1" aria-label="Slide 2"></button>
+										</div>
+										<div>
+											<button type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide-to="2" aria-label="Slide 3"></button>
+										</div>
+										<div>
+											<button type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide-to="2" aria-label="Slide 3"></button>
+										</div>
+									</div>
+									<div class="carousel-inner">
+										<div class="carousel-item active">
+											<img src="../cdn/uploads/sliderimg1.jpg" class="d-block cover w-100 rounded-top-1" alt="..." />
+										</div>
+										<div class="carousel-item">
+											<img src="../cdn/uploads/sliderimg1.jpg" class="d-block cover w-100 rounded-top-1" alt="..." />
+										</div>
+										<div class="carousel-item">
+											<img src="../cdn/uploads/sliderimg1.jpg" class="d-block cover w-100 rounded-top-1" alt="..." />
+										</div>
+									</div>
+									<button class="carousel-control-prev position-absolute bottom-0" type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide="prev">
+										<span class="carousel-control-prev-icon opacity-0" aria-hidden="true"></span>
+										<span class="visually-hidden">Previous</span>
+									</button>
+									<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide="next">
+										<span class="carousel-control-next-icon opacity-0" aria-hidden="true"></span>
+										<span class="visually-hidden">Next</span>
+									</button>
+								</div>
+							</div>
+							<div class="d-flex align-items-center justify-content-between position-absolute top-0 start-0 mx-3 my-3 gap-1">
+								<div class="headerimgdown3 align-items-center justify-content-center d-flex">
+									<span class="text-theme-first-light bg-theme-ribbon-first fs-9 fw-medium lh-normal py-2 px-2 d-flex align-items-center justify-content-center rounded">Balayı Villası</span>
+								</div>
+								<div class="text-theme-last-light bg-theme-ribbon-last fs-9 fw-medium lh-normal py-2 px-2 d-flex align-items-center justify-content-center rounded">
+									<span class="fonts18 fontf2">Deniz Manzaralı</span>
+								</div>
+							</div>
+							<div class="heart d-flex align-items-center justify-content-center">
+								<button type="button" title="favori" onclick="$.boceksoft.favori('Villa Kastalia','Villa Kastalia | Bodrum Villa Kiralama | Bodrum Villa | Kiralık Villa','villa-kastalia','/cdn/uploads/sliderimg1.jpg','Bodrum / Turgutreis',2,'emlak')" class="favBtn d-flex align-items-center rounded-circle justify-content-center position-absolute top-0 end-0 mt-3 me-3 mt-3 me-2 emlak_2">
+									<img src="../cdn/img/icons/heart.svg" data-src="../cdn/img/icons/heart.png" class="lazy first contain" width="24" height="24" alt="favori" />
+									<img src="../cdn/img/icons/activeHeart.svg" class="lazy second position-absolute top-50 start-50 contain" width="24" height="21" alt="active" />
+								</button>
+							</div>
+
+							<div class="content d-flex flex-column align-items-flex-start">
+								<div class="d-flex justify-content-between align-items-flex-start my-3 mx-4">
+									<div>
+										<div class="d-flex flex-column">
+											<a class="text-theme-first fw-bold lh-normal text-decoration-none villaluxury" href="">Villa Luxury heim</a>
+											<span class="text-theme-first fs-8 fw-medium lh-normal text-opacity-50">Muğla / Fethiye</span>
+										</div>
+									</div>
+
+									<div class="d-flex align-items-center gap-1 wcr">
+										<div>
+											<img src="../cdn/img/icons/start.svg" alt="" />
+										</div>
+										<span class="text-theme-first fs-8 fw-medium lh-normal">6</span>
+										<a href="" class="text-theme-first text-opacity-50 text-decoration-underline fs-8 fw-medium lh-normal">5 yorum</a>
+									</div>
+								</div>
+								<div class="d-flex align-items-flex-start justify-content-between mx-4 gap-1">
+									<div class="d-flex align-items-center gap-2">
+										<div>
+											<img src="../cdn/img/icons/bed.svg" alt="" />
+										</div>
+
+										<span class="text-theme-first fs-8 fw-bold lh-normal">
+											2
+											<span class="fw-normal">Yatak O.</span>
+										</span>
+									</div>
+									<div class="d-flex align-items-center gap-12">
+										<div>
+											<img src="../cdn/img/icons/shower-head.svg" alt="" />
+										</div>
+										<div class="text-theme-first fs-8 fw-bold lh-normal">
+											<span class="fw-normal">Banyo</span>
+										</div>
+									</div>
+									<div class="d-flex align-items-center gap-2">
+										<div>
+											<img src="../cdn/img/icons/person.svg" alt="" />
+										</div>
+										<span class="text-theme-first fs-8 fw-bold">
+											4
+											<span class="fw-normal"> Kişi</span>
+											<span class="text-theme-first text-opacity-50 fs-9 fw-medium lh-normal">(max)</span>
+										</span>
+									</div>
+								</div>
+								<div class="d-flex flex-column align-items-flex-start my-4 mx-4">
+									<div>
+										<div class="villah3 align-items-center d-flex gap-1">
+											<span class="text-theme-first fw-bold lh-normal">6200</span>
+											<div><span class="text-theme-first fw-bold lh-normal"> TL </span><span class="text-theme-first fs-8 fw-bold lh-normal">/ Gecelik</span></div>
+
+											<div class="ms-auto opacity-0 eyelash">
+												<img class="vsc" src="../cdn/img/icons/eyelash.svg " alt="" />
+											</div>
+										</div>
+
+										<div class="text-theme-first text-opacity-50 fs-9 fw-medium lh-normal">Başlayan Fiyatlar</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="villa sliderowlpieces bg-white border rounded">
+							<div class="headerImg">
+								<div id="carouselExampleIndicators3" class="carousel slide">
+									<div class="carousel-indicators gap-3 opacity-0">
+										<div>
+											<button type="button" data-bs-target="#carouselExampleIndicators3" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+										</div>
+										<div>
+											<button type="button" data-bs-target="#carouselExampleIndicators3" data-bs-slide-to="1" aria-label="Slide 2"></button>
+										</div>
+										<div>
+											<button type="button" data-bs-target="#carouselExampleIndicators3" data-bs-slide-to="2" aria-label="Slide 3"></button>
+										</div>
+										<div>
+											<button type="button" data-bs-target="#carouselExampleIndicators3" data-bs-slide-to="2" aria-label="Slide 3"></button>
+										</div>
+									</div>
+									<div class="carousel-inner">
+										<div class="carousel-item active">
+											<img src="../cdn/uploads/sliderimg1.jpg" class="d-block cover w-100 rounded-top-1" alt="..." />
+										</div>
+										<div class="carousel-item">
+											<img src="../cdn/uploads/sliderimg1.jpg" class="d-block cover w-100 rounded-top-1" alt="..." />
+										</div>
+										<div class="carousel-item">
+											<img src="../cdn/uploads/sliderimg1.jpg" class="d-block cover w-100 rounded-top-1" alt="..." />
+										</div>
+									</div>
+									<button class="carousel-control-prev position-absolute bottom-0" type="button" data-bs-target="#carouselExampleIndicators3" data-bs-slide="prev">
+										<span class="carousel-control-prev-icon opacity-0" aria-hidden="true"></span>
+										<span class="visually-hidden">Previous</span>
+									</button>
+									<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators3" data-bs-slide="next">
+										<span class="carousel-control-next-icon opacity-0" aria-hidden="true"></span>
+										<span class="visually-hidden">Next</span>
+									</button>
+								</div>
+							</div>
+							<div class="d-flex align-items-center justify-content-between position-absolute top-0 start-0 mx-3 my-3 gap-1">
+								<div class="headerimgdown3 align-items-center justify-content-center d-flex">
+									<span class="text-theme-first-light bg-theme-ribbon-first fs-9 fw-medium lh-normal py-2 px-2 d-flex align-items-center justify-content-center rounded">Balayı Villası</span>
+								</div>
+								<div class="text-theme-last-light bg-theme-ribbon-last fs-9 fw-medium lh-normal py-2 px-2 d-flex align-items-center justify-content-center rounded">
+									<span class="fonts18 fontf2">Deniz Manzaralı</span>
+								</div>
+							</div>
+							<div class="heart d-flex align-items-center justify-content-center">
+								<button type="button" title="favori" onclick="$.boceksoft.favori('Villa Kastalia','Villa Kastalia | Bodrum Villa Kiralama | Bodrum Villa | Kiralık Villa','villa-kastalia','/cdn/uploads/sliderimg1.jpg','Bodrum / Turgutreis',1,'emlak')" class="favBtn d-flex align-items-center rounded-circle justify-content-center position-absolute top-0 end-0 mt-3 me-3 mt-3 me-2 emlak_1">
+									<img src="../cdn/img/icons/heart.svg" data-src="../cdn/img/icons/heart.png" class="lazy first contain" width="24" height="24" alt="favori" />
+									<img src="../cdn/img/icons/activeHeart.svg" class="lazy second position-absolute top-50 start-50 contain" width="24" height="21" alt="active" />
+								</button>
+							</div>
+
+							<div class="content d-flex flex-column align-items-flex-start">
+								<div class="d-flex justify-content-between align-items-flex-start my-3 mx-4">
+									<div>
+										<div class="d-flex flex-column">
+											<a class="text-theme-first fw-bold lh-normal text-decoration-none villaluxury" href="">Villa Luxury heim</a>
+											<span class="text-theme-first fs-8 fw-medium lh-normal text-opacity-50">Muğla / Fethiye</span>
+										</div>
+									</div>
+
+									<div class="d-flex align-items-center gap-1 wcr">
+										<div>
+											<img src="../cdn/img/icons/start.svg" alt="" />
+										</div>
+										<span class="text-theme-first fs-8 fw-medium lh-normal">6</span>
+										<a href="" class="text-theme-first text-opacity-50 text-decoration-underline fs-8 fw-medium lh-normal">5 yorum</a>
+									</div>
+								</div>
+								<div class="d-flex align-items-flex-start justify-content-between mx-4 gap-1">
+									<div class="d-flex align-items-center gap-2">
+										<div>
+											<img src="../cdn/img/icons/bed.svg" alt="" />
+										</div>
+
+										<span class="text-theme-first fs-8 fw-bold lh-normal">
+											2
+											<span class="fw-normal">Yatak O.</span>
+										</span>
+									</div>
+									<div class="d-flex align-items-center gap-12">
+										<div>
+											<img src="../cdn/img/icons/shower-head.svg" alt="" />
+										</div>
+										<div class="text-theme-first fs-8 fw-bold lh-normal">
+											<span class="fw-normal">Banyo</span>
+										</div>
+									</div>
+									<div class="d-flex align-items-center gap-2">
+										<div>
+											<img src="../cdn/img/icons/person.svg" alt="" />
+										</div>
+										<span class="text-theme-first fs-8 fw-bold">
+											4
+											<span class="fw-normal"> Kişi</span>
+											<span class="text-theme-first text-opacity-50 fs-9 fw-medium lh-normal">(max)</span>
+										</span>
+									</div>
+								</div>
+								<div class="d-flex flex-column align-items-flex-start my-4 mx-4">
+									<div>
+										<div class="villah3 align-items-center d-flex gap-1">
+											<span class="text-theme-first fw-bold lh-normal">6200</span>
+											<div><span class="text-theme-first fw-bold lh-normal"> TL </span><span class="text-theme-first fs-8 fw-bold lh-normal">/ Gecelik</span></div>
+
+											<div class="ms-auto opacity-0 eyelash">
+												<img class="vsc" src="../cdn/img/icons/eyelash.svg " alt="" />
+											</div>
+										</div>
+
+										<div class="text-theme-first text-opacity-50 fs-9 fw-medium lh-normal">Başlayan Fiyatlar</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="villa sliderowlpieces bg-white border rounded">
+							<div class="headerImg">
+								<div id="carouselExampleIndicators4" class="carousel slide">
+									<div class="carousel-indicators gap-3 opacity-0">
+										<div>
+											<button type="button" data-bs-target="#carouselExampleIndicators4" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+										</div>
+										<div>
+											<button type="button" data-bs-target="#carouselExampleIndicators4" data-bs-slide-to="1" aria-label="Slide 2"></button>
+										</div>
+										<div>
+											<button type="button" data-bs-target="#carouselExampleIndicators4" data-bs-slide-to="2" aria-label="Slide 3"></button>
+										</div>
+										<div>
+											<button type="button" data-bs-target="#carouselExampleIndicators4" data-bs-slide-to="2" aria-label="Slide 3"></button>
+										</div>
+									</div>
+									<div class="carousel-inner">
+										<div class="carousel-item active">
+											<img src="../cdn/uploads/sliderimg1.jpg" class="d-block cover w-100 rounded-top-1" alt="..." />
+										</div>
+										<div class="carousel-item">
+											<img src="../cdn/uploads/sliderimg1.jpg" class="d-block cover w-100 rounded-top-1" alt="..." />
+										</div>
+										<div class="carousel-item">
+											<img src="../cdn/uploads/sliderimg1.jpg" class="d-block cover w-100 rounded-top-1" alt="..." />
+										</div>
+									</div>
+									<button class="carousel-control-prev position-absolute bottom-0" type="button" data-bs-target="#carouselExampleIndicators4" data-bs-slide="prev">
+										<span class="carousel-control-prev-icon opacity-0" aria-hidden="true"></span>
+										<span class="visually-hidden">Previous</span>
+									</button>
+									<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators4" data-bs-slide="next">
+										<span class="carousel-control-next-icon opacity-0" aria-hidden="true"></span>
+										<span class="visually-hidden">Next</span>
+									</button>
+								</div>
+							</div>
+							<div class="d-flex align-items-center justify-content-between position-absolute top-0 start-0 mx-3 my-3 gap-1">
+								<div class="headerimgdown3 align-items-center justify-content-center d-flex">
+									<span class="text-theme-first-light bg-theme-ribbon-first fs-9 fw-medium lh-normal py-2 px-2 d-flex align-items-center justify-content-center rounded">Balayı Villası</span>
+								</div>
+								<div class="text-theme-last-light bg-theme-ribbon-last fs-9 fw-medium lh-normal py-2 px-2 d-flex align-items-center justify-content-center rounded">
+									<span class="fonts18 fontf2">Deniz Manzaralı</span>
+								</div>
+							</div>
+							<div class="heart d-flex align-items-center justify-content-center">
+								<button type="button" title="favori" onclick="$.boceksoft.favori('Villa Kastalia','Villa Kastalia | Bodrum Villa Kiralama | Bodrum Villa | Kiralık Villa','villa-kastalia','/cdn/uploads/sliderimg1.jpg','Bodrum / Turgutreis',3,'emlak')" class="favBtn d-flex align-items-center rounded-circle justify-content-center position-absolute top-0 end-0 mt-3 me-3 mt-3 me-2 emlak_3">
+									<img src="../cdn/img/icons/heart.svg" data-src="../cdn/img/icons/heart.png" class="lazy first contain" width="24" height="24" alt="favori" />
+									<img src="../cdn/img/icons/activeHeart.svg" class="lazy second position-absolute top-50 start-50 contain" width="24" height="21" alt="active" />
+								</button>
+							</div>
+
+							<div class="content d-flex flex-column align-items-flex-start">
+								<div class="d-flex justify-content-between align-items-flex-start my-3 mx-4">
+									<div>
+										<div class="d-flex flex-column">
+											<a class="text-theme-first fw-bold lh-normal text-decoration-none villaluxury" href="">Villa Luxury heim</a>
+											<span class="text-theme-first fs-8 fw-medium lh-normal text-opacity-50">Muğla / Fethiye</span>
+										</div>
+									</div>
+
+									<div class="d-flex align-items-center gap-1 wcr">
+										<div>
+											<img src="../cdn/img/icons/start.svg" alt="" />
+										</div>
+										<span class="text-theme-first fs-8 fw-medium lh-normal">6</span>
+										<a href="" class="text-theme-first text-opacity-50 text-decoration-underline fs-8 fw-medium lh-normal">5 yorum</a>
+									</div>
+								</div>
+								<div class="d-flex align-items-flex-start justify-content-between mx-4 gap-1">
+									<div class="d-flex align-items-center gap-2">
+										<div>
+											<img src="../cdn/img/icons/bed.svg" alt="" />
+										</div>
+
+										<span class="text-theme-first fs-8 fw-bold lh-normal">
+											2
+											<span class="fw-normal">Yatak O.</span>
+										</span>
+									</div>
+									<div class="d-flex align-items-center gap-12">
+										<div>
+											<img src="../cdn/img/icons/shower-head.svg" alt="" />
+										</div>
+										<div class="text-theme-first fs-8 fw-bold lh-normal">
+											<span class="fw-normal">Banyo</span>
+										</div>
+									</div>
+									<div class="d-flex align-items-center gap-2">
+										<div>
+											<img src="../cdn/img/icons/person.svg" alt="" />
+										</div>
+										<span class="text-theme-first fs-8 fw-bold">
+											4
+											<span class="fw-normal"> Kişi</span>
+											<span class="text-theme-first text-opacity-50 fs-9 fw-medium lh-normal">(max)</span>
+										</span>
+									</div>
+								</div>
+								<div class="d-flex flex-column align-items-flex-start my-4 mx-4">
+									<div>
+										<div class="villah3 align-items-center d-flex gap-1">
+											<span class="text-theme-first fw-bold lh-normal">6200</span>
+											<div><span class="text-theme-first fw-bold lh-normal"> TL </span><span class="text-theme-first fs-8 fw-bold lh-normal">/ Gecelik</span></div>
+
+											<div class="ms-auto opacity-0 eyelash">
+												<img class="vsc" src="../cdn/img/icons/eyelash.svg " alt="" />
+											</div>
+										</div>
+
+										<div class="text-theme-first text-opacity-50 fs-9 fw-medium lh-normal">Başlayan Fiyatlar</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="villa sliderowlpieces bg-white border rounded">
+							<div class="headerImg">
+								<div id="carouselExampleIndicators5" class="carousel slide">
+									<div class="carousel-indicators gap-3 opacity-0">
+										<div>
+											<button type="button" data-bs-target="#carouselExampleIndicators5" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+										</div>
+										<div>
+											<button type="button" data-bs-target="#carouselExampleIndicators5" data-bs-slide-to="1" aria-label="Slide 2"></button>
+										</div>
+										<div>
+											<button type="button" data-bs-target="#carouselExampleIndicators5" data-bs-slide-to="2" aria-label="Slide 3"></button>
+										</div>
+										<div>
+											<button type="button" data-bs-target="#carouselExampleIndicators5" data-bs-slide-to="2" aria-label="Slide 3"></button>
+										</div>
+									</div>
+									<div class="carousel-inner">
+										<div class="carousel-item active">
+											<img src="../cdn/uploads/sliderimg1.jpg" class="d-block cover w-100 rounded-top-1" alt="..." />
+										</div>
+										<div class="carousel-item">
+											<img src="../cdn/uploads/sliderimg1.jpg" class="d-block cover w-100 rounded-top-1" alt="..." />
+										</div>
+										<div class="carousel-item">
+											<img src="../cdn/uploads/sliderimg1.jpg" class="d-block cover w-100 rounded-top-1" alt="..." />
+										</div>
+									</div>
+									<button class="carousel-control-prev position-absolute bottom-0" type="button" data-bs-target="#carouselExampleIndicators5" data-bs-slide="prev">
+										<span class="carousel-control-prev-icon opacity-0" aria-hidden="true"></span>
+										<span class="visually-hidden">Previous</span>
+									</button>
+									<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators5" data-bs-slide="next">
+										<span class="carousel-control-next-icon opacity-0" aria-hidden="true"></span>
+										<span class="visually-hidden">Next</span>
+									</button>
+								</div>
+							</div>
+							<div class="d-flex align-items-center justify-content-between position-absolute top-0 start-0 mx-3 my-3 gap-1">
+								<div class="headerimgdown3 align-items-center justify-content-center d-flex">
+									<span class="text-theme-first-light bg-theme-ribbon-first fs-9 fw-medium lh-normal py-2 px-2 d-flex align-items-center justify-content-center rounded">Balayı Villası</span>
+								</div>
+								<div class="text-theme-last-light bg-theme-ribbon-last fs-9 fw-medium lh-normal py-2 px-2 d-flex align-items-center justify-content-center rounded">
+									<span class="fonts18 fontf2">Deniz Manzaralı</span>
+								</div>
+							</div>
+							<div class="heart d-flex align-items-center justify-content-center">
+								<button type="button" title="favori" onclick="$.boceksoft.favori('Villa Kastalia','Villa Kastalia | Bodrum Villa Kiralama | Bodrum Villa | Kiralık Villa','villa-kastalia','/cdn/uploads/sliderimg1.jpg','Bodrum / Turgutreis',4,'emlak')" class="favBtn d-flex align-items-center rounded-circle justify-content-center position-absolute top-0 end-0 mt-3 me-3 mt-3 me-2 emlak_4">
+									<img src="../cdn/img/icons/heart.svg" data-src="../cdn/img/icons/heart.png" class="lazy first contain" width="24" height="24" alt="favori" />
+									<img src="../cdn/img/icons/activeHeart.svg" class="lazy second position-absolute top-50 start-50 contain" width="24" height="21" alt="active" />
+								</button>
+							</div>
+
+							<div class="content d-flex flex-column align-items-flex-start">
+								<div class="d-flex justify-content-between align-items-flex-start my-3 mx-4">
+									<div>
+										<div class="d-flex flex-column">
+											<a class="text-theme-first fw-bold lh-normal text-decoration-none villaluxury" href="">Villa Luxury heim</a>
+											<span class="text-theme-first fs-8 fw-medium lh-normal text-opacity-50">Muğla / Fethiye</span>
+										</div>
+									</div>
+
+									<div class="d-flex align-items-center gap-1 wcr">
+										<div>
+											<img src="../cdn/img/icons/start.svg" alt="" />
+										</div>
+										<span class="text-theme-first fs-8 fw-medium lh-normal">6</span>
+										<a href="" class="text-theme-first text-opacity-50 text-decoration-underline fs-8 fw-medium lh-normal">5 yorum</a>
+									</div>
+								</div>
+								<div class="d-flex align-items-flex-start justify-content-between mx-4 gap-1">
+									<div class="d-flex align-items-center gap-2">
+										<div>
+											<img src="../cdn/img/icons/bed.svg" alt="" />
+										</div>
+
+										<span class="text-theme-first fs-8 fw-bold lh-normal">
+											2
+											<span class="fw-normal">Yatak O.</span>
+										</span>
+									</div>
+									<div class="d-flex align-items-center gap-12">
+										<div>
+											<img src="../cdn/img/icons/shower-head.svg" alt="" />
+										</div>
+										<div class="text-theme-first fs-8 fw-bold lh-normal">
+											<span class="fw-normal">Banyo</span>
+										</div>
+									</div>
+									<div class="d-flex align-items-center gap-2">
+										<div>
+											<img src="../cdn/img/icons/person.svg" alt="" />
+										</div>
+										<span class="text-theme-first fs-8 fw-bold">
+											4
+											<span class="fw-normal"> Kişi</span>
+											<span class="text-theme-first text-opacity-50 fs-9 fw-medium lh-normal">(max)</span>
+										</span>
+									</div>
+								</div>
+								<div class="d-flex flex-column align-items-flex-start my-4 mx-4">
+									<div>
+										<div class="villah3 align-items-center d-flex gap-1">
+											<span class="text-theme-first fw-bold lh-normal">6200</span>
+											<div><span class="text-theme-first fw-bold lh-normal"> TL </span><span class="text-theme-first fs-8 fw-bold lh-normal">/ Gecelik</span></div>
+
+											<div class="ms-auto opacity-0 eyelash">
+												<img class="vsc" src="../cdn/img/icons/eyelash.svg " alt="" />
+											</div>
+										</div>
+
+										<div class="text-theme-first text-opacity-50 fs-9 fw-medium lh-normal">Başlayan Fiyatlar</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="villa sliderowlpieces bg-white border rounded">
+							<div class="headerImg">
+								<div id="carouselExampleIndicators6" class="carousel slide">
+									<div class="carousel-indicators gap-3 opacity-0">
+										<div>
+											<button type="button" data-bs-target="#carouselExampleIndicators6" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+										</div>
+										<div>
+											<button type="button" data-bs-target="#carouselExampleIndicators6" data-bs-slide-to="1" aria-label="Slide 2"></button>
+										</div>
+										<div>
+											<button type="button" data-bs-target="#carouselExampleIndicators6" data-bs-slide-to="2" aria-label="Slide 3"></button>
+										</div>
+
+										<div>
+											<button type="button" data-bs-target="#carouselExampleIndicators6" data-bs-slide-to="2" aria-label="Slide 3"></button>
+										</div>
+									</div>
+									<div class="carousel-inner">
+										<div class="carousel-item active">
+											<img src="../cdn/uploads/sliderimg1.jpg" class="d-block cover w-100 rounded-top-1" alt="..." />
+										</div>
+										<div class="carousel-item">
+											<img src="../cdn/uploads/sliderimg1.jpg" class="d-block cover w-100 rounded-top-1" alt="..." />
+										</div>
+										<div class="carousel-item">
+											<img src="../cdn/uploads/sliderimg1.jpg" class="d-block cover w-100 rounded-top-1" alt="..." />
+										</div>
+									</div>
+									<button class="carousel-control-prev position-absolute bottom-0" type="button" data-bs-target="#carouselExampleIndicators6" data-bs-slide="prev">
+										<span class="carousel-control-prev-icon opacity-0" aria-hidden="true"></span>
+										<span class="visually-hidden">Previous</span>
+									</button>
+									<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators6" data-bs-slide="next">
+										<span class="carousel-control-next-icon opacity-0" aria-hidden="true"></span>
+										<span class="visually-hidden">Next</span>
+									</button>
+								</div>
+							</div>
+							<div class="d-flex align-items-center justify-content-between position-absolute top-0 start-0 mx-3 my-3 gap-1">
+								<div class="headerimgdown3 align-items-center justify-content-center d-flex">
+									<span class="text-theme-first-light bg-theme-ribbon-first fs-9 fw-medium lh-normal py-2 px-2 d-flex align-items-center justify-content-center rounded">Balayı Villası</span>
+								</div>
+								<div class="text-theme-last-light bg-theme-ribbon-last fs-9 fw-medium lh-normal py-2 px-2 d-flex align-items-center justify-content-center rounded">
+									<span class="fonts18 fontf2">Deniz Manzaralı</span>
+								</div>
+							</div>
+							<div class="heart d-flex align-items-center justify-content-center">
+								<button type="button" title="favori" onclick="$.boceksoft.favori('Villa Kastalia','Villa Kastalia | Bodrum Villa Kiralama | Bodrum Villa | Kiralık Villa','villa-kastalia','/cdn/uploads/sliderimg1.jpg','Bodrum / Turgutreis',5,'emlak')" class="favBtn d-flex align-items-center rounded-circle justify-content-center position-absolute top-0 end-0 mt-3 me-3 mt-3 me-2 emlak_5">
+									<img src="../cdn/img/icons/heart.svg" data-src="../cdn/img/icons/heart.png" class="lazy first contain" width="24" height="24" alt="favori" />
+									<img src="../cdn/img/icons/activeHeart.svg" class="lazy second position-absolute top-50 start-50 contain" width="24" height="21" alt="active" />
+								</button>
+							</div>
+
+							<div class="content d-flex flex-column align-items-flex-start">
+								<div class="d-flex justify-content-between align-items-flex-start my-3 mx-4">
+									<div>
+										<div class="d-flex flex-column">
+											<a class="text-theme-first fw-bold lh-normal text-decoration-none villaluxury" href="">Villa Luxury heim</a>
+											<span class="text-theme-first fs-8 fw-medium lh-normal text-opacity-50">Muğla / Fethiye</span>
+										</div>
+									</div>
+
+									<div class="d-flex align-items-center gap-1 wcr">
+										<div>
+											<img src="../cdn/img/icons/start.svg" alt="" />
+										</div>
+										<span class="text-theme-first fs-8 fw-medium lh-normal">6</span>
+										<a href="" class="text-theme-first text-opacity-50 text-decoration-underline fs-8 fw-medium lh-normal">5 yorum</a>
+									</div>
+								</div>
+								<div class="d-flex align-items-flex-start justify-content-between mx-4 gap-1">
+									<div class="d-flex align-items-center gap-2">
+										<div>
+											<img src="../cdn/img/icons/bed.svg" alt="" />
+										</div>
+
+										<span class="text-theme-first fs-8 fw-bold lh-normal">
+											2
+											<span class="fw-normal">Yatak O.</span>
+										</span>
+									</div>
+									<div class="d-flex align-items-center gap-12">
+										<div>
+											<img src="../cdn/img/icons/shower-head.svg" alt="" />
+										</div>
+										<div class="text-theme-first fs-8 fw-bold lh-normal">
+											<span class="fw-normal">Banyo</span>
+										</div>
+									</div>
+									<div class="d-flex align-items-center gap-2">
+										<div>
+											<img src="../cdn/img/icons/person.svg" alt="" />
+										</div>
+										<span class="text-theme-first fs-8 fw-bold">
+											4
+											<span class="fw-normal"> Kişi</span>
+											<span class="text-theme-first text-opacity-50 fs-9 fw-medium lh-normal">(max)</span>
+										</span>
+									</div>
+								</div>
+								<div class="d-flex flex-column align-items-flex-start my-4 mx-4">
+									<div>
+										<div class="villah3 align-items-center d-flex gap-1">
+											<span class="text-theme-first fw-bold lh-normal">6200</span>
+											<div><span class="text-theme-first fw-bold lh-normal"> TL </span><span class="text-theme-first fs-8 fw-bold lh-normal">/ Gecelik</span></div>
+
+											<div class="ms-auto opacity-0 eyelash">
+												<img class="vsc" src="../cdn/img/icons/eyelash.svg " alt="" />
+											</div>
+										</div>
+
+										<div class="text-theme-first text-opacity-50 fs-9 fw-medium lh-normal">Başlayan Fiyatlar</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<footer class="footer bg-theme-footer-color overflow-hidden">
+			<div class="container">
+				<div class="footeritem1 position-relative mt-22 mb-24">
+					<span class="bg-theme-brown position-absolute z-3 top-0 start-50 translate-middle rounded-2 bg-theme-brown py-2 px-3 d-flex align-items-center fs-5 text-white fw-medium lh-normal">700+</span>
+					<div class="d-flex flex-column">
+						<div class="footerbanner">
+							<div class="footerimg1 position-relative">
+								<img src="../cdn/uploads/footerbanner.png" alt="" class="w-100 cover rounded-2" height="162" width="1041" />
+							</div>
+						</div>
+						<div class="d-flex flex-column align-items-center position-absolute start-0 mt-4">
+							<span class="text-white fs-3 fw-normal lh-normal font76">sadece size özel</span>
+							<span class="text-white fs-41 fw-bold lh-normal font77">özel havuzlu villa</span>
+							<img src="../cdn/uploads/secret.png" alt="text" class="contain w-100" width="1486" height="70" />
+						</div>
+						<div></div>
+					</div>
+				</div>
+				<div class="footeritem2">
+					<div class="">
+						<div class="row">
+							<div class="col-xl-9 col-lg-12 mb-4">
+								<div class="row align-items-center">
+									<div class="col-xxl-3 col-xl-3 col-lg-4 col-md-4 col-sm-5">
+										<img src="../cdn/img/logo.svg" alt="" />
+									</div>
+									<div class="col-xxl-3 col-xl-3 col-lg-4 col-md-4 col-sm-5 d-sm-block mt-4">
+										<div class="d-flex">
+											<img src="../cdn/img/icons/customer.svg" width="36" height="36" alt="" />
+											<div class="mb-3">
+												<p class="text-theme-brown fs-8 fw-medium lh-normal m-0">Müşteri Hizmetleri</p>
+												<p class="text-decoration-none text-white fs-7 fw-medium lh-normal m-0">+90 532 542 84 84</p>
+											</div>
+										</div>
+									</div>
+									<div class="col-xxl-5 col-xl-5 col-lg-4 col-md-4 col-sm-6 d-md-block mt-3">
+										<div class="karagozler d-flex flex-column align-items-flex-start gap-2">
+											<div>
+												<span class="text-white fs-7 fw-medium lh-normal d-block mb-2">Karagözler Mahallesi Fevzi Çakmak Caddesi İskele Karşısı Fethiye/MUĞLA</span>
+											</div>
+											<div>
+												<span class="text-decoration-none text-white text-opacity-50 fs-7 fw-medium lh-normal">info@yuzde100villa.com</span>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-xl-4"></div>
+						</div>
+					</div>
+				</div>
+
+				<hr class="hrmarg" />
+
+				<div class="footeritem3">
+					<div>
+						<div class="row texttop">
+							<div class="col-xl-7 col-lg-6 mt-4">
+								<div class="row texttop">
+									<div class="col-lg-4 col-md-5 col-sm-4 col-6">
+										<div class="d-flex flex-column gap-2 texttop">
+											<div class="d-flex gap">
+												<span class="text-white fs-7 fw-medium lh-normal d-block mb-3">Popüler Bölgeler</span>
+											</div>
+											<div class="row gy-2">
+												<div class="col-5">
+													<a class="text-white text-opacity-75 text-decoration-none fs-8 fw-normal lh-normal underlinehover" href="">Fethiye</a>
+												</div>
+												<div class="col-7">
+													<a class="text-white text-opacity-75 text-decoration-none fs-8 fw-normal lh-normal underlinehover" href="">Göcek</a>
+												</div>
+												<div class="col-5">
+													<a class="text-white text-opacity-75 text-decoration-none fs-8 fw-normal lh-normal underlinehover" href="">Kalkan</a>
+												</div>
+												<div class="col-7">
+													<a class="text-white text-opacity-75 text-decoration-none fs-8 fw-normal lh-normal underlinehover" href="">Sapanca</a>
+												</div>
+												<div class="col-5">
+													<a class="text-white text-opacity-75 text-decoration-none fs-8 fw-normal lh-normal underlinehover" href="">Kaş</a>
+												</div>
+												<div class="col-7">
+													<a class="text-white text-opacity-75 text-decoration-none fs-8 fw-normal lh-normal underlinehover" href="">Bodrum</a>
+												</div>
+												<div class="col-6">
+													<a class="text-white text-opacity-75 text-decoration-none fs-8 fw-normal lh-normal underlinehover" href="">Ölüdeniz</a>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-lg-3 col-md-3 col-sm-3 col-6">
+										<div class="d-flex flex-column gap-18 texttop">
+											<div class="d-flex gap mb-sm-2">
+												<span class="text-white fs-7 fw-medium lh-normal d-block mb-3">%100 Villa</span>
+											</div>
+											<div class="row gy-2">
+												<div class="col-12">
+													<a class="text-white text-opacity-75 text-decoration-none fs-8 fw-normal lh-normal underlinehover" href="">Fethiye</a>
+												</div>
+												<div class="col-12">
+													<a class="text-white text-opacity-75 text-decoration-none fs-8 fw-normal lh-normal underlinehover" href="">Göcek</a>
+												</div>
+												<div class="col-12">
+													<a class="text-white text-opacity-75 text-decoration-none fs-8 fw-normal lh-normal underlinehover" href="">Kalkan</a>
+												</div>
+												<div class="col-12">
+													<a class="text-white text-opacity-75 text-decoration-none fs-8 fw-normal lh-normal underlinehover" href="">Sapanca</a>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-lg-5 col-md-4 col-sm-5 col-12">
+										<div class="d-none d-sm-block">
+											<div class="d-flex flex-column gap-18 texttop">
+												<div class="d-flex gap">
+													<span class="text-white fs-7 fw-medium lh-normal d-block mb-3 py-1">Önemli Bilgiler</span>
+												</div>
+												<div class="row gy-2">
+													<div class="col-12">
+														<a class="text-white text-opacity-75 text-decoration-none fs-8 fw-normal lh-normal underlinehover" href="">İptal Şartları</a>
+													</div>
+													<div class="col-12">
+														<a class="text-white text-opacity-75 text-decoration-none fs-8 fw-normal lh-normal underlinehover" href="">KVKK</a>
+													</div>
+													<div class="col-12">
+														<a class="text-white text-opacity-75 text-decoration-none fs-8 fw-normal lh-normal underlinehover" href="">Üye Sözleşmesi</a>
+													</div>
+													<div class="col-12">
+														<a class="text-white text-opacity-75 text-decoration-none fs-8 fw-normal lh-normal underlinehover" href="">Vergilendirme</a>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="d-block d-sm-none">
+											<div class="d-flex flex-column gap-18 mt-4 texttop">
+												<div class="d-flex gap">
+													<span class="text-white fs-7 fw-medium lh-normal d-block mb-3">Önemli Bilgiler</span>
+												</div>
+												<div class="row gy-2">
+													<div class="col-12">
+														<a class="text-white text-opacity-75 text-decoration-none fs-8 fw-normal lh-normal underlinehover" href="">İptal Şartları</a>
+													</div>
+													<div class="col-12">
+														<a class="text-white text-opacity-75 text-decoration-none fs-8 fw-normal lh-normal underlinehover" href="">KVKK</a>
+													</div>
+													<div class="col-12">
+														<a class="text-white text-opacity-75 text-decoration-none fs-8 fw-normal lh-normal underlinehover" href="">Üye Sözleşmesi</a>
+													</div>
+													<div class="col-12">
+														<a class="text-white text-opacity-75 text-decoration-none fs-8 fw-normal lh-normal underlinehover" href="">Vergilendirme</a>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-xl-5 col-lg-6 col-md-12 col-sm-12">
+								<div class="row">
+									<div class="col-xxl-3 col-xl-2 col-lg-4 col-md-12 col-sm-12"></div>
+									<div class="col-xxl-9 col-xl-10 col-lg-8 col-md-6 col-sm-8 col-12">
+										<div class="tursab py-4 px-sm-3 pe-2 d-flex flex-column align-items-flex-end mt-4 rounded-2">
+											<div class="row g-3 ms-3">
+												<div class="col-md-9 col-sm-9 col-12 mb-2">
+													<div class="text-lg-end flex-column d-flex">
+														<span class="fs-7 fw-medium lh-normal text-white">Güvenle</span>
+														<span class="fs-7 fw-medium lh-normal text-white">rezervasyon yaptırın</span>
+													</div>
+												</div>
+												<div class="col-md-3 col-sm-3 col-12 justify-content-lg-end d-flex mb-2">
+													<img src="../cdn/img/icons/tursab.svg" width="90" height="36" alt="" />
+												</div>
+
+												<div class="col-12 mb-3">
+													<div class="text-lg-end">
+														<span class="text-white fs-7 fw-medium lh-normal">
+															%100 villa
+															<span class="text-white fs-7 fw-medium lh-normal text-decoration-underline"> “213245”</span>belge no’lu</span
+														>
+														<span class="text-theme-brown fs-7 fw-medium lh-normal">türsab resmi acentasıdır.</span>
+													</div>
+												</div>
+												<div class="col-12">
+													<div class="row">
+														<div class="col-xl-5 col-sm-7"></div>
+														<div class="col-xl-7 col-md-12 col-sm-12 col-12 d-flex justify-content-lg-end">
+															<a class="text-decoration-none d-block fs-7 fw-medium lh-normal text-white text-opacity-50 py-2 px-3 rounded border border-white border-opacity-10" href="">Belge Görüntüle</a>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="footeritem4 mt-22 d-sm-block mt-3">
+					<div class="row g-2 overflow-x-auto flex-nowrap">
+						<div class="col-xxl-2 col-xl-2 col-lg-3 col-md-4 col-sm-4 col-8 flex-shrink-0 text-nowrap">
+							<a href="" class="text-decoration-none">
+								<div class="villatype d-flex align-items-flex-start gap-3 border-color rounded-3 py-3 px-3">
+									<div class="">
+										<img class="iconwh" src="../cdn/img/icons/white-flood.svg" width="32" height="32" alt="" />
+									</div>
+									<div class="d-flex align-items-flex-start flex-column justify-content-center gap-2">
+										<div class="d-flex gap-1">
+											<span class="text-white fs-7 fw-bold lh-normal d-block mb-2 pb-1 text-decoration-none underlinehover">Deniz Manzaralı</span>
+										</div>
+										<div class="text-white text-opacity-50 border-white border-opacity-10">
+											<span class="fs-8 fw-medium lh-normal py-1 px-2 rounded-2 border">86 villa</span>
+										</div>
+									</div>
+								</div>
+							</a>
+						</div>
+						<div class="col-xxl-2 col-xl-2 col-lg-3 col-md-4 col-sm-4 col-8 flex-shrink-0 text-nowrap">
+							<a href="" class="text-decoration-none">
+								<div class="villatype d-flex align-items-flex-start gap-4 border-color rounded-3 py-3 px-3">
+									<div class="">
+										<img class="iconwh" src="../cdn/img/icons/white-swimming.svg" width="32" height="32" alt="" />
+									</div>
+									<div class="d-flex align-items-flex-start flex-column justify-content-center gap-2">
+										<div class="d-flex gap-1">
+											<span href="" class="text-white fs-7 fw-bold lh-normal d-block mb-2 pb-1 text-decoration-none underlinehover">Balayı Villaları</span>
+										</div>
+										<div class="text-white text-opacity-50 border-white border-opacity-10">
+											<span class="fs-8 fw-medium lh-normal py-1 px-2 rounded-2 border">86 villa</span>
+										</div>
+									</div>
+								</div>
+							</a>
+						</div>
+						<div class="col-xxl-2 col-xl-2 col-lg-3 col-md-4 col-sm-4 col-8 flex-shrink-0 text-nowrap">
+							<a href="" class="text-decoration-none">
+								<div class="villatype d-flex align-items-flex-start gap-2 border-color rounded-3 py-3 px-3">
+									<div class="">
+										<img class="iconwh" src="../cdn/img/icons/white-wallet.svg" width="32" height="32" alt="" />
+									</div>
+									<div class="d-flex align-items-flex-start flex-column justify-content-center gap-2">
+										<div class="d-flex gap-1">
+											<span href="" class="text-white fs-7 fw-bold lh-normal d-block mb-2 pb-1 text-decoration-none underlinehover">Muhafazakar villa</span>
+										</div>
+										<div class="text-white text-opacity-50 border-white border-opacity-10">
+											<span class="fs-8 fw-medium lh-normal py-1 px-2 rounded-2 border">86 villa</span>
+										</div>
+									</div>
+								</div>
+							</a>
+						</div>
+						<div class="col-xxl-2 col-xl-2 col-lg-3 col-md-4 col-sm-4 col-8 flex-shrink-0">
+							<a href="" class="text-decoration-none">
+								<div class="villatype d-flex align-items-flex-start gap-3 border-color rounded-3 py-3 px-3">
+									<div class="">
+										<img class="iconwh" src="../cdn/img/icons/white-garden.svg" width="32" height="32" alt="" />
+									</div>
+									<div class="d-flex align-items-flex-start flex-column justify-content-center gap-2">
+										<div class="d-flex gap-1">
+											<span href="" class="text-white fs-7 fw-bold lh-normal d-block mb-2 pb-1 text-decoration-none underlinehover">Balayı Villaları</span>
+										</div>
+										<div class="text-white text-opacity-50 border-white border-opacity-10">
+											<span class="fs-8 fw-medium lh-normal py-1 px-2 rounded-2 border">86 villa</span>
+										</div>
+									</div>
+								</div>
+							</a>
+						</div>
+						<div class="col-xxl-2 col-xl-2 col-lg-3 col-md-4 col-sm-4 col-8 flex-shrink-0 text-nowrap">
+							<a href="" class="text-decoration-none">
+								<div class="villatype d-flex align-items-flex-start gap-3 border-color rounded-3 py-3 px-3">
+									<div class="">
+										<img class="iconwh" src="../cdn/img/icons/white-diamond-1.svg" width="32" height="32" alt="" />
+									</div>
+									<div class="d-flex align-items-flex-start flex-column justify-content-center gap-2">
+										<div class="d-flex gap-1">
+											<span href="" class="text-white fs-7 fw-bold lh-normal d-block mb-2 pb-1 text-decoration-none underlinehover">Balayı Villaları</span>
+										</div>
+										<div class="text-white text-opacity-50 border-white border-opacity-10">
+											<span class="fs-8 fw-medium lh-normal py-1 px-2 rounded-2 border">86 villa</span>
+										</div>
+									</div>
+								</div>
+							</a>
+						</div>
+						<div class="col-xxl-2 col-xl-2 col-lg-3 col-md-4 col-sm-4 col-8 flex-shrink-0 text-nowrap">
+							<a href="" class="text-decoration-none">
+								<div class="villatype d-flex align-items-flex-start gap-3 border-color rounded-3 py-3 px-3">
+									<div class="">
+										<img class="iconwh" src="../cdn/img/icons/white-home.svg" width="32" height="32" alt="" />
+									</div>
+									<div class="d-flex align-items-flex-start flex-column justify-content-center gap-2">
+										<div class="d-flex gap-1">
+											<span href="" class="text-white fs-7 fw-bold lh-normal d-block mb-2 pb-1 text-decoration-none underlinehover">Balayı Villaları</span>
+										</div>
+										<div class="text-white text-opacity-50 border-white border-opacity-10">
+											<span class="fs-8 fw-medium lh-normal py-1 px-2 rounded-2 border">86 villa</span>
+										</div>
+									</div>
+								</div>
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="footeritem5">
+					<div class="row mb-sm-4 mt-xl-5 mt-lg-4 mt-md-4 mt-sm-3 mt-3">
+						<div class="col-md-6">
+							<div class="d-flex gap-3 align-items-center">
+								<img width="53px" height="53px" src="../cdn/img/icons/security.svg" alt="" />
+								<span class="text-white text-opacity-75 fs-7 fw-medium lh-normal"
+									>Sitemiz Güvenliğiniz İçin 256 Bit <br />
+									SSL Sertifikası İle Korunmaktadır.</span
+								>
+							</div>
+						</div>
+
+						<div class="col-md-6">
+							<div class="d-none d-md-block">
+								<div class="d-flex justify-content-end">
+									<div class="mt-3">
+										<img class="flex-shrink-0" width="100%" height="24.61" src="../cdn/img/images/cardlar.png" alt="" />
+									</div>
+								</div>
+							</div>
+							<div class="d-block d-md-none">
+								<div class="d-flex justify-content-start">
+									<div class="mt-3">
+										<img class="flex-shrink-0" width="100%" height="24.61" src="../cdn/img/images/cardlar.png" alt="" />
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<hr class="hrmarg2" />
+				<div class="footeritem6">
+					<div class="row mb-sm-4 mb-3">
+						<div class="col-lg-6 col-md-4 col-sm-6">
+							<div class="align-items-center mt-3">
+								<span class="text-white text-opacity-75 fs-8 fw-medium mb-md-0 mb-3">Copyright © 2024 Yuzde100Villa - Tüm Hakkı Saklıdır.</span>
+							</div>
+						</div>
+						<div class="col-lg-6 col-md-8 col-sm-6">
+							<div class="d-none d-sm-block">
+								<div class="d-flex justify-content-end mt-3">
+									<img src="../cdn/img/bocek.svg" alt="" />
+								</div>
+							</div>
+
+							<div class="d-block d-sm-none">
+								<div class="d-flex justify-content-start mt-1">
+									<img src="../cdn/img/bocek.svg" alt="" />
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+		<div class="fixed-bottom-row bg-white shadow-lg">
+			<div class="fixed-bottom-row-content">
+				<div class="row align-items-center g-2">
+					<div class="col-3">
+						<a class="d-flex flex-column gap-2 text-decoration-none" id="phone-icon">
+							<button href="" type="button " class="bg-transparent"><img src="../cdn/img/icons/phone-call.svg" class="" width="24" height="24" alt="" /></button>
+							<span class="text-theme-first fw-medium lh-1 fs-8">Telefon</span>
+						</a>
+					</div>
+					<div class="col-3">
+						<a class="d-flex flex-column gap-2 text-decoration-none" href="https://wa.me/905325428484">
+							<button type="button" class="bg-transparent"><img src="../cdn/img/icons/whatsapp.svg" width="24" height="24" alt="" /></button>
+							<span class="text-theme-first fw-medium lh-1 fs-8">WhatsApp</span>
+						</a>
+					</div>
+					<div class="col-3">
+						<div class="d-flex align-items-center flex-column gap-1">
+							<div class="justify-content-center d-flex align-items-center mt-1">
+								<button type="button" title="Favorilerim" onclick="$('.fav-list').toggleClass('show');$('.favori-shadow').addClass('show')" class="border-0 favoritesBtn bg-transparent d-flex gap-lg-3 pe-lg-2 align-items-center justify-content-lg-start justify-content-center">
+									<div class="position-relative">
+										<img src="../cdn/img/icons/activeHeart.svg" data-src="../cdn/img/icons/activeHeart.svg" class="lazy contain flex-shrink-0" width="24" height="24" alt="Favorilerim" />
+										<span class="badge ccc d-flex align-items-center fs-8 text-white favorite-count justify-content-center position-absolute top-0 start-100 translate-middle p-2 bg-theme-brown border border-light rounded-circle"> </span>
+									</div>
+								</button>
+							</div>
+							<span class="text-theme-first fw-medium lh-1 fs-8">Favorilerim</span>
+						</div>
+					</div>
+					<div class="col-3">
+						<div class="d-flex flex-column gap-2 align-items-center">
+							<button class="d-flex flex-column text-decoration-none align-items-center bg-transparent" id="scroll-button" type="button">
+								<img src="../cdn/img/icons/booked.svg" class="mt-1" width="23" height="23" alt="" />
+							</button>
+							<span class="text-theme-first fw-medium lh-1 fs-8">Rezervasyon</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!------------------------------------------------------------------>
+		<script src="../cdn/js/jquery.min.js"></script>
+		<script src="../cdn/js/jquery-ui.min.js"></script>
+		<script src="../cdn/js/bootstrap.bundle.min.js"></script>
+		<script src="../cdn/js/owl.carousel.min.js"></script>
+		<script src="../cdn/js/datepicker-tr.js"></script>
+		<script src="../cdn/js/bocek.js"></script>
+		<script src="../cdn/js/main.js"></script>
+		<script src="../cdn/js/ion.rangeSlider.min.js"></script>
+		<script src="https://api-maps.yandex.ru/2.1/?lang=tr_TR&apikey=d621e12e-f13c-4cd9-969b-d9c8ea2a46b2"></script>
+		<script src="../cdn/js/detay.js"></script>
+		<!------------------------------------------------------------------>
+	</body>
+</html>

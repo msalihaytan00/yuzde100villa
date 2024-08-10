@@ -1,0 +1,589 @@
+.villaimg{
+    .villaimgtop{
+        top: 120px;
+    }
+}
+.rentacletop{
+  .rentacle1down{
+      margin-bottom: 132px;
+  }
+}
+.villaimg {
+    .villaimgx::after { 
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0) 52.73%, rgba(0, 0, 0, 0.4) 100%);
+    }
+    .villaimgtop {
+      .searchtop {
+        margin-bottom: 231px;
+      }
+      .search-engine .searchWrapper {
+        max-width: 441px;
+        width: 100%;
+        .searchContent {
+          border-radius: 50px;
+          padding: 12px 12px 12px 30px;
+          .dropdown-wrapper {
+            .selection {
+              cursor: pointer;
+              transition: all 250ms ease-in-out;
+            }
+            &.rg {
+              width: 2.5rem;
+              flex-shrink: 0;
+            }
+            &.dt, &.dtx {
+              width: 4.563rem;
+              flex-shrink: 0;
+            }
+            &.gst {
+              width: 4.375rem;
+              flex-shrink: 0;
+            }
+            .underbox {
+              position: absolute;
+              left: 0;
+              background-color: #fff;
+              border: 1px solid var(--bs-theme-light-2);
+              border-radius: 20px;
+              z-index: 3;
+              width: 100%;
+              min-width: 230px;
+              top: 50%;
+              opacity: 0;
+              visibility: hidden;
+              transition: all 0.35s ease;
+            }
+            &.show .underbox {
+              top: calc(100% + 20px);
+              opacity: 1;
+              visibility: visible;
+            }
+            &.dt .underbox, &.dtx .underbox {
+              min-width: 310px;
+            }
+            .select-item {
+              &:last-child {
+                margin-bottom: 0px !important;
+                padding-bottom: 0px;
+              }
+              .select-input {
+                width: 40px;
+              }
+              .select-btn {
+                width: 30px;
+                height: 30px;
+                transition: all 0.15s ease;
+  
+                &:not([disabled]):hover {
+                  background-color: var(--bs-theme-light-2) !important;
+                }
+              }
+            }
+            .search-list {
+              .list-label {
+                cursor: pointer;
+  
+                &:hover, &.hover {
+                  color: var(--bs-dark);
+                }
+  
+                &:hover svg, &.hover svg {
+                  fill: var(--bs-theme-second);
+  
+                  * {
+                    fill: var(--bs-theme-second);
+                  }
+                }
+              }
+              input:checked + .list-label {
+                color: var(--bs-dark);
+                svg {
+                  fill: var(--bs-theme-second);
+                  * {
+                    fill: var(--bs-theme-second);
+                  }
+                }
+              }
+              li {
+                &:last-child {
+                  margin-bottom: 0px !important;
+                }
+                ul {
+                  margin-top: 16px;
+                  padding-left: 16px;
+                }
+              }
+            }
+          }
+          .submit-wrapper .searchBtn {
+            border-radius: 64px;
+            width: 35px;
+            height: 35px;
+          }
+        }
+      }
+    }
+  }
+  @media screen and (max-width: 575px) {
+    .villaimg .villaimgtop .search-engine .searchWrapper {
+      max-width: 100%;
+      .searchContent {
+        border-radius: 12px;
+        padding: 12px 12px 12px 12px;
+        .submit-wrapper {
+          width: 100%;
+          .searchBtn {
+            width: 100% !important;
+            border-radius: 12px !important;
+          }
+        }
+        .dropdown-wrapper {
+          width: 50% !important;
+          padding-bottom: 8px;
+          margin-bottom: 8px;
+          .underbox-wrapper {
+            position: fixed;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 9;
+            display: flex;
+            align-items: end;
+            transition: all .3s ease;
+            padding-top: 50px;
+            .underbox-shadow {
+              position: fixed;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100vh;
+              background-color: rgba(0, 0, 0, 0.38);
+              opacity: 0;
+              visibility: hidden;
+              transition: opacity 0.15s ease, visibility 0.15s ease;
+            }
+            .underbox {
+              position: relative !important;
+              top: unset !important;
+              left: unset !important;
+              right: unset !important;
+              transform: none !important;
+              border-radius: 16px 16px 0px 0px;
+              max-height: 100%;
+              display: flex;
+              flex-flow: column nowrap;
+              > * {
+                padding-left: 24px !important;
+                padding-right: 24px !important;
+              }
+              .ui-datepicker {
+                width: 100%;
+              }
+              .close-line {
+                background-color: rgba(0, 0, 0, 0);
+                width: 100%;
+                padding: 7px 0px 14px;
+                text-align: center;
+                display: flex;
+                justify-content: center;
+                .span {
+                  width: 48px;
+                  height: 3px;
+                  background-color: #dfdfdf;
+                  border-radius: 3px;
+                  display: inline-block;
+                }
+              }
+              .underbox-content {
+                flex: 1 1 auto;
+                overflow: auto;
+                padding-top: 24px;
+                padding-bottom: 24px;
+              }
+            }
+          }
+          &.show .underbox-wrapper {
+            top: -9%;
+            .underbox-shadow {
+              opacity: 1;
+              visibility: visible;
+            }
+          }
+        }
+      }
+    }
+  } 
+.rentacletop{
+  .rentacle1{
+    .homescategoryowl{
+        .homescategoryitem{
+          &:hover{
+            background: linear-gradient(331deg, #1A4564 1.6%, #5F8098 98.16%);
+            .homescategoryitemtext{
+              color: #fff !important;
+            .homescategoryitemtext2{
+              color: #1A4564;
+            }
+            .text-opacity-50{
+              --bs-text-opacity: 1;
+            }
+            }
+          }
+        }
+    }
+  }
+}
+.rentacletop{
+  margin-top: -120px;
+  border-radius: 60px;
+  .rentacle1down{
+    padding-top: 50px;
+  }
+}
+.rentacletopdown{
+  .sliderowltop{
+    .sliderowl{
+      .sliderowlpieces{
+        transition: all 250ms ease-in-out;
+        border: 1px solid transparent #ccc !important;
+        &:hover{
+          border: 1px solid #C09460 !important;
+          border-radius: round($number: 1);
+          .villaluxury{
+            color: #C09460 !important;
+          }
+          .eyelash{
+            opacity: 1 !important;
+            transition: all 250ms ease-in-out;
+          }
+          .opacity-0{
+            opacity: 1 !important;
+          }        
+        }
+      }
+   }
+  }
+}
+.rentacletopdown2{
+  .sliderowl2{
+    .sliderowlpieces{
+      transition: all 250ms ease-in-out;
+      border: 1px solid transparent #ccc !important;
+      &:hover{
+        border: 1px solid #C09460 !important;
+        border-radius: round($number: 1);
+        .villaluxury{
+          color: #C09460 !important;
+        }
+        .eyelash{
+          opacity: 1 !important;
+          transition: all 250ms ease-in-out;
+        }
+        .opacity-0{
+          opacity: 1 !important;
+        }
+      }
+    }
+  }
+}
+.rentacletopdown3{
+  .sliderowl3{
+    .sliderowlpieces{
+      transition: all 250ms ease-in-out;
+      border: 1px solid transparent #ccc !important;
+      &:hover{
+        border: 1px solid #C09460 !important;
+        border-radius: round($number: 1);
+        .villaluxury{
+          color: #C09460 !important;
+        }
+        .eyelash{
+          opacity: 1 !important;
+          transition: all 250ms ease-in-out;
+        }
+        .opacity-0{
+          opacity: 1 !important;
+        }
+      }
+    }
+  }
+}
+.eyelash{
+  transition: all 250ms ease-in-out;
+}
+.villaluxury{
+  transition: all 250ms ease-in-out;
+}
+
+.rentacletopdown{
+  margin-bottom: 88px;
+}
+.rentacle5{
+  margin-bottom: 75px;
+}
+.rentacletopdown2{
+  margin-bottom: 66px;
+}
+.rentacletopdown3{
+  margin-bottom: 85px;
+}
+.bannerOPP{
+  background-image: url(/cdn/img/images/bannerOpp.png);
+  background-repeat:no-repeat ;
+  background-size: cover;
+}
+.opvillas {
+  margin-top: 45px;
+}
+.opportunity-villas .opportunity-villas-wrapper {
+  .slide-dots-container .dot {
+    width: 8px;
+    height: 8px;
+    cursor: pointer;
+    background-color: #1A4564;
+    margin: 0px 8px;
+    border-radius: 100%;
+    position: relative;
+    &.active {
+      width: 4px !important;
+      height: 4px !important;
+      &::after {
+        border-radius: 50%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border: 1px solid #1A4564 !important;
+        content: "";
+        width: 18px !important;
+        height: 18px !important;
+        border-radius: 50%;
+      }
+    }
+  }
+  .opportunityContentOwl .villasItem {
+    .carousel-control-prev, .carousel-control-next {
+      position: absolute;
+      top: unset !important;
+      bottom: 13px;
+      width: 20px;
+      height: 20px;
+      margin: 0px 18px !important;
+    }
+    .carousel-indicators {
+      height: 14px;
+      margin-bottom: 16px;
+      [data-bs-target] {
+        width: 5px !important;
+        height: 5px !important;
+        border-radius: 100%;
+      }
+    }
+    .carousel-control-prev-icon {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20' fill='none'%3E%3Cg clip-path='url(%23clip0_22_930)'%3E%3Cpath d='M10.0001 0C15.5229 0 20 4.47711 20 9.99994C20 15.5228 15.5229 20.0001 10.0001 20.0001C4.47723 20.0001 -6.10352e-05 15.5228 -6.10352e-05 9.99994C0.00616455 4.47968 4.47961 0.00622556 10.0001 0ZM10.0001 18.9999C14.9706 18.9999 19.0001 14.9705 19.0001 9.99994C19.0001 5.02936 14.9706 0.999939 10.0001 0.999939C5.02948 0.999939 1.00006 5.02936 1.00006 9.99994C1.00574 14.9681 5.03186 18.9943 10.0001 18.9999Z' fill='white'/%3E%3Cpath d='M11.1708 6.12362C11.3788 5.9418 11.6947 5.96304 11.8765 6.17087C12.0582 6.37887 12.0369 6.69473 11.8291 6.87655L8.25928 9.99997L11.8293 13.1236C12.0373 13.3054 12.0584 13.6212 11.8767 13.8291C11.6949 14.0371 11.379 14.0583 11.171 13.8765L7.17108 10.3764C7.0625 10.2816 7.00025 10.1443 7.00025 9.99997C7.00025 9.85568 7.0625 9.71853 7.17108 9.6235L11.1708 6.12362Z' fill='white'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0_22_930'%3E%3Crect width='20' height='20' fill='white' transform='matrix(-1 0 0 1 20 0)'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E");
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+    }
+    .carousel-control-next-icon {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20' fill='none'%3E%3Cg clip-path='url(%23clip0_22_933)'%3E%3Cpath d='M9.99994 0C4.47711 0 0 4.47711 0 9.99994C0 15.5228 4.47711 20.0001 9.99994 20.0001C15.5228 20.0001 20.0001 15.5228 20.0001 9.99994C19.9938 4.47968 15.5204 0.00622556 9.99994 0ZM9.99994 18.9999C5.02936 18.9999 0.999939 14.9705 0.999939 9.99994C0.999939 5.02936 5.02936 0.999939 9.99994 0.999939C14.9705 0.999939 18.9999 5.02936 18.9999 9.99994C18.9943 14.9681 14.9681 18.9943 9.99994 18.9999Z' fill='white'/%3E%3Cpath d='M8.82916 6.12362C8.62115 5.9418 8.3053 5.96304 8.12347 6.17087C7.94183 6.37887 7.96307 6.69473 8.1709 6.87655L11.7407 9.99997L8.17071 13.1236C7.96271 13.3054 7.94165 13.6212 8.12329 13.8291C8.30511 14.0371 8.62097 14.0583 8.82898 13.8765L12.8289 10.3764C12.9375 10.2816 12.9998 10.1443 12.9998 9.99997C12.9998 9.85568 12.9375 9.71853 12.8289 9.6235L8.82916 6.12362Z' fill='white'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0_22_933'%3E%3Crect width='20' height='20' fill='white'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E");
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+    }
+  }
+}
+.firsatvil{
+  margin-top: 127px;
+}
+.down1{
+  .bannerOPP{
+    .opportunityContentOwl{
+      .opporitem{
+        .villa{
+          transition: all 250ms ease-in-out;
+          border: 1px solid transparent #ccc !important;
+          border-radius: 6px !important;
+          &:hover{
+            .opacity-0{
+              opacity: 1 !important;
+            }
+            border: 1px solid #C09460 !important;
+            .villaluxury{
+              color: #C09460 !important;
+           }
+         
+          }
+         
+        }
+       
+     
+      }
+    }
+  }
+}
+.down2{
+  margin-top: 75px;
+}
+.sync2marg.owl-carousel .owl-stage-outer {
+  overflow: visible !important;
+}
+.areas .hookcontainer .sync2 .owl-stage-outer {
+  overflow: visible !important;
+  .owl-item {
+    &:not(.active) {
+      opacity: 0;
+      pointer-events: none;
+    }
+    &.active + .owl-item {
+      opacity: 0.5;
+    }
+  }
+}
+.carousel-control-prev-icon2 {
+  background-image: url(/cdn/img/icons/owl-prev.svg) !important;
+  width: 33px !important;
+  height: 33px !important;
+}
+.carousel-control-next-icon2 {
+  background-image: url(/cdn/img/icons/owl-next.svg) !important;
+  width: 33px !important;
+  height: 33px !important;
+  color: #FfF;
+}
+.sync2marg {
+  margin-left: -275px;
+}
+.villa241{
+    position: absolute;
+    left: 50%;
+    transform: translatex(-50%);
+    bottom: 50px;
+    top: 15px;
+}
+.areas{
+  margin-top: 120px;
+}
+.areasdown{
+  margin-top: 232px;
+  .tab-content{
+    .tab-pane{
+      .areashover{
+        transition: all 250ms ease-in-out;
+        &:hover{
+          background: #1A4564 !important;
+          .baslik{
+              color:  #C09460 !important;
+          }
+          .baslik2{
+              color: #FFF !important;
+          }
+        }
+      }
+    } 
+  }
+}
+.nav-pills{
+  .nav-link.active{
+    color: white !important;
+    background-color: #C09460 !important;
+  }
+}
+
+@media screen and (max-width: 576px){
+  .areas{
+    margin-top: 70px;
+  }
+  .areasdown{
+    margin-top: 80px;
+  }
+  .firsatvil{
+    margin-top: 20px;
+  }
+ 
+}
+.down3{
+  .villatype{
+    .underlinehover {
+      position: relative;
+      &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -2px;
+        width: 100%;
+        height: 2px;
+        background: currentColor;
+        transform: scaleX(0);
+        transform-origin: bottom right;
+        transition: transform 0.3s ease-in-out;
+      }
+      &:hover::after {
+        transform: scaleX(1);
+        transform-origin: bottom left;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .villaimg .villaimgtop .fs-54 {
+    font-size: 30px !important;
+  }
+  .villaimg .villaimgtop .fs-40 {
+    font-size: 20px !important;
+    margin-top: 10px;
+  }
+  .bannerOPP{
+    background-position: right;
+   }
+  .areas{
+    .hookcontainer{
+      .sync2marg{
+        margin-left: unset !important;
+    }
+    } 
+  }
+}
+@media screen and (max-width: 575px) {
+  .rentacle1down{
+    margin-bottom: 30px !important; 
+  } 
+  .searchtop{
+    margin-bottom: 120px !important; 
+  }
+}
+.carousel-control-prev-icon{
+  transition: all 250ms ease-in-out;
+}
+.carousel-control-next-icon{
+  transition: all 250ms ease-in-out;
+}
+.carousel-indicators{
+  transition: all 250ms ease-in-out;
+}
+.hover-zoom {
+  z-index: 9999;
+  transition: transform 0.3s ease; // Geçiş süresi
+
+  &:hover {
+      transform: scale(1.1); // Resmin 1.5 kat büyümesi
+  }
+}
+
+.carousel-item {
+  position: relative;
+  z-index: 10; /* Carousel öğesine daha düşük bir z-index atayın */
+}
+
+.overlay-item {
+  position: absolute;
+  z-index: 20; /* Üzerine düşen öğeye daha yüksek bir z-index atayın */
+}
